@@ -1,0 +1,11 @@
+# CreateNotificationChannelRequest
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**type** | **string** | Channel type: telegram, webhook or push |
+**name** | **string** |  |
+**credentials** | [**\Omnismith\Model\CreateNotificationChannelRequestCredentials**](CreateNotificationChannelRequestCredentials.md) |  |
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
