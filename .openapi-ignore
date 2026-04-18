@@ -1,0 +1,7 @@
+# Preserve repo-managed automation, tests, and Packagist docs during hub sync.
+.openapi-ignore
+.github/
+.gitignore
+tests/
+test/
+PACKAGIST_WEBHOOK.md
