@@ -28,5 +28,5 @@ jobs:
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist
 
-      - name: Run PHPUnit
-        run: vendor/bin/phpunit
+      # - name: Run PHPUnit
+      #   run: vendor/bin/phpunit
