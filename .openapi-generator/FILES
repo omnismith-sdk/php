@@ -20,6 +20,7 @@ docs/Api/MarketplaceApi.md
 docs/Api/ProjectsApi.md
 docs/Api/RolesApi.md
 docs/Api/SavedQueriesApi.md
+docs/Api/SchemaApi.md
 docs/Api/TemplatesApi.md
 docs/Api/UserApi.md
 docs/Model/AccessTokenResponse.md
@@ -187,6 +188,7 @@ src/Api/MarketplaceApi.php
 src/Api/ProjectsApi.php
 src/Api/RolesApi.php
 src/Api/SavedQueriesApi.php
+src/Api/SchemaApi.php
 src/Api/TemplatesApi.php
 src/Api/UserApi.php
 src/ApiException.php
@@ -358,6 +360,7 @@ test/Api/MarketplaceApiTest.php
 test/Api/ProjectsApiTest.php
 test/Api/RolesApiTest.php
 test/Api/SavedQueriesApiTest.php
+test/Api/SchemaApiTest.php
 test/Api/TemplatesApiTest.php
 test/Api/UserApiTest.php
 test/Model/AccessTokenResponseTest.php

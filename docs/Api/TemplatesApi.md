@@ -8,7 +8,6 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 | ------------- | ------------- | ------------- |
 | [**createTemplate()**](TemplatesApi.md#createTemplate) | **POST** /templates | Create a new template |
 | [**deleteTemplate()**](TemplatesApi.md#deleteTemplate) | **DELETE** /templates/{id} | Delete a template |
-| [**getProjectSchema()**](TemplatesApi.md#getProjectSchema) | **GET** /discovery/project-schema | Get complete project schema |
 | [**getTemplate()**](TemplatesApi.md#getTemplate) | **GET** /templates/{id} | Get a template |
 | [**listTemplateEntityCounts()**](TemplatesApi.md#listTemplateEntityCounts) | **GET** /templates/entity-counts | List entity counts per template |
 | [**listTemplates()**](TemplatesApi.md#listTemplates) | **GET** /templates | List templates |
@@ -125,63 +124,6 @@ void (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getProjectSchema()`
-
-```php
-getProjectSchema(): \Omnismith\Sdk\Model\ProjectSchemaResponse
-```
-
-Get complete project schema
-
-Returns all attributes, templates, list items, and reference configs in a single response
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Omnismith\Sdk\Api\TemplatesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-
-try {
-    $result = $apiInstance->getProjectSchema();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TemplatesApi->getProjectSchema: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**\Omnismith\Sdk\Model\ProjectSchemaResponse**](../Model/ProjectSchemaResponse.md)
-
-### Authorization
-
-[bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

@@ -13,7 +13,6 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 | [**deleteAttributeReferenceConfig()**](AttributesApi.md#deleteAttributeReferenceConfig) | **DELETE** /attributes/{id}/reference | Delete reference configuration for an attribute |
 | [**getAttribute()**](AttributesApi.md#getAttribute) | **GET** /attributes/{id} | Get an attribute |
 | [**getAttributeReferenceConfig()**](AttributesApi.md#getAttributeReferenceConfig) | **GET** /attributes/{id}/reference | Get reference configuration for an attribute |
-| [**getProjectSchema()**](AttributesApi.md#getProjectSchema) | **GET** /discovery/project-schema | Get complete project schema |
 | [**listAttributeItems()**](AttributesApi.md#listAttributeItems) | **GET** /attributes/{id}/items | List items of an attribute |
 | [**listAttributes()**](AttributesApi.md#listAttributes) | **GET** /attributes | List attributes |
 | [**setAttributeItems()**](AttributesApi.md#setAttributeItems) | **PUT** /attributes/{id}/items | Set list items for an attribute (replaces all existing items) |
@@ -415,63 +414,6 @@ try {
 ### Return type
 
 [**\Omnismith\Sdk\Model\ReferenceConfigResponse**](../Model/ReferenceConfigResponse.md)
-
-### Authorization
-
-[bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getProjectSchema()`
-
-```php
-getProjectSchema(): \Omnismith\Sdk\Model\ProjectSchemaResponse
-```
-
-Get complete project schema
-
-Returns all attributes, templates, list items, and reference configs in a single response
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Omnismith\Sdk\Api\AttributesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-
-try {
-    $result = $apiInstance->getProjectSchema();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AttributesApi->getProjectSchema: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**\Omnismith\Sdk\Model\ProjectSchemaResponse**](../Model/ProjectSchemaResponse.md)
 
 ### Authorization
 

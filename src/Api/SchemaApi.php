@@ -1,6 +1,6 @@
 <?php
 /**
- * FeedbackApi
+ * SchemaApi
  * PHP version 8.1
  *
  * @category Class
@@ -43,14 +43,14 @@ use Omnismith\Sdk\HeaderSelector;
 use Omnismith\Sdk\ObjectSerializer;
 
 /**
- * FeedbackApi Class Doc Comment
+ * SchemaApi Class Doc Comment
  *
  * @category Class
  * @package  Omnismith\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class FeedbackApi
+class SchemaApi
 {
     /**
      * @var ClientInterface
@@ -74,7 +74,7 @@ class FeedbackApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'sendFeedback' => [
+        'getProjectSchema' => [
             'application/json',
         ],
     ];
@@ -126,37 +126,36 @@ class FeedbackApi
     }
 
     /**
-     * Operation sendFeedback
+     * Operation getProjectSchema
      *
-     * Submit user feedback
+     * Get complete project schema
      *
-     * @param  \Omnismith\Sdk\Model\SendFeedbackRequest $sendFeedbackRequest sendFeedbackRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendFeedback'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectSchema'] to see the possible values for this operation
      *
      * @throws \Omnismith\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Omnismith\Sdk\Model\ProjectSchemaResponse
      */
-    public function sendFeedback($sendFeedbackRequest, string $contentType = self::contentTypes['sendFeedback'][0])
+    public function getProjectSchema(string $contentType = self::contentTypes['getProjectSchema'][0])
     {
-        $this->sendFeedbackWithHttpInfo($sendFeedbackRequest, $contentType);
+        list($response) = $this->getProjectSchemaWithHttpInfo($contentType);
+        return $response;
     }
 
     /**
-     * Operation sendFeedbackWithHttpInfo
+     * Operation getProjectSchemaWithHttpInfo
      *
-     * Submit user feedback
+     * Get complete project schema
      *
-     * @param  \Omnismith\Sdk\Model\SendFeedbackRequest $sendFeedbackRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendFeedback'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectSchema'] to see the possible values for this operation
      *
      * @throws \Omnismith\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Omnismith\Sdk\Model\ProjectSchemaResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendFeedbackWithHttpInfo($sendFeedbackRequest, string $contentType = self::contentTypes['sendFeedback'][0])
+    public function getProjectSchemaWithHttpInfo(string $contentType = self::contentTypes['getProjectSchema'][0])
     {
-        $request = $this->sendFeedbackRequest($sendFeedbackRequest, $contentType);
+        $request = $this->getProjectSchemaRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -181,13 +180,41 @@ class FeedbackApi
             $statusCode = $response->getStatusCode();
 
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Omnismith\Sdk\Model\ProjectSchemaResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Omnismith\Sdk\Model\ProjectSchemaResponse',
+                $request,
+                $response,
+            );
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 422:
+                case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Omnismith\Sdk\Model\ValidationErrorResponse',
+                        '\Omnismith\Sdk\Model\ProjectSchemaResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -200,19 +227,18 @@ class FeedbackApi
     }
 
     /**
-     * Operation sendFeedbackAsync
+     * Operation getProjectSchemaAsync
      *
-     * Submit user feedback
+     * Get complete project schema
      *
-     * @param  \Omnismith\Sdk\Model\SendFeedbackRequest $sendFeedbackRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendFeedback'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendFeedbackAsync($sendFeedbackRequest, string $contentType = self::contentTypes['sendFeedback'][0])
+    public function getProjectSchemaAsync(string $contentType = self::contentTypes['getProjectSchema'][0])
     {
-        return $this->sendFeedbackAsyncWithHttpInfo($sendFeedbackRequest, $contentType)
+        return $this->getProjectSchemaAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -221,26 +247,38 @@ class FeedbackApi
     }
 
     /**
-     * Operation sendFeedbackAsyncWithHttpInfo
+     * Operation getProjectSchemaAsyncWithHttpInfo
      *
-     * Submit user feedback
+     * Get complete project schema
      *
-     * @param  \Omnismith\Sdk\Model\SendFeedbackRequest $sendFeedbackRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendFeedback'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendFeedbackAsyncWithHttpInfo($sendFeedbackRequest, string $contentType = self::contentTypes['sendFeedback'][0])
+    public function getProjectSchemaAsyncWithHttpInfo(string $contentType = self::contentTypes['getProjectSchema'][0])
     {
-        $returnType = '';
-        $request = $this->sendFeedbackRequest($sendFeedbackRequest, $contentType);
+        $returnType = '\Omnismith\Sdk\Model\ProjectSchemaResponse';
+        $request = $this->getProjectSchemaRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -260,26 +298,18 @@ class FeedbackApi
     }
 
     /**
-     * Create request for operation 'sendFeedback'
+     * Create request for operation 'getProjectSchema'
      *
-     * @param  \Omnismith\Sdk\Model\SendFeedbackRequest $sendFeedbackRequest (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendFeedback'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendFeedbackRequest($sendFeedbackRequest, string $contentType = self::contentTypes['sendFeedback'][0])
+    public function getProjectSchemaRequest(string $contentType = self::contentTypes['getProjectSchema'][0])
     {
 
-        // verify the required parameter 'sendFeedbackRequest' is set
-        if ($sendFeedbackRequest === null || (is_array($sendFeedbackRequest) && count($sendFeedbackRequest) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $sendFeedbackRequest when calling sendFeedback'
-            );
-        }
 
-
-        $resourcePath = '/feedback';
+        $resourcePath = '/discovery/project-schema';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -297,14 +327,7 @@ class FeedbackApi
         );
 
         // for model (json/xml)
-        if (isset($sendFeedbackRequest)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sendFeedbackRequest));
-            } else {
-                $httpBody = $sendFeedbackRequest;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -347,7 +370,7 @@ class FeedbackApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'POST',
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
