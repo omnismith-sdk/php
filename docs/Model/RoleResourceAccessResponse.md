@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**resource_type** | **string** |  | [optional]
-**resource_id** | **string** |  | [optional]
-**access_level** | **string** |  | [optional]
+**resourceType** | **string** |  | [optional]
+**resourceId** | **string** |  | [optional]
+**accessLevel** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

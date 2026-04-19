@@ -1,4 +1,4 @@
-# Omnismith\AuthApi
+# Omnismith\Sdk\AuthApi
 
 Auth
 
@@ -18,7 +18,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `getMyPermissions()`
 
 ```php
-getMyPermissions(): \Omnismith\Model\GetMyPermissions200Response
+getMyPermissions(): \Omnismith\Sdk\Model\GetMyPermissions200Response
 ```
 
 Get current user's role permissions
@@ -33,10 +33,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AuthApi(
+$apiInstance = new Omnismith\Sdk\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -57,7 +57,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\GetMyPermissions200Response**](../Model/GetMyPermissions200Response.md)
+[**\Omnismith\Sdk\Model\GetMyPermissions200Response**](../Model/GetMyPermissions200Response.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ This endpoint does not need any parameter.
 ## `googleLogin()`
 
 ```php
-googleLogin($google_login_request): \Omnismith\Model\GoogleLogin200Response
+googleLogin($googleLoginRequest): \Omnismith\Sdk\Model\GoogleLogin200Response
 ```
 
 Login or register via Google Sign-In
@@ -90,15 +90,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new Omnismith\Api\AuthApi(
+$apiInstance = new Omnismith\Sdk\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$google_login_request = new \Omnismith\Model\GoogleLoginRequest(); // \Omnismith\Model\GoogleLoginRequest
+$googleLoginRequest = new \Omnismith\Sdk\Model\GoogleLoginRequest(); // \Omnismith\Sdk\Model\GoogleLoginRequest
 
 try {
-    $result = $apiInstance->googleLogin($google_login_request);
+    $result = $apiInstance->googleLogin($googleLoginRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthApi->googleLogin: ', $e->getMessage(), PHP_EOL;
@@ -109,11 +109,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **google_login_request** | [**\Omnismith\Model\GoogleLoginRequest**](../Model/GoogleLoginRequest.md)|  | |
+| **googleLoginRequest** | [**\Omnismith\Sdk\Model\GoogleLoginRequest**](../Model/GoogleLoginRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\GoogleLogin200Response**](../Model/GoogleLogin200Response.md)
+[**\Omnismith\Sdk\Model\GoogleLogin200Response**](../Model/GoogleLogin200Response.md)
 
 ### Authorization
 
@@ -131,7 +131,7 @@ No authorization required
 ## `listSessions()`
 
 ```php
-listSessions(): \Omnismith\Model\ListSessions200Response
+listSessions(): \Omnismith\Sdk\Model\ListSessions200Response
 ```
 
 List recent login sessions
@@ -144,10 +144,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AuthApi(
+$apiInstance = new Omnismith\Sdk\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -168,7 +168,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\ListSessions200Response**](../Model/ListSessions200Response.md)
+[**\Omnismith\Sdk\Model\ListSessions200Response**](../Model/ListSessions200Response.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ This endpoint does not need any parameter.
 ## `login()`
 
 ```php
-login($login_request): \Omnismith\Model\GoogleLogin200Response
+login($loginRequest): \Omnismith\Sdk\Model\GoogleLogin200Response
 ```
 
 Login user
@@ -199,15 +199,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new Omnismith\Api\AuthApi(
+$apiInstance = new Omnismith\Sdk\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$login_request = new \Omnismith\Model\LoginRequest(); // \Omnismith\Model\LoginRequest
+$loginRequest = new \Omnismith\Sdk\Model\LoginRequest(); // \Omnismith\Sdk\Model\LoginRequest
 
 try {
-    $result = $apiInstance->login($login_request);
+    $result = $apiInstance->login($loginRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthApi->login: ', $e->getMessage(), PHP_EOL;
@@ -218,11 +218,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **login_request** | [**\Omnismith\Model\LoginRequest**](../Model/LoginRequest.md)|  | |
+| **loginRequest** | [**\Omnismith\Sdk\Model\LoginRequest**](../Model/LoginRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\GoogleLogin200Response**](../Model/GoogleLogin200Response.md)
+[**\Omnismith\Sdk\Model\GoogleLogin200Response**](../Model/GoogleLogin200Response.md)
 
 ### Authorization
 
@@ -240,7 +240,7 @@ No authorization required
 ## `refreshToken()`
 
 ```php
-refreshToken($refresh_token_request): \Omnismith\Model\RefreshToken200Response
+refreshToken($refreshTokenRequest): \Omnismith\Sdk\Model\RefreshToken200Response
 ```
 
 Refresh access token
@@ -255,15 +255,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new Omnismith\Api\AuthApi(
+$apiInstance = new Omnismith\Sdk\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$refresh_token_request = new \Omnismith\Model\RefreshTokenRequest(); // \Omnismith\Model\RefreshTokenRequest
+$refreshTokenRequest = new \Omnismith\Sdk\Model\RefreshTokenRequest(); // \Omnismith\Sdk\Model\RefreshTokenRequest
 
 try {
-    $result = $apiInstance->refreshToken($refresh_token_request);
+    $result = $apiInstance->refreshToken($refreshTokenRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthApi->refreshToken: ', $e->getMessage(), PHP_EOL;
@@ -274,11 +274,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **refresh_token_request** | [**\Omnismith\Model\RefreshTokenRequest**](../Model/RefreshTokenRequest.md)|  | |
+| **refreshTokenRequest** | [**\Omnismith\Sdk\Model\RefreshTokenRequest**](../Model/RefreshTokenRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\RefreshToken200Response**](../Model/RefreshToken200Response.md)
+[**\Omnismith\Sdk\Model\RefreshToken200Response**](../Model/RefreshToken200Response.md)
 
 ### Authorization
 
@@ -309,10 +309,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AuthApi(
+$apiInstance = new Omnismith\Sdk\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -353,7 +353,7 @@ void (empty response body)
 ## `switchProject()`
 
 ```php
-switchProject($switch_project_request): \Omnismith\Model\GoogleLogin200Response
+switchProject($switchProjectRequest): \Omnismith\Sdk\Model\GoogleLogin200Response
 ```
 
 Switch active project context
@@ -366,19 +366,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AuthApi(
+$apiInstance = new Omnismith\Sdk\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$switch_project_request = new \Omnismith\Model\SwitchProjectRequest(); // \Omnismith\Model\SwitchProjectRequest
+$switchProjectRequest = new \Omnismith\Sdk\Model\SwitchProjectRequest(); // \Omnismith\Sdk\Model\SwitchProjectRequest
 
 try {
-    $result = $apiInstance->switchProject($switch_project_request);
+    $result = $apiInstance->switchProject($switchProjectRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthApi->switchProject: ', $e->getMessage(), PHP_EOL;
@@ -389,11 +389,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **switch_project_request** | [**\Omnismith\Model\SwitchProjectRequest**](../Model/SwitchProjectRequest.md)|  | |
+| **switchProjectRequest** | [**\Omnismith\Sdk\Model\SwitchProjectRequest**](../Model/SwitchProjectRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\GoogleLogin200Response**](../Model/GoogleLogin200Response.md)
+[**\Omnismith\Sdk\Model\GoogleLogin200Response**](../Model/GoogleLogin200Response.md)
 
 ### Authorization
 

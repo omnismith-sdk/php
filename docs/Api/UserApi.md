@@ -1,4 +1,4 @@
-# Omnismith\UserApi
+# Omnismith\Sdk\UserApi
 
 User
 
@@ -14,7 +14,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `confirmUserEmail()`
 
 ```php
-confirmUserEmail($token): \Omnismith\Model\ConfirmUserEmail200Response
+confirmUserEmail($token): \Omnismith\Sdk\Model\ConfirmUserEmail200Response
 ```
 
 Confirm a user's email address using a confirmation token
@@ -27,7 +27,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new Omnismith\Api\UserApi(
+$apiInstance = new Omnismith\Sdk\Api\UserApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -50,7 +50,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\ConfirmUserEmail200Response**](../Model/ConfirmUserEmail200Response.md)
+[**\Omnismith\Sdk\Model\ConfirmUserEmail200Response**](../Model/ConfirmUserEmail200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ## `registerUser()`
 
 ```php
-registerUser($register_user_request): \Omnismith\Model\CreateAttributeItem201Response
+registerUser($registerUserRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
 ```
 
 Register a new user
@@ -81,15 +81,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new Omnismith\Api\UserApi(
+$apiInstance = new Omnismith\Sdk\Api\UserApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$register_user_request = new \Omnismith\Model\RegisterUserRequest(); // \Omnismith\Model\RegisterUserRequest
+$registerUserRequest = new \Omnismith\Sdk\Model\RegisterUserRequest(); // \Omnismith\Sdk\Model\RegisterUserRequest
 
 try {
-    $result = $apiInstance->registerUser($register_user_request);
+    $result = $apiInstance->registerUser($registerUserRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->registerUser: ', $e->getMessage(), PHP_EOL;
@@ -100,11 +100,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **register_user_request** | [**\Omnismith\Model\RegisterUserRequest**](../Model/RegisterUserRequest.md)|  | |
+| **registerUserRequest** | [**\Omnismith\Sdk\Model\RegisterUserRequest**](../Model/RegisterUserRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
 
 ### Authorization
 
@@ -122,7 +122,7 @@ No authorization required
 ## `resendConfirmationEmail()`
 
 ```php
-resendConfirmationEmail($resend_confirmation_email_request): \Omnismith\Model\ResendConfirmationEmail200Response
+resendConfirmationEmail($resendConfirmationEmailRequest): \Omnismith\Sdk\Model\ResendConfirmationEmail200Response
 ```
 
 Resend the email confirmation link
@@ -135,15 +135,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new Omnismith\Api\UserApi(
+$apiInstance = new Omnismith\Sdk\Api\UserApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$resend_confirmation_email_request = new \Omnismith\Model\ResendConfirmationEmailRequest(); // \Omnismith\Model\ResendConfirmationEmailRequest
+$resendConfirmationEmailRequest = new \Omnismith\Sdk\Model\ResendConfirmationEmailRequest(); // \Omnismith\Sdk\Model\ResendConfirmationEmailRequest
 
 try {
-    $result = $apiInstance->resendConfirmationEmail($resend_confirmation_email_request);
+    $result = $apiInstance->resendConfirmationEmail($resendConfirmationEmailRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->resendConfirmationEmail: ', $e->getMessage(), PHP_EOL;
@@ -154,11 +154,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **resend_confirmation_email_request** | [**\Omnismith\Model\ResendConfirmationEmailRequest**](../Model/ResendConfirmationEmailRequest.md)|  | |
+| **resendConfirmationEmailRequest** | [**\Omnismith\Sdk\Model\ResendConfirmationEmailRequest**](../Model/ResendConfirmationEmailRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\ResendConfirmationEmail200Response**](../Model/ResendConfirmationEmail200Response.md)
+[**\Omnismith\Sdk\Model\ResendConfirmationEmail200Response**](../Model/ResendConfirmationEmail200Response.md)
 
 ### Authorization
 

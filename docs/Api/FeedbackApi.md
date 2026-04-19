@@ -1,4 +1,4 @@
-# Omnismith\FeedbackApi
+# Omnismith\Sdk\FeedbackApi
 
 Feedback
 
@@ -12,7 +12,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `sendFeedback()`
 
 ```php
-sendFeedback($send_feedback_request)
+sendFeedback($sendFeedbackRequest)
 ```
 
 Submit user feedback
@@ -27,19 +27,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\FeedbackApi(
+$apiInstance = new Omnismith\Sdk\Api\FeedbackApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$send_feedback_request = new \Omnismith\Model\SendFeedbackRequest(); // \Omnismith\Model\SendFeedbackRequest
+$sendFeedbackRequest = new \Omnismith\Sdk\Model\SendFeedbackRequest(); // \Omnismith\Sdk\Model\SendFeedbackRequest
 
 try {
-    $apiInstance->sendFeedback($send_feedback_request);
+    $apiInstance->sendFeedback($sendFeedbackRequest);
 } catch (Exception $e) {
     echo 'Exception when calling FeedbackApi->sendFeedback: ', $e->getMessage(), PHP_EOL;
 }
@@ -49,7 +49,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **send_feedback_request** | [**\Omnismith\Model\SendFeedbackRequest**](../Model/SendFeedbackRequest.md)|  | |
+| **sendFeedbackRequest** | [**\Omnismith\Sdk\Model\SendFeedbackRequest**](../Model/SendFeedbackRequest.md)|  | |
 
 ### Return type
 

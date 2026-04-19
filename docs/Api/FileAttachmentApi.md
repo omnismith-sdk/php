@@ -1,4 +1,4 @@
-# Omnismith\FileAttachmentApi
+# Omnismith\Sdk\FileAttachmentApi
 
 FileAttachment
 
@@ -29,10 +29,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\FileAttachmentApi(
+$apiInstance = new Omnismith\Sdk\Api\FileAttachmentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -86,10 +86,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\FileAttachmentApi(
+$apiInstance = new Omnismith\Sdk\Api\FileAttachmentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -130,7 +130,7 @@ void (empty response body)
 ## `getFileAttachmentMetadata()`
 
 ```php
-getFileAttachmentMetadata($id): \Omnismith\Model\FileAttachmentResponse
+getFileAttachmentMetadata($id): \Omnismith\Sdk\Model\FileAttachmentResponse
 ```
 
 Get file metadata without downloading content
@@ -143,10 +143,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\FileAttachmentApi(
+$apiInstance = new Omnismith\Sdk\Api\FileAttachmentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -170,7 +170,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\FileAttachmentResponse**](../Model/FileAttachmentResponse.md)
+[**\Omnismith\Sdk\Model\FileAttachmentResponse**](../Model/FileAttachmentResponse.md)
 
 ### Authorization
 
@@ -201,10 +201,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\FileAttachmentApi(
+$apiInstance = new Omnismith\Sdk\Api\FileAttachmentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -249,7 +249,7 @@ void (empty response body)
 ## `uploadFileAttachment()`
 
 ```php
-uploadFileAttachment($file, $id): \Omnismith\Model\FileAttachmentResponse
+uploadFileAttachment($file, $id): \Omnismith\Sdk\Model\FileAttachmentResponse
 ```
 
 Upload a file attachment
@@ -262,10 +262,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\FileAttachmentApi(
+$apiInstance = new Omnismith\Sdk\Api\FileAttachmentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -291,7 +291,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\FileAttachmentResponse**](../Model/FileAttachmentResponse.md)
+[**\Omnismith\Sdk\Model\FileAttachmentResponse**](../Model/FileAttachmentResponse.md)
 
 ### Authorization
 

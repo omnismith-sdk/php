@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\Omnismith\Model\PushDeviceResponse[]**](PushDeviceResponse.md) |  | [optional]
+**data** | [**\Omnismith\Sdk\Model\PushDeviceResponse[]**](PushDeviceResponse.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

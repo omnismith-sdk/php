@@ -1,4 +1,4 @@
-# Omnismith\AutomationNotificationChannelsApi
+# Omnismith\Sdk\AutomationNotificationChannelsApi
 
 
 
@@ -17,7 +17,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createNotificationChannel()`
 
 ```php
-createNotificationChannel($create_notification_channel_request): \Omnismith\Model\CreateAttributeItem201Response
+createNotificationChannel($createNotificationChannelRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
 ```
 
 Create a new notification channel
@@ -30,19 +30,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationNotificationChannelsApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationNotificationChannelsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_notification_channel_request = new \Omnismith\Model\CreateNotificationChannelRequest(); // \Omnismith\Model\CreateNotificationChannelRequest
+$createNotificationChannelRequest = new \Omnismith\Sdk\Model\CreateNotificationChannelRequest(); // \Omnismith\Sdk\Model\CreateNotificationChannelRequest
 
 try {
-    $result = $apiInstance->createNotificationChannel($create_notification_channel_request);
+    $result = $apiInstance->createNotificationChannel($createNotificationChannelRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationNotificationChannelsApi->createNotificationChannel: ', $e->getMessage(), PHP_EOL;
@@ -53,11 +53,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_notification_channel_request** | [**\Omnismith\Model\CreateNotificationChannelRequest**](../Model/CreateNotificationChannelRequest.md)|  | |
+| **createNotificationChannelRequest** | [**\Omnismith\Sdk\Model\CreateNotificationChannelRequest**](../Model/CreateNotificationChannelRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
 
 ### Authorization
 
@@ -88,10 +88,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationNotificationChannelsApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationNotificationChannelsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -132,7 +132,7 @@ void (empty response body)
 ## `getNotificationChannel()`
 
 ```php
-getNotificationChannel($id): \Omnismith\Model\NotificationChannelResponse
+getNotificationChannel($id): \Omnismith\Sdk\Model\NotificationChannelResponse
 ```
 
 Get a notification channel
@@ -145,10 +145,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationNotificationChannelsApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationNotificationChannelsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -172,7 +172,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\NotificationChannelResponse**](../Model/NotificationChannelResponse.md)
+[**\Omnismith\Sdk\Model\NotificationChannelResponse**](../Model/NotificationChannelResponse.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ try {
 ## `listNotificationChannels()`
 
 ```php
-listNotificationChannels(): \Omnismith\Model\ListNotificationChannels200Response
+listNotificationChannels(): \Omnismith\Sdk\Model\ListNotificationChannels200Response
 ```
 
 List all notification channels
@@ -203,10 +203,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationNotificationChannelsApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationNotificationChannelsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -227,7 +227,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\ListNotificationChannels200Response**](../Model/ListNotificationChannels200Response.md)
+[**\Omnismith\Sdk\Model\ListNotificationChannels200Response**](../Model/ListNotificationChannels200Response.md)
 
 ### Authorization
 
@@ -245,7 +245,7 @@ This endpoint does not need any parameter.
 ## `testNotificationChannel()`
 
 ```php
-testNotificationChannel($id, $test_notification_channel_request): \Omnismith\Model\TestNotificationChannel200Response
+testNotificationChannel($id, $testNotificationChannelRequest): \Omnismith\Sdk\Model\TestNotificationChannel200Response
 ```
 
 Send a test message via the notification channel
@@ -258,20 +258,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationNotificationChannelsApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationNotificationChannelsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | Channel UUID
-$test_notification_channel_request = new \Omnismith\Model\TestNotificationChannelRequest(); // \Omnismith\Model\TestNotificationChannelRequest
+$testNotificationChannelRequest = new \Omnismith\Sdk\Model\TestNotificationChannelRequest(); // \Omnismith\Sdk\Model\TestNotificationChannelRequest
 
 try {
-    $result = $apiInstance->testNotificationChannel($id, $test_notification_channel_request);
+    $result = $apiInstance->testNotificationChannel($id, $testNotificationChannelRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationNotificationChannelsApi->testNotificationChannel: ', $e->getMessage(), PHP_EOL;
@@ -283,11 +283,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Channel UUID | |
-| **test_notification_channel_request** | [**\Omnismith\Model\TestNotificationChannelRequest**](../Model/TestNotificationChannelRequest.md)|  | |
+| **testNotificationChannelRequest** | [**\Omnismith\Sdk\Model\TestNotificationChannelRequest**](../Model/TestNotificationChannelRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\TestNotificationChannel200Response**](../Model/TestNotificationChannel200Response.md)
+[**\Omnismith\Sdk\Model\TestNotificationChannel200Response**](../Model/TestNotificationChannel200Response.md)
 
 ### Authorization
 
@@ -305,7 +305,7 @@ try {
 ## `updateNotificationChannel()`
 
 ```php
-updateNotificationChannel($id, $update_notification_channel_request)
+updateNotificationChannel($id, $updateNotificationChannelRequest)
 ```
 
 Update a notification channel
@@ -318,20 +318,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationNotificationChannelsApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationNotificationChannelsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | Channel UUID
-$update_notification_channel_request = new \Omnismith\Model\UpdateNotificationChannelRequest(); // \Omnismith\Model\UpdateNotificationChannelRequest
+$updateNotificationChannelRequest = new \Omnismith\Sdk\Model\UpdateNotificationChannelRequest(); // \Omnismith\Sdk\Model\UpdateNotificationChannelRequest
 
 try {
-    $apiInstance->updateNotificationChannel($id, $update_notification_channel_request);
+    $apiInstance->updateNotificationChannel($id, $updateNotificationChannelRequest);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationNotificationChannelsApi->updateNotificationChannel: ', $e->getMessage(), PHP_EOL;
 }
@@ -342,7 +342,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Channel UUID | |
-| **update_notification_channel_request** | [**\Omnismith\Model\UpdateNotificationChannelRequest**](../Model/UpdateNotificationChannelRequest.md)|  | |
+| **updateNotificationChannelRequest** | [**\Omnismith\Sdk\Model\UpdateNotificationChannelRequest**](../Model/UpdateNotificationChannelRequest.md)|  | |
 
 ### Return type
 

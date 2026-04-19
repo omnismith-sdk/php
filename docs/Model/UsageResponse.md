@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attribute_count** | **int** |  | [optional]
-**template_count** | **int** |  | [optional]
-**entity_count** | **int** |  | [optional]
-**project_count** | **int** |  | [optional]
-**dashboard_count** | **int** |  | [optional]
-**disk_usage_bytes** | **int** |  | [optional]
-**monthly_metric_ingestions** | **int** |  | [optional]
-**monthly_dimension_updates** | **int** |  | [optional]
-**ai_credits_used** | **int** |  | [optional]
-**updated_at** | **\DateTime** |  | [optional]
+**attributeCount** | **int** |  | [optional]
+**templateCount** | **int** |  | [optional]
+**entityCount** | **int** |  | [optional]
+**projectCount** | **int** |  | [optional]
+**dashboardCount** | **int** |  | [optional]
+**diskUsageBytes** | **int** |  | [optional]
+**monthlyMetricIngestions** | **int** |  | [optional]
+**monthlyDimensionUpdates** | **int** |  | [optional]
+**aiCreditsUsed** | **int** |  | [optional]
+**updatedAt** | **\DateTime** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

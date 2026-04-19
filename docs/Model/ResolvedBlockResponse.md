@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**block_id** | **string** |  | [optional]
+**blockId** | **string** |  | [optional]
 **title** | **string** |  | [optional]
 **type** | **string** |  | [optional]
 **count** | **int** |  | [optional]
@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **min** | **float** |  | [optional]
 **max** | **float** |  | [optional]
 **percentage** | **float** |  | [optional]
-**bucket_width** | **string** |  | [optional]
-**series** | [**\Omnismith\Model\ResolvedChartBlockResponseSeriesInner[]**](ResolvedChartBlockResponseSeriesInner.md) |  | [optional]
-**items** | [**\Omnismith\Model\ResolvedListBlockResponseItemsInner[]**](ResolvedListBlockResponseItemsInner.md) |  | [optional]
-**total_count** | **int** |  | [optional]
+**bucketWidth** | **string** |  | [optional]
+**series** | [**\Omnismith\Sdk\Model\ResolvedChartBlockResponseSeriesInner[]**](ResolvedChartBlockResponseSeriesInner.md) |  | [optional]
+**items** | [**\Omnismith\Sdk\Model\ResolvedListBlockResponseItemsInner[]**](ResolvedListBlockResponseItemsInner.md) |  | [optional]
+**totalCount** | **int** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

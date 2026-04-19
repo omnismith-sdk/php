@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**template_id** | **string** |  |
+**templateId** | **string** |  |
 **name** | **string** |  |
-**global_search** | **string** |  | [optional]
-**filters** | [**\Omnismith\Model\CreateSavedQueryRequestFiltersInner[]**](CreateSavedQueryRequestFiltersInner.md) |  |
+**globalSearch** | **string** |  | [optional]
+**filters** | [**\Omnismith\Sdk\Model\CreateSavedQueryRequestFiltersInner[]**](CreateSavedQueryRequestFiltersInner.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

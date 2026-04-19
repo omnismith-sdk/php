@@ -1,4 +1,4 @@
-# Omnismith\TemplatesApi
+# Omnismith\Sdk\TemplatesApi
 
 Templates
 
@@ -18,7 +18,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createTemplate()`
 
 ```php
-createTemplate($create_template_request): \Omnismith\Model\CreateAttributeItem201Response
+createTemplate($createTemplateRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
 ```
 
 Create a new template
@@ -31,19 +31,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\TemplatesApi(
+$apiInstance = new Omnismith\Sdk\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_template_request = new \Omnismith\Model\CreateTemplateRequest(); // \Omnismith\Model\CreateTemplateRequest
+$createTemplateRequest = new \Omnismith\Sdk\Model\CreateTemplateRequest(); // \Omnismith\Sdk\Model\CreateTemplateRequest
 
 try {
-    $result = $apiInstance->createTemplate($create_template_request);
+    $result = $apiInstance->createTemplate($createTemplateRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->createTemplate: ', $e->getMessage(), PHP_EOL;
@@ -54,11 +54,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_template_request** | [**\Omnismith\Model\CreateTemplateRequest**](../Model/CreateTemplateRequest.md)|  | |
+| **createTemplateRequest** | [**\Omnismith\Sdk\Model\CreateTemplateRequest**](../Model/CreateTemplateRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
 
 ### Authorization
 
@@ -89,10 +89,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\TemplatesApi(
+$apiInstance = new Omnismith\Sdk\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -133,7 +133,7 @@ void (empty response body)
 ## `getProjectSchema()`
 
 ```php
-getProjectSchema(): \Omnismith\Model\ProjectSchemaResponse
+getProjectSchema(): \Omnismith\Sdk\Model\ProjectSchemaResponse
 ```
 
 Get complete project schema
@@ -148,10 +148,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\TemplatesApi(
+$apiInstance = new Omnismith\Sdk\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -172,7 +172,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\ProjectSchemaResponse**](../Model/ProjectSchemaResponse.md)
+[**\Omnismith\Sdk\Model\ProjectSchemaResponse**](../Model/ProjectSchemaResponse.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ This endpoint does not need any parameter.
 ## `getTemplate()`
 
 ```php
-getTemplate($id): \Omnismith\Model\TemplateResponse
+getTemplate($id): \Omnismith\Sdk\Model\TemplateResponse
 ```
 
 Get a template
@@ -203,10 +203,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\TemplatesApi(
+$apiInstance = new Omnismith\Sdk\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -230,7 +230,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\TemplateResponse**](../Model/TemplateResponse.md)
+[**\Omnismith\Sdk\Model\TemplateResponse**](../Model/TemplateResponse.md)
 
 ### Authorization
 
@@ -248,7 +248,7 @@ try {
 ## `listTemplateEntityCounts()`
 
 ```php
-listTemplateEntityCounts(): \Omnismith\Model\ListTemplateEntityCounts200Response
+listTemplateEntityCounts(): \Omnismith\Sdk\Model\ListTemplateEntityCounts200Response
 ```
 
 List entity counts per template
@@ -261,10 +261,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\TemplatesApi(
+$apiInstance = new Omnismith\Sdk\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -285,7 +285,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\ListTemplateEntityCounts200Response**](../Model/ListTemplateEntityCounts200Response.md)
+[**\Omnismith\Sdk\Model\ListTemplateEntityCounts200Response**](../Model/ListTemplateEntityCounts200Response.md)
 
 ### Authorization
 
@@ -303,7 +303,7 @@ This endpoint does not need any parameter.
 ## `listTemplates()`
 
 ```php
-listTemplates(): \Omnismith\Model\ListTemplates200Response
+listTemplates(): \Omnismith\Sdk\Model\ListTemplates200Response
 ```
 
 List templates
@@ -316,10 +316,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\TemplatesApi(
+$apiInstance = new Omnismith\Sdk\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -340,7 +340,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\ListTemplates200Response**](../Model/ListTemplates200Response.md)
+[**\Omnismith\Sdk\Model\ListTemplates200Response**](../Model/ListTemplates200Response.md)
 
 ### Authorization
 
@@ -358,7 +358,7 @@ This endpoint does not need any parameter.
 ## `updateTemplate()`
 
 ```php
-updateTemplate($id, $update_template_request)
+updateTemplate($id, $updateTemplateRequest)
 ```
 
 Update a template
@@ -371,20 +371,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\TemplatesApi(
+$apiInstance = new Omnismith\Sdk\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | Template ID
-$update_template_request = new \Omnismith\Model\UpdateTemplateRequest(); // \Omnismith\Model\UpdateTemplateRequest
+$updateTemplateRequest = new \Omnismith\Sdk\Model\UpdateTemplateRequest(); // \Omnismith\Sdk\Model\UpdateTemplateRequest
 
 try {
-    $apiInstance->updateTemplate($id, $update_template_request);
+    $apiInstance->updateTemplate($id, $updateTemplateRequest);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->updateTemplate: ', $e->getMessage(), PHP_EOL;
 }
@@ -395,7 +395,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Template ID | |
-| **update_template_request** | [**\Omnismith\Model\UpdateTemplateRequest**](../Model/UpdateTemplateRequest.md)|  | |
+| **updateTemplateRequest** | [**\Omnismith\Sdk\Model\UpdateTemplateRequest**](../Model/UpdateTemplateRequest.md)|  | |
 
 ### Return type
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attribute_id** | **string** |  | [optional]
+**attributeId** | **string** |  | [optional]
 **operator** | **string** |  | [optional]
 **value** | **mixed** |  | [optional]
 **mode** | **string** |  | [optional]

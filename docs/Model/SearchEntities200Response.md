@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\Omnismith\Model\EntityResponse[]**](EntityResponse.md) |  | [optional]
+**data** | [**\Omnismith\Sdk\Model\EntityResponse[]**](EntityResponse.md) |  | [optional]
 **total** | **int** |  | [optional]
 **limit** | **int** |  | [optional]
 **offset** | **int** |  | [optional]

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created_at** | **\DateTime** |  | [optional]
-**attribute_id** | **string** |  | [optional]
+**createdAt** | **\DateTime** |  | [optional]
+**attributeId** | **string** |  | [optional]
 **value** | **string** |  | [optional]
-**entity_id** | **string** |  | [optional]
-**author_email** | **string** |  | [optional]
+**entityId** | **string** |  | [optional]
+**authorEmail** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

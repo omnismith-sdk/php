@@ -1,4 +1,4 @@
-# Omnismith\DashboardBlocksApi
+# Omnismith\Sdk\DashboardBlocksApi
 
 
 
@@ -17,7 +17,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createDashboardBlock()`
 
 ```php
-createDashboardBlock($dashboard_id, $create_dashboard_block_request): \Omnismith\Model\CreateAttributeItem201Response
+createDashboardBlock($dashboardId, $createDashboardBlockRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
 ```
 
 Create a new block in a dashboard
@@ -30,20 +30,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\DashboardBlocksApi(
+$apiInstance = new Omnismith\Sdk\Api\DashboardBlocksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$dashboard_id = 'dashboard_id_example'; // string | Dashboard ID
-$create_dashboard_block_request = new \Omnismith\Model\CreateDashboardBlockRequest(); // \Omnismith\Model\CreateDashboardBlockRequest
+$dashboardId = 'dashboardId_example'; // string | Dashboard ID
+$createDashboardBlockRequest = new \Omnismith\Sdk\Model\CreateDashboardBlockRequest(); // \Omnismith\Sdk\Model\CreateDashboardBlockRequest
 
 try {
-    $result = $apiInstance->createDashboardBlock($dashboard_id, $create_dashboard_block_request);
+    $result = $apiInstance->createDashboardBlock($dashboardId, $createDashboardBlockRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DashboardBlocksApi->createDashboardBlock: ', $e->getMessage(), PHP_EOL;
@@ -54,12 +54,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dashboard_id** | **string**| Dashboard ID | |
-| **create_dashboard_block_request** | [**\Omnismith\Model\CreateDashboardBlockRequest**](../Model/CreateDashboardBlockRequest.md)|  | |
+| **dashboardId** | **string**| Dashboard ID | |
+| **createDashboardBlockRequest** | [**\Omnismith\Sdk\Model\CreateDashboardBlockRequest**](../Model/CreateDashboardBlockRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ try {
 ## `deleteDashboardBlock()`
 
 ```php
-deleteDashboardBlock($dashboard_id, $block_id)
+deleteDashboardBlock($dashboardId, $blockId)
 ```
 
 Delete a dashboard block
@@ -90,20 +90,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\DashboardBlocksApi(
+$apiInstance = new Omnismith\Sdk\Api\DashboardBlocksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$dashboard_id = 'dashboard_id_example'; // string | Dashboard ID
-$block_id = 'block_id_example'; // string | Block ID
+$dashboardId = 'dashboardId_example'; // string | Dashboard ID
+$blockId = 'blockId_example'; // string | Block ID
 
 try {
-    $apiInstance->deleteDashboardBlock($dashboard_id, $block_id);
+    $apiInstance->deleteDashboardBlock($dashboardId, $blockId);
 } catch (Exception $e) {
     echo 'Exception when calling DashboardBlocksApi->deleteDashboardBlock: ', $e->getMessage(), PHP_EOL;
 }
@@ -113,8 +113,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dashboard_id** | **string**| Dashboard ID | |
-| **block_id** | **string**| Block ID | |
+| **dashboardId** | **string**| Dashboard ID | |
+| **blockId** | **string**| Block ID | |
 
 ### Return type
 
@@ -136,7 +136,7 @@ void (empty response body)
 ## `getDashboardBlock()`
 
 ```php
-getDashboardBlock($dashboard_id, $block_id): \Omnismith\Model\DashboardBlockResponse
+getDashboardBlock($dashboardId, $blockId): \Omnismith\Sdk\Model\DashboardBlockResponse
 ```
 
 Get a dashboard block by ID
@@ -149,20 +149,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\DashboardBlocksApi(
+$apiInstance = new Omnismith\Sdk\Api\DashboardBlocksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$dashboard_id = 'dashboard_id_example'; // string | Dashboard ID
-$block_id = 'block_id_example'; // string | Block ID
+$dashboardId = 'dashboardId_example'; // string | Dashboard ID
+$blockId = 'blockId_example'; // string | Block ID
 
 try {
-    $result = $apiInstance->getDashboardBlock($dashboard_id, $block_id);
+    $result = $apiInstance->getDashboardBlock($dashboardId, $blockId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DashboardBlocksApi->getDashboardBlock: ', $e->getMessage(), PHP_EOL;
@@ -173,12 +173,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dashboard_id** | **string**| Dashboard ID | |
-| **block_id** | **string**| Block ID | |
+| **dashboardId** | **string**| Dashboard ID | |
+| **blockId** | **string**| Block ID | |
 
 ### Return type
 
-[**\Omnismith\Model\DashboardBlockResponse**](../Model/DashboardBlockResponse.md)
+[**\Omnismith\Sdk\Model\DashboardBlockResponse**](../Model/DashboardBlockResponse.md)
 
 ### Authorization
 
@@ -196,7 +196,7 @@ try {
 ## `listDashboardBlocks()`
 
 ```php
-listDashboardBlocks($dashboard_id): \Omnismith\Model\ListDashboardBlocks200Response
+listDashboardBlocks($dashboardId): \Omnismith\Sdk\Model\ListDashboardBlocks200Response
 ```
 
 List all blocks in a dashboard
@@ -209,19 +209,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\DashboardBlocksApi(
+$apiInstance = new Omnismith\Sdk\Api\DashboardBlocksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$dashboard_id = 'dashboard_id_example'; // string | Dashboard ID
+$dashboardId = 'dashboardId_example'; // string | Dashboard ID
 
 try {
-    $result = $apiInstance->listDashboardBlocks($dashboard_id);
+    $result = $apiInstance->listDashboardBlocks($dashboardId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DashboardBlocksApi->listDashboardBlocks: ', $e->getMessage(), PHP_EOL;
@@ -232,11 +232,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dashboard_id** | **string**| Dashboard ID | |
+| **dashboardId** | **string**| Dashboard ID | |
 
 ### Return type
 
-[**\Omnismith\Model\ListDashboardBlocks200Response**](../Model/ListDashboardBlocks200Response.md)
+[**\Omnismith\Sdk\Model\ListDashboardBlocks200Response**](../Model/ListDashboardBlocks200Response.md)
 
 ### Authorization
 
@@ -254,7 +254,7 @@ try {
 ## `resolveDashboardBlock()`
 
 ```php
-resolveDashboardBlock($dashboard_id, $block_id): \Omnismith\Model\ResolvedBlockResponse
+resolveDashboardBlock($dashboardId, $blockId): \Omnismith\Sdk\Model\ResolvedBlockResponse
 ```
 
 Resolve a dashboard block to its computed data
@@ -269,20 +269,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\DashboardBlocksApi(
+$apiInstance = new Omnismith\Sdk\Api\DashboardBlocksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$dashboard_id = 'dashboard_id_example'; // string | Dashboard ID
-$block_id = 'block_id_example'; // string | Block ID
+$dashboardId = 'dashboardId_example'; // string | Dashboard ID
+$blockId = 'blockId_example'; // string | Block ID
 
 try {
-    $result = $apiInstance->resolveDashboardBlock($dashboard_id, $block_id);
+    $result = $apiInstance->resolveDashboardBlock($dashboardId, $blockId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DashboardBlocksApi->resolveDashboardBlock: ', $e->getMessage(), PHP_EOL;
@@ -293,12 +293,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dashboard_id** | **string**| Dashboard ID | |
-| **block_id** | **string**| Block ID | |
+| **dashboardId** | **string**| Dashboard ID | |
+| **blockId** | **string**| Block ID | |
 
 ### Return type
 
-[**\Omnismith\Model\ResolvedBlockResponse**](../Model/ResolvedBlockResponse.md)
+[**\Omnismith\Sdk\Model\ResolvedBlockResponse**](../Model/ResolvedBlockResponse.md)
 
 ### Authorization
 
@@ -316,7 +316,7 @@ try {
 ## `updateDashboardBlock()`
 
 ```php
-updateDashboardBlock($dashboard_id, $block_id, $update_dashboard_block_request)
+updateDashboardBlock($dashboardId, $blockId, $updateDashboardBlockRequest)
 ```
 
 Update a dashboard block
@@ -329,21 +329,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\DashboardBlocksApi(
+$apiInstance = new Omnismith\Sdk\Api\DashboardBlocksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$dashboard_id = 'dashboard_id_example'; // string | Dashboard ID
-$block_id = 'block_id_example'; // string | Block ID
-$update_dashboard_block_request = new \Omnismith\Model\UpdateDashboardBlockRequest(); // \Omnismith\Model\UpdateDashboardBlockRequest
+$dashboardId = 'dashboardId_example'; // string | Dashboard ID
+$blockId = 'blockId_example'; // string | Block ID
+$updateDashboardBlockRequest = new \Omnismith\Sdk\Model\UpdateDashboardBlockRequest(); // \Omnismith\Sdk\Model\UpdateDashboardBlockRequest
 
 try {
-    $apiInstance->updateDashboardBlock($dashboard_id, $block_id, $update_dashboard_block_request);
+    $apiInstance->updateDashboardBlock($dashboardId, $blockId, $updateDashboardBlockRequest);
 } catch (Exception $e) {
     echo 'Exception when calling DashboardBlocksApi->updateDashboardBlock: ', $e->getMessage(), PHP_EOL;
 }
@@ -353,9 +353,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dashboard_id** | **string**| Dashboard ID | |
-| **block_id** | **string**| Block ID | |
-| **update_dashboard_block_request** | [**\Omnismith\Model\UpdateDashboardBlockRequest**](../Model/UpdateDashboardBlockRequest.md)|  | |
+| **dashboardId** | **string**| Dashboard ID | |
+| **blockId** | **string**| Block ID | |
+| **updateDashboardBlockRequest** | [**\Omnismith\Sdk\Model\UpdateDashboardBlockRequest**](../Model/UpdateDashboardBlockRequest.md)|  | |
 
 ### Return type
 

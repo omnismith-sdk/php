@@ -1,4 +1,4 @@
-# Omnismith\EntityApi
+# Omnismith\Sdk\EntityApi
 
 Entity
 
@@ -20,7 +20,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createEntity()`
 
 ```php
-createEntity($create_entity_request): \Omnismith\Model\CreateAttributeItem201Response
+createEntity($createEntityRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
 ```
 
 Create a new entity
@@ -33,19 +33,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\EntityApi(
+$apiInstance = new Omnismith\Sdk\Api\EntityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_entity_request = new \Omnismith\Model\CreateEntityRequest(); // \Omnismith\Model\CreateEntityRequest
+$createEntityRequest = new \Omnismith\Sdk\Model\CreateEntityRequest(); // \Omnismith\Sdk\Model\CreateEntityRequest
 
 try {
-    $result = $apiInstance->createEntity($create_entity_request);
+    $result = $apiInstance->createEntity($createEntityRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EntityApi->createEntity: ', $e->getMessage(), PHP_EOL;
@@ -56,11 +56,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_entity_request** | [**\Omnismith\Model\CreateEntityRequest**](../Model/CreateEntityRequest.md)|  | |
+| **createEntityRequest** | [**\Omnismith\Sdk\Model\CreateEntityRequest**](../Model/CreateEntityRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
 
 ### Authorization
 
@@ -91,10 +91,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\EntityApi(
+$apiInstance = new Omnismith\Sdk\Api\EntityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -135,7 +135,7 @@ void (empty response body)
 ## `exportEntities()`
 
 ```php
-exportEntities($template_id, $export_entities_request, $sort_field, $sort_direction): \SplFileObject
+exportEntities($templateId, $exportEntitiesRequest, $sortField, $sortDirection): \SplFileObject
 ```
 
 Export entities to CSV
@@ -150,22 +150,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\EntityApi(
+$apiInstance = new Omnismith\Sdk\Api\EntityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$template_id = 'template_id_example'; // string | Template ID
-$export_entities_request = new \Omnismith\Model\ExportEntitiesRequest(); // \Omnismith\Model\ExportEntitiesRequest
-$sort_field = 'sort_field_example'; // string | Attribute ID to sort by (UUID) OR one of: id, created_at, updated_at, deleted_at
-$sort_direction = 'asc'; // string | Sort direction (only used when sort_field is provided)
+$templateId = 'templateId_example'; // string | Template ID
+$exportEntitiesRequest = new \Omnismith\Sdk\Model\ExportEntitiesRequest(); // \Omnismith\Sdk\Model\ExportEntitiesRequest
+$sortField = 'sortField_example'; // string | Attribute ID to sort by (UUID) OR one of: id, created_at, updated_at, deleted_at
+$sortDirection = 'asc'; // string | Sort direction (only used when sort_field is provided)
 
 try {
-    $result = $apiInstance->exportEntities($template_id, $export_entities_request, $sort_field, $sort_direction);
+    $result = $apiInstance->exportEntities($templateId, $exportEntitiesRequest, $sortField, $sortDirection);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EntityApi->exportEntities: ', $e->getMessage(), PHP_EOL;
@@ -176,10 +176,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **template_id** | **string**| Template ID | |
-| **export_entities_request** | [**\Omnismith\Model\ExportEntitiesRequest**](../Model/ExportEntitiesRequest.md)|  | |
-| **sort_field** | **string**| Attribute ID to sort by (UUID) OR one of: id, created_at, updated_at, deleted_at | [optional] |
-| **sort_direction** | **string**| Sort direction (only used when sort_field is provided) | [optional] [default to &#39;asc&#39;] |
+| **templateId** | **string**| Template ID | |
+| **exportEntitiesRequest** | [**\Omnismith\Sdk\Model\ExportEntitiesRequest**](../Model/ExportEntitiesRequest.md)|  | |
+| **sortField** | **string**| Attribute ID to sort by (UUID) OR one of: id, created_at, updated_at, deleted_at | [optional] |
+| **sortDirection** | **string**| Sort direction (only used when sort_field is provided) | [optional] [default to &#39;asc&#39;] |
 
 ### Return type
 
@@ -201,7 +201,7 @@ try {
 ## `getEntity()`
 
 ```php
-getEntity($id): \Omnismith\Model\EntityResponse
+getEntity($id): \Omnismith\Sdk\Model\EntityResponse
 ```
 
 Get an entity
@@ -214,10 +214,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\EntityApi(
+$apiInstance = new Omnismith\Sdk\Api\EntityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -241,7 +241,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\EntityResponse**](../Model/EntityResponse.md)
+[**\Omnismith\Sdk\Model\EntityResponse**](../Model/EntityResponse.md)
 
 ### Authorization
 
@@ -259,7 +259,7 @@ try {
 ## `getEntityChart()`
 
 ```php
-getEntityChart($id, $attribute_ids, $start, $end, $aggregate_func, $bucket_width): \Omnismith\Model\GetEntityChart200Response
+getEntityChart($id, $attributeIds, $start, $end, $aggregateFunc, $bucketWidth): \Omnismith\Sdk\Model\GetEntityChart200Response
 ```
 
 Get entity chart time-series data
@@ -272,20 +272,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new Omnismith\Api\EntityApi(
+$apiInstance = new Omnismith\Sdk\Api\EntityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $id = 'id_example'; // string | Entity ID
-$attribute_ids = 'attribute_ids_example'; // string | Comma-separated attribute IDs
+$attributeIds = 'attributeIds_example'; // string | Comma-separated attribute IDs
 $start = 56; // int | Start timestamp (Unix seconds)
 $end = 56; // int | End timestamp (Unix seconds)
-$aggregate_func = 'avg'; // string | Aggregate function
-$bucket_width = '1 hour'; // string | Time bucket width (PostgreSQL interval)
+$aggregateFunc = 'avg'; // string | Aggregate function
+$bucketWidth = '1 hour'; // string | Time bucket width (PostgreSQL interval)
 
 try {
-    $result = $apiInstance->getEntityChart($id, $attribute_ids, $start, $end, $aggregate_func, $bucket_width);
+    $result = $apiInstance->getEntityChart($id, $attributeIds, $start, $end, $aggregateFunc, $bucketWidth);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EntityApi->getEntityChart: ', $e->getMessage(), PHP_EOL;
@@ -297,15 +297,15 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Entity ID | |
-| **attribute_ids** | **string**| Comma-separated attribute IDs | |
+| **attributeIds** | **string**| Comma-separated attribute IDs | |
 | **start** | **int**| Start timestamp (Unix seconds) | |
 | **end** | **int**| End timestamp (Unix seconds) | |
-| **aggregate_func** | **string**| Aggregate function | [optional] [default to &#39;avg&#39;] |
-| **bucket_width** | **string**| Time bucket width (PostgreSQL interval) | [optional] [default to &#39;1 hour&#39;] |
+| **aggregateFunc** | **string**| Aggregate function | [optional] [default to &#39;avg&#39;] |
+| **bucketWidth** | **string**| Time bucket width (PostgreSQL interval) | [optional] [default to &#39;1 hour&#39;] |
 
 ### Return type
 
-[**\Omnismith\Model\GetEntityChart200Response**](../Model/GetEntityChart200Response.md)
+[**\Omnismith\Sdk\Model\GetEntityChart200Response**](../Model/GetEntityChart200Response.md)
 
 ### Authorization
 
@@ -323,7 +323,7 @@ No authorization required
 ## `getEntityHistory()`
 
 ```php
-getEntityHistory($id, $page, $limit, $sort_by, $sort_direction, $search, $attribute_ids, $start, $end, $author_email): \Omnismith\Model\GetEntityHistory200Response
+getEntityHistory($id, $page, $limit, $sortBy, $sortDirection, $search, $attributeIds, $start, $end, $authorEmail): \Omnismith\Sdk\Model\GetEntityHistory200Response
 ```
 
 Get entity history
@@ -336,7 +336,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new Omnismith\Api\EntityApi(
+$apiInstance = new Omnismith\Sdk\Api\EntityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -344,16 +344,16 @@ $apiInstance = new Omnismith\Api\EntityApi(
 $id = 'id_example'; // string | Entity ID
 $page = 1; // int
 $limit = 20; // int
-$sort_by = 'created_at'; // string
-$sort_direction = 'desc'; // string
+$sortBy = 'created_at'; // string
+$sortDirection = 'desc'; // string
 $search = 'search_example'; // string
-$attribute_ids = 'attribute_ids_example'; // string
+$attributeIds = 'attributeIds_example'; // string
 $start = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Filter logs created after this timestamp
 $end = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Filter logs created before this timestamp
-$author_email = 'author_email_example'; // string | Filter logs by author email
+$authorEmail = 'authorEmail_example'; // string | Filter logs by author email
 
 try {
-    $result = $apiInstance->getEntityHistory($id, $page, $limit, $sort_by, $sort_direction, $search, $attribute_ids, $start, $end, $author_email);
+    $result = $apiInstance->getEntityHistory($id, $page, $limit, $sortBy, $sortDirection, $search, $attributeIds, $start, $end, $authorEmail);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EntityApi->getEntityHistory: ', $e->getMessage(), PHP_EOL;
@@ -367,17 +367,17 @@ try {
 | **id** | **string**| Entity ID | |
 | **page** | **int**|  | [optional] [default to 1] |
 | **limit** | **int**|  | [optional] [default to 20] |
-| **sort_by** | **string**|  | [optional] [default to &#39;created_at&#39;] |
-| **sort_direction** | **string**|  | [optional] [default to &#39;desc&#39;] |
+| **sortBy** | **string**|  | [optional] [default to &#39;created_at&#39;] |
+| **sortDirection** | **string**|  | [optional] [default to &#39;desc&#39;] |
 | **search** | **string**|  | [optional] |
-| **attribute_ids** | **string**|  | [optional] |
+| **attributeIds** | **string**|  | [optional] |
 | **start** | **\DateTime**| Filter logs created after this timestamp | [optional] |
 | **end** | **\DateTime**| Filter logs created before this timestamp | [optional] |
-| **author_email** | **string**| Filter logs by author email | [optional] |
+| **authorEmail** | **string**| Filter logs by author email | [optional] |
 
 ### Return type
 
-[**\Omnismith\Model\GetEntityHistory200Response**](../Model/GetEntityHistory200Response.md)
+[**\Omnismith\Sdk\Model\GetEntityHistory200Response**](../Model/GetEntityHistory200Response.md)
 
 ### Authorization
 
@@ -395,7 +395,7 @@ No authorization required
 ## `importEntities()`
 
 ```php
-importEntities($template_id, $file): \Omnismith\Model\ImportEntities200Response
+importEntities($templateId, $file): \Omnismith\Sdk\Model\ImportEntities200Response
 ```
 
 Import entities from CSV
@@ -410,20 +410,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\EntityApi(
+$apiInstance = new Omnismith\Sdk\Api\EntityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$template_id = 'template_id_example'; // string | Template ID
+$templateId = 'templateId_example'; // string | Template ID
 $file = '/path/to/file.txt'; // \SplFileObject | CSV file exported from the export endpoint or matching its format
 
 try {
-    $result = $apiInstance->importEntities($template_id, $file);
+    $result = $apiInstance->importEntities($templateId, $file);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EntityApi->importEntities: ', $e->getMessage(), PHP_EOL;
@@ -434,12 +434,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **template_id** | **string**| Template ID | |
+| **templateId** | **string**| Template ID | |
 | **file** | **\SplFileObject****\SplFileObject**| CSV file exported from the export endpoint or matching its format | |
 
 ### Return type
 
-[**\Omnismith\Model\ImportEntities200Response**](../Model/ImportEntities200Response.md)
+[**\Omnismith\Sdk\Model\ImportEntities200Response**](../Model/ImportEntities200Response.md)
 
 ### Authorization
 
@@ -457,7 +457,7 @@ try {
 ## `searchEntities()`
 
 ```php
-searchEntities($template_id, $search_entities_request, $limit, $offset, $sort_field, $sort_direction): \Omnismith\Model\SearchEntities200Response
+searchEntities($templateId, $searchEntitiesRequest, $limit, $offset, $sortField, $sortDirection): \Omnismith\Sdk\Model\SearchEntities200Response
 ```
 
 Search entities
@@ -470,24 +470,24 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\EntityApi(
+$apiInstance = new Omnismith\Sdk\Api\EntityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$template_id = 'template_id_example'; // string | Template ID
-$search_entities_request = new \Omnismith\Model\SearchEntitiesRequest(); // \Omnismith\Model\SearchEntitiesRequest
+$templateId = 'templateId_example'; // string | Template ID
+$searchEntitiesRequest = new \Omnismith\Sdk\Model\SearchEntitiesRequest(); // \Omnismith\Sdk\Model\SearchEntitiesRequest
 $limit = 50; // int | Number of results
 $offset = 0; // int | Pagination offset
-$sort_field = 'sort_field_example'; // string | Attribute ID to sort by (UUID) OR one of: id, created_at, updated_at, deleted_at
-$sort_direction = 'asc'; // string | Sort direction (only used when sort_field is provided)
+$sortField = 'sortField_example'; // string | Attribute ID to sort by (UUID) OR one of: id, created_at, updated_at, deleted_at
+$sortDirection = 'asc'; // string | Sort direction (only used when sort_field is provided)
 
 try {
-    $result = $apiInstance->searchEntities($template_id, $search_entities_request, $limit, $offset, $sort_field, $sort_direction);
+    $result = $apiInstance->searchEntities($templateId, $searchEntitiesRequest, $limit, $offset, $sortField, $sortDirection);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EntityApi->searchEntities: ', $e->getMessage(), PHP_EOL;
@@ -498,16 +498,16 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **template_id** | **string**| Template ID | |
-| **search_entities_request** | [**\Omnismith\Model\SearchEntitiesRequest**](../Model/SearchEntitiesRequest.md)|  | |
+| **templateId** | **string**| Template ID | |
+| **searchEntitiesRequest** | [**\Omnismith\Sdk\Model\SearchEntitiesRequest**](../Model/SearchEntitiesRequest.md)|  | |
 | **limit** | **int**| Number of results | [optional] [default to 50] |
 | **offset** | **int**| Pagination offset | [optional] [default to 0] |
-| **sort_field** | **string**| Attribute ID to sort by (UUID) OR one of: id, created_at, updated_at, deleted_at | [optional] |
-| **sort_direction** | **string**| Sort direction (only used when sort_field is provided) | [optional] [default to &#39;asc&#39;] |
+| **sortField** | **string**| Attribute ID to sort by (UUID) OR one of: id, created_at, updated_at, deleted_at | [optional] |
+| **sortDirection** | **string**| Sort direction (only used when sort_field is provided) | [optional] [default to &#39;asc&#39;] |
 
 ### Return type
 
-[**\Omnismith\Model\SearchEntities200Response**](../Model/SearchEntities200Response.md)
+[**\Omnismith\Sdk\Model\SearchEntities200Response**](../Model/SearchEntities200Response.md)
 
 ### Authorization
 
@@ -525,7 +525,7 @@ try {
 ## `updateEntity()`
 
 ```php
-updateEntity($id, $update_entity_request)
+updateEntity($id, $updateEntityRequest)
 ```
 
 Update an entity
@@ -538,20 +538,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\EntityApi(
+$apiInstance = new Omnismith\Sdk\Api\EntityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string
-$update_entity_request = new \Omnismith\Model\UpdateEntityRequest(); // \Omnismith\Model\UpdateEntityRequest
+$updateEntityRequest = new \Omnismith\Sdk\Model\UpdateEntityRequest(); // \Omnismith\Sdk\Model\UpdateEntityRequest
 
 try {
-    $apiInstance->updateEntity($id, $update_entity_request);
+    $apiInstance->updateEntity($id, $updateEntityRequest);
 } catch (Exception $e) {
     echo 'Exception when calling EntityApi->updateEntity: ', $e->getMessage(), PHP_EOL;
 }
@@ -562,7 +562,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **update_entity_request** | [**\Omnismith\Model\UpdateEntityRequest**](../Model/UpdateEntityRequest.md)|  | |
+| **updateEntityRequest** | [**\Omnismith\Sdk\Model\UpdateEntityRequest**](../Model/UpdateEntityRequest.md)|  | |
 
 ### Return type
 

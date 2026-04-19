@@ -1,4 +1,4 @@
-# Omnismith\AccessTokensApi
+# Omnismith\Sdk\AccessTokensApi
 
 AccessTokens
 
@@ -14,7 +14,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createAccessToken()`
 
 ```php
-createAccessToken($create_access_token_request): \Omnismith\Model\CreateAccessToken201Response
+createAccessToken($createAccessTokenRequest): \Omnismith\Sdk\Model\CreateAccessToken201Response
 ```
 
 Create an API access token
@@ -29,19 +29,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AccessTokensApi(
+$apiInstance = new Omnismith\Sdk\Api\AccessTokensApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_access_token_request = new \Omnismith\Model\CreateAccessTokenRequest(); // \Omnismith\Model\CreateAccessTokenRequest
+$createAccessTokenRequest = new \Omnismith\Sdk\Model\CreateAccessTokenRequest(); // \Omnismith\Sdk\Model\CreateAccessTokenRequest
 
 try {
-    $result = $apiInstance->createAccessToken($create_access_token_request);
+    $result = $apiInstance->createAccessToken($createAccessTokenRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccessTokensApi->createAccessToken: ', $e->getMessage(), PHP_EOL;
@@ -52,11 +52,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_access_token_request** | [**\Omnismith\Model\CreateAccessTokenRequest**](../Model/CreateAccessTokenRequest.md)|  | |
+| **createAccessTokenRequest** | [**\Omnismith\Sdk\Model\CreateAccessTokenRequest**](../Model/CreateAccessTokenRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\CreateAccessToken201Response**](../Model/CreateAccessToken201Response.md)
+[**\Omnismith\Sdk\Model\CreateAccessToken201Response**](../Model/CreateAccessToken201Response.md)
 
 ### Authorization
 
@@ -87,10 +87,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AccessTokensApi(
+$apiInstance = new Omnismith\Sdk\Api\AccessTokensApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -131,7 +131,7 @@ void (empty response body)
 ## `listAccessTokens()`
 
 ```php
-listAccessTokens(): \Omnismith\Model\ListAccessTokens200Response
+listAccessTokens(): \Omnismith\Sdk\Model\ListAccessTokens200Response
 ```
 
 List API access tokens
@@ -146,10 +146,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AccessTokensApi(
+$apiInstance = new Omnismith\Sdk\Api\AccessTokensApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -170,7 +170,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\ListAccessTokens200Response**](../Model/ListAccessTokens200Response.md)
+[**\Omnismith\Sdk\Model\ListAccessTokens200Response**](../Model/ListAccessTokens200Response.md)
 
 ### Authorization
 

@@ -1,4 +1,4 @@
-# Omnismith\SavedQueriesApi
+# Omnismith\Sdk\SavedQueriesApi
 
 SavedQueries
 
@@ -16,7 +16,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createSavedQuery()`
 
 ```php
-createSavedQuery($create_saved_query_request): \Omnismith\Model\CreateAttributeItem201Response
+createSavedQuery($createSavedQueryRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
 ```
 
 Create a saved query
@@ -29,19 +29,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\SavedQueriesApi(
+$apiInstance = new Omnismith\Sdk\Api\SavedQueriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_saved_query_request = new \Omnismith\Model\CreateSavedQueryRequest(); // \Omnismith\Model\CreateSavedQueryRequest
+$createSavedQueryRequest = new \Omnismith\Sdk\Model\CreateSavedQueryRequest(); // \Omnismith\Sdk\Model\CreateSavedQueryRequest
 
 try {
-    $result = $apiInstance->createSavedQuery($create_saved_query_request);
+    $result = $apiInstance->createSavedQuery($createSavedQueryRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SavedQueriesApi->createSavedQuery: ', $e->getMessage(), PHP_EOL;
@@ -52,11 +52,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_saved_query_request** | [**\Omnismith\Model\CreateSavedQueryRequest**](../Model/CreateSavedQueryRequest.md)|  | |
+| **createSavedQueryRequest** | [**\Omnismith\Sdk\Model\CreateSavedQueryRequest**](../Model/CreateSavedQueryRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
 
 ### Authorization
 
@@ -87,10 +87,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\SavedQueriesApi(
+$apiInstance = new Omnismith\Sdk\Api\SavedQueriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -131,7 +131,7 @@ void (empty response body)
 ## `executeSavedQuery()`
 
 ```php
-executeSavedQuery($id): \Omnismith\Model\ExecuteSavedQuery200Response
+executeSavedQuery($id): \Omnismith\Sdk\Model\ExecuteSavedQuery200Response
 ```
 
 Execute a saved query (count matches)
@@ -144,10 +144,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\SavedQueriesApi(
+$apiInstance = new Omnismith\Sdk\Api\SavedQueriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -171,7 +171,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\ExecuteSavedQuery200Response**](../Model/ExecuteSavedQuery200Response.md)
+[**\Omnismith\Sdk\Model\ExecuteSavedQuery200Response**](../Model/ExecuteSavedQuery200Response.md)
 
 ### Authorization
 
@@ -202,10 +202,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\SavedQueriesApi(
+$apiInstance = new Omnismith\Sdk\Api\SavedQueriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -247,7 +247,7 @@ try {
 ## `listSavedQueries()`
 
 ```php
-listSavedQueries(): \Omnismith\Model\ListSavedQueries200Response
+listSavedQueries(): \Omnismith\Sdk\Model\ListSavedQueries200Response
 ```
 
 List saved queries
@@ -260,10 +260,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\SavedQueriesApi(
+$apiInstance = new Omnismith\Sdk\Api\SavedQueriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -284,7 +284,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\ListSavedQueries200Response**](../Model/ListSavedQueries200Response.md)
+[**\Omnismith\Sdk\Model\ListSavedQueries200Response**](../Model/ListSavedQueries200Response.md)
 
 ### Authorization
 

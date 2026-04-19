@@ -1,4 +1,4 @@
-# Omnismith\MarketplaceApi
+# Omnismith\Sdk\MarketplaceApi
 
 Marketplace
 
@@ -30,10 +30,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\MarketplaceApi(
+$apiInstance = new Omnismith\Sdk\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -74,7 +74,7 @@ void (empty response body)
 ## `getMarketplaceBlueprint()`
 
 ```php
-getMarketplaceBlueprint($id): \Omnismith\Model\GetMarketplaceBlueprint200Response
+getMarketplaceBlueprint($id): \Omnismith\Sdk\Model\GetMarketplaceBlueprint200Response
 ```
 
 Get marketplace blueprint details
@@ -87,7 +87,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new Omnismith\Api\MarketplaceApi(
+$apiInstance = new Omnismith\Sdk\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -110,7 +110,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\GetMarketplaceBlueprint200Response**](../Model/GetMarketplaceBlueprint200Response.md)
+[**\Omnismith\Sdk\Model\GetMarketplaceBlueprint200Response**](../Model/GetMarketplaceBlueprint200Response.md)
 
 ### Authorization
 
@@ -128,7 +128,7 @@ No authorization required
 ## `installMarketplaceBlueprint()`
 
 ```php
-installMarketplaceBlueprint($id, $install_marketplace_blueprint_request)
+installMarketplaceBlueprint($id, $installMarketplaceBlueprintRequest)
 ```
 
 Install a marketplace blueprint into a project
@@ -141,20 +141,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\MarketplaceApi(
+$apiInstance = new Omnismith\Sdk\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | Blueprint ID
-$install_marketplace_blueprint_request = new \Omnismith\Model\InstallMarketplaceBlueprintRequest(); // \Omnismith\Model\InstallMarketplaceBlueprintRequest
+$installMarketplaceBlueprintRequest = new \Omnismith\Sdk\Model\InstallMarketplaceBlueprintRequest(); // \Omnismith\Sdk\Model\InstallMarketplaceBlueprintRequest
 
 try {
-    $apiInstance->installMarketplaceBlueprint($id, $install_marketplace_blueprint_request);
+    $apiInstance->installMarketplaceBlueprint($id, $installMarketplaceBlueprintRequest);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->installMarketplaceBlueprint: ', $e->getMessage(), PHP_EOL;
 }
@@ -165,7 +165,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Blueprint ID | |
-| **install_marketplace_blueprint_request** | [**\Omnismith\Model\InstallMarketplaceBlueprintRequest**](../Model/InstallMarketplaceBlueprintRequest.md)|  | |
+| **installMarketplaceBlueprintRequest** | [**\Omnismith\Sdk\Model\InstallMarketplaceBlueprintRequest**](../Model/InstallMarketplaceBlueprintRequest.md)|  | |
 
 ### Return type
 
@@ -187,7 +187,7 @@ void (empty response body)
 ## `listMarketplaceKeywords()`
 
 ```php
-listMarketplaceKeywords(): \Omnismith\Model\ListMarketplaceKeywords200Response
+listMarketplaceKeywords(): \Omnismith\Sdk\Model\ListMarketplaceKeywords200Response
 ```
 
 List all marketplace keywords with blueprint counts
@@ -200,7 +200,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new Omnismith\Api\MarketplaceApi(
+$apiInstance = new Omnismith\Sdk\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -220,7 +220,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\ListMarketplaceKeywords200Response**](../Model/ListMarketplaceKeywords200Response.md)
+[**\Omnismith\Sdk\Model\ListMarketplaceKeywords200Response**](../Model/ListMarketplaceKeywords200Response.md)
 
 ### Authorization
 
@@ -238,7 +238,7 @@ No authorization required
 ## `publishMarketplaceBlueprint()`
 
 ```php
-publishMarketplaceBlueprint($publish_marketplace_blueprint_request): \Omnismith\Model\GetMarketplaceBlueprint200Response
+publishMarketplaceBlueprint($publishMarketplaceBlueprintRequest): \Omnismith\Sdk\Model\GetMarketplaceBlueprint200Response
 ```
 
 Publish or update a marketplace blueprint
@@ -251,19 +251,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\MarketplaceApi(
+$apiInstance = new Omnismith\Sdk\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$publish_marketplace_blueprint_request = new \Omnismith\Model\PublishMarketplaceBlueprintRequest(); // \Omnismith\Model\PublishMarketplaceBlueprintRequest
+$publishMarketplaceBlueprintRequest = new \Omnismith\Sdk\Model\PublishMarketplaceBlueprintRequest(); // \Omnismith\Sdk\Model\PublishMarketplaceBlueprintRequest
 
 try {
-    $result = $apiInstance->publishMarketplaceBlueprint($publish_marketplace_blueprint_request);
+    $result = $apiInstance->publishMarketplaceBlueprint($publishMarketplaceBlueprintRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->publishMarketplaceBlueprint: ', $e->getMessage(), PHP_EOL;
@@ -274,11 +274,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **publish_marketplace_blueprint_request** | [**\Omnismith\Model\PublishMarketplaceBlueprintRequest**](../Model/PublishMarketplaceBlueprintRequest.md)|  | |
+| **publishMarketplaceBlueprintRequest** | [**\Omnismith\Sdk\Model\PublishMarketplaceBlueprintRequest**](../Model/PublishMarketplaceBlueprintRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\GetMarketplaceBlueprint200Response**](../Model/GetMarketplaceBlueprint200Response.md)
+[**\Omnismith\Sdk\Model\GetMarketplaceBlueprint200Response**](../Model/GetMarketplaceBlueprint200Response.md)
 
 ### Authorization
 
@@ -296,7 +296,7 @@ try {
 ## `searchMarketplaceBlueprints()`
 
 ```php
-searchMarketplaceBlueprints($search, $keywords, $limit, $offset, $sort_by, $sort_direction, $featured): \Omnismith\Model\SearchMarketplaceBlueprints200Response
+searchMarketplaceBlueprints($search, $keywords, $limit, $offset, $sortBy, $sortDirection, $featured): \Omnismith\Sdk\Model\SearchMarketplaceBlueprints200Response
 ```
 
 Search marketplace blueprints
@@ -309,7 +309,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new Omnismith\Api\MarketplaceApi(
+$apiInstance = new Omnismith\Sdk\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -318,12 +318,12 @@ $search = 'search_example'; // string | Free-text search on title and descriptio
 $keywords = 'keywords_example'; // string | Comma-separated keywords to filter by
 $limit = 20; // int | Number of results per page
 $offset = 0; // int | Pagination offset
-$sort_by = 'created_at'; // string | Sort field
-$sort_direction = 'desc'; // string | Sort direction
+$sortBy = 'created_at'; // string | Sort field
+$sortDirection = 'desc'; // string | Sort direction
 $featured = True; // bool | Filter by featured status
 
 try {
-    $result = $apiInstance->searchMarketplaceBlueprints($search, $keywords, $limit, $offset, $sort_by, $sort_direction, $featured);
+    $result = $apiInstance->searchMarketplaceBlueprints($search, $keywords, $limit, $offset, $sortBy, $sortDirection, $featured);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->searchMarketplaceBlueprints: ', $e->getMessage(), PHP_EOL;
@@ -338,13 +338,13 @@ try {
 | **keywords** | **string**| Comma-separated keywords to filter by | [optional] |
 | **limit** | **int**| Number of results per page | [optional] [default to 20] |
 | **offset** | **int**| Pagination offset | [optional] [default to 0] |
-| **sort_by** | **string**| Sort field | [optional] [default to &#39;created_at&#39;] |
-| **sort_direction** | **string**| Sort direction | [optional] [default to &#39;desc&#39;] |
+| **sortBy** | **string**| Sort field | [optional] [default to &#39;created_at&#39;] |
+| **sortDirection** | **string**| Sort direction | [optional] [default to &#39;desc&#39;] |
 | **featured** | **bool**| Filter by featured status | [optional] |
 
 ### Return type
 
-[**\Omnismith\Model\SearchMarketplaceBlueprints200Response**](../Model/SearchMarketplaceBlueprints200Response.md)
+[**\Omnismith\Sdk\Model\SearchMarketplaceBlueprints200Response**](../Model/SearchMarketplaceBlueprints200Response.md)
 
 ### Authorization
 

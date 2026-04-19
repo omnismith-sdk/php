@@ -1,4 +1,4 @@
-# Omnismith\AutomationPushDevicesApi
+# Omnismith\Sdk\AutomationPushDevicesApi
 
 
 
@@ -14,7 +14,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `listPushDevices()`
 
 ```php
-listPushDevices(): \Omnismith\Model\ListPushDevices200Response
+listPushDevices(): \Omnismith\Sdk\Model\ListPushDevices200Response
 ```
 
 List the current user's registered push devices
@@ -27,10 +27,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationPushDevicesApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationPushDevicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -51,7 +51,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\ListPushDevices200Response**](../Model/ListPushDevices200Response.md)
+[**\Omnismith\Sdk\Model\ListPushDevices200Response**](../Model/ListPushDevices200Response.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ This endpoint does not need any parameter.
 ## `registerPushDevice()`
 
 ```php
-registerPushDevice($register_push_device_request): \Omnismith\Model\CreateAttributeItem201Response
+registerPushDevice($registerPushDeviceRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
 ```
 
 Register a push notification device token
@@ -82,19 +82,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationPushDevicesApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationPushDevicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$register_push_device_request = new \Omnismith\Model\RegisterPushDeviceRequest(); // \Omnismith\Model\RegisterPushDeviceRequest
+$registerPushDeviceRequest = new \Omnismith\Sdk\Model\RegisterPushDeviceRequest(); // \Omnismith\Sdk\Model\RegisterPushDeviceRequest
 
 try {
-    $result = $apiInstance->registerPushDevice($register_push_device_request);
+    $result = $apiInstance->registerPushDevice($registerPushDeviceRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationPushDevicesApi->registerPushDevice: ', $e->getMessage(), PHP_EOL;
@@ -105,11 +105,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **register_push_device_request** | [**\Omnismith\Model\RegisterPushDeviceRequest**](../Model/RegisterPushDeviceRequest.md)|  | |
+| **registerPushDeviceRequest** | [**\Omnismith\Sdk\Model\RegisterPushDeviceRequest**](../Model/RegisterPushDeviceRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
 
 ### Authorization
 
@@ -127,7 +127,7 @@ try {
 ## `unregisterPushDevice()`
 
 ```php
-unregisterPushDevice($unregister_push_device_request)
+unregisterPushDevice($unregisterPushDeviceRequest)
 ```
 
 Unregister a push notification device token
@@ -140,19 +140,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationPushDevicesApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationPushDevicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$unregister_push_device_request = new \Omnismith\Model\UnregisterPushDeviceRequest(); // \Omnismith\Model\UnregisterPushDeviceRequest
+$unregisterPushDeviceRequest = new \Omnismith\Sdk\Model\UnregisterPushDeviceRequest(); // \Omnismith\Sdk\Model\UnregisterPushDeviceRequest
 
 try {
-    $apiInstance->unregisterPushDevice($unregister_push_device_request);
+    $apiInstance->unregisterPushDevice($unregisterPushDeviceRequest);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationPushDevicesApi->unregisterPushDevice: ', $e->getMessage(), PHP_EOL;
 }
@@ -162,7 +162,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **unregister_push_device_request** | [**\Omnismith\Model\UnregisterPushDeviceRequest**](../Model/UnregisterPushDeviceRequest.md)|  | |
+| **unregisterPushDeviceRequest** | [**\Omnismith\Sdk\Model\UnregisterPushDeviceRequest**](../Model/UnregisterPushDeviceRequest.md)|  | |
 
 ### Return type
 

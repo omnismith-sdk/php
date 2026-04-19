@@ -1,4 +1,4 @@
-# Omnismith\ProjectsApi
+# Omnismith\Sdk\ProjectsApi
 
 Projects
 
@@ -21,7 +21,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `assignUserToProject()`
 
 ```php
-assignUserToProject($id, $assign_user_to_project_request)
+assignUserToProject($id, $assignUserToProjectRequest)
 ```
 
 Assign user to project
@@ -34,20 +34,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\ProjectsApi(
+$apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string
-$assign_user_to_project_request = new \Omnismith\Model\AssignUserToProjectRequest(); // \Omnismith\Model\AssignUserToProjectRequest
+$assignUserToProjectRequest = new \Omnismith\Sdk\Model\AssignUserToProjectRequest(); // \Omnismith\Sdk\Model\AssignUserToProjectRequest
 
 try {
-    $apiInstance->assignUserToProject($id, $assign_user_to_project_request);
+    $apiInstance->assignUserToProject($id, $assignUserToProjectRequest);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->assignUserToProject: ', $e->getMessage(), PHP_EOL;
 }
@@ -58,7 +58,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **assign_user_to_project_request** | [**\Omnismith\Model\AssignUserToProjectRequest**](../Model/AssignUserToProjectRequest.md)|  | |
+| **assignUserToProjectRequest** | [**\Omnismith\Sdk\Model\AssignUserToProjectRequest**](../Model/AssignUserToProjectRequest.md)|  | |
 
 ### Return type
 
@@ -80,7 +80,7 @@ void (empty response body)
 ## `createProject()`
 
 ```php
-createProject($create_project_request): \Omnismith\Model\CreateAttributeItem201Response
+createProject($createProjectRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
 ```
 
 Create a new project
@@ -93,19 +93,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\ProjectsApi(
+$apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_project_request = new \Omnismith\Model\CreateProjectRequest(); // \Omnismith\Model\CreateProjectRequest
+$createProjectRequest = new \Omnismith\Sdk\Model\CreateProjectRequest(); // \Omnismith\Sdk\Model\CreateProjectRequest
 
 try {
-    $result = $apiInstance->createProject($create_project_request);
+    $result = $apiInstance->createProject($createProjectRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->createProject: ', $e->getMessage(), PHP_EOL;
@@ -116,11 +116,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_project_request** | [**\Omnismith\Model\CreateProjectRequest**](../Model/CreateProjectRequest.md)|  | |
+| **createProjectRequest** | [**\Omnismith\Sdk\Model\CreateProjectRequest**](../Model/CreateProjectRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
 
 ### Authorization
 
@@ -151,10 +151,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\ProjectsApi(
+$apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -210,10 +210,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\ProjectsApi(
+$apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -254,7 +254,7 @@ void (empty response body)
 ## `getProject()`
 
 ```php
-getProject($id): \Omnismith\Model\ProjectResponse
+getProject($id): \Omnismith\Sdk\Model\ProjectResponse
 ```
 
 Get a project by ID
@@ -267,10 +267,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\ProjectsApi(
+$apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -294,7 +294,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\ProjectResponse**](../Model/ProjectResponse.md)
+[**\Omnismith\Sdk\Model\ProjectResponse**](../Model/ProjectResponse.md)
 
 ### Authorization
 
@@ -312,7 +312,7 @@ try {
 ## `inviteUserToProject()`
 
 ```php
-inviteUserToProject($id, $invite_user_to_project_request)
+inviteUserToProject($id, $inviteUserToProjectRequest)
 ```
 
 Invite user to project by email
@@ -327,20 +327,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\ProjectsApi(
+$apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | Project ID
-$invite_user_to_project_request = new \Omnismith\Model\InviteUserToProjectRequest(); // \Omnismith\Model\InviteUserToProjectRequest
+$inviteUserToProjectRequest = new \Omnismith\Sdk\Model\InviteUserToProjectRequest(); // \Omnismith\Sdk\Model\InviteUserToProjectRequest
 
 try {
-    $apiInstance->inviteUserToProject($id, $invite_user_to_project_request);
+    $apiInstance->inviteUserToProject($id, $inviteUserToProjectRequest);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->inviteUserToProject: ', $e->getMessage(), PHP_EOL;
 }
@@ -351,7 +351,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Project ID | |
-| **invite_user_to_project_request** | [**\Omnismith\Model\InviteUserToProjectRequest**](../Model/InviteUserToProjectRequest.md)|  | |
+| **inviteUserToProjectRequest** | [**\Omnismith\Sdk\Model\InviteUserToProjectRequest**](../Model/InviteUserToProjectRequest.md)|  | |
 
 ### Return type
 
@@ -373,7 +373,7 @@ void (empty response body)
 ## `listProjectUsers()`
 
 ```php
-listProjectUsers($id): \Omnismith\Model\ListProjectUsers200Response
+listProjectUsers($id): \Omnismith\Sdk\Model\ListProjectUsers200Response
 ```
 
 List users in project
@@ -386,10 +386,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\ProjectsApi(
+$apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -413,7 +413,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\ListProjectUsers200Response**](../Model/ListProjectUsers200Response.md)
+[**\Omnismith\Sdk\Model\ListProjectUsers200Response**](../Model/ListProjectUsers200Response.md)
 
 ### Authorization
 
@@ -431,7 +431,7 @@ try {
 ## `listProjects()`
 
 ```php
-listProjects(): \Omnismith\Model\ListProjects200Response
+listProjects(): \Omnismith\Sdk\Model\ListProjects200Response
 ```
 
 List all projects
@@ -444,10 +444,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\ProjectsApi(
+$apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -468,7 +468,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\ListProjects200Response**](../Model/ListProjects200Response.md)
+[**\Omnismith\Sdk\Model\ListProjects200Response**](../Model/ListProjects200Response.md)
 
 ### Authorization
 
@@ -486,7 +486,7 @@ This endpoint does not need any parameter.
 ## `removeUserFromProject()`
 
 ```php
-removeUserFromProject($id, $user_id)
+removeUserFromProject($id, $userId)
 ```
 
 Remove user from project
@@ -499,20 +499,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\ProjectsApi(
+$apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string
-$user_id = 'user_id_example'; // string
+$userId = 'userId_example'; // string
 
 try {
-    $apiInstance->removeUserFromProject($id, $user_id);
+    $apiInstance->removeUserFromProject($id, $userId);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->removeUserFromProject: ', $e->getMessage(), PHP_EOL;
 }
@@ -523,7 +523,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **user_id** | **string**|  | |
+| **userId** | **string**|  | |
 
 ### Return type
 
@@ -545,7 +545,7 @@ void (empty response body)
 ## `updateProject()`
 
 ```php
-updateProject($id, $update_project_request)
+updateProject($id, $updateProjectRequest)
 ```
 
 Update a project
@@ -558,20 +558,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\ProjectsApi(
+$apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string
-$update_project_request = new \Omnismith\Model\UpdateProjectRequest(); // \Omnismith\Model\UpdateProjectRequest
+$updateProjectRequest = new \Omnismith\Sdk\Model\UpdateProjectRequest(); // \Omnismith\Sdk\Model\UpdateProjectRequest
 
 try {
-    $apiInstance->updateProject($id, $update_project_request);
+    $apiInstance->updateProject($id, $updateProjectRequest);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->updateProject: ', $e->getMessage(), PHP_EOL;
 }
@@ -582,7 +582,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **update_project_request** | [**\Omnismith\Model\UpdateProjectRequest**](../Model/UpdateProjectRequest.md)|  | |
+| **updateProjectRequest** | [**\Omnismith\Sdk\Model\UpdateProjectRequest**](../Model/UpdateProjectRequest.md)|  | |
 
 ### Return type
 

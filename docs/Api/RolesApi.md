@@ -1,4 +1,4 @@
-# Omnismith\RolesApi
+# Omnismith\Sdk\RolesApi
 
 Roles
 
@@ -21,7 +21,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createRole()`
 
 ```php
-createRole($create_role_request): \Omnismith\Model\CreateAttributeItem201Response
+createRole($createRoleRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
 ```
 
 Create a new role
@@ -34,19 +34,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\RolesApi(
+$apiInstance = new Omnismith\Sdk\Api\RolesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_role_request = new \Omnismith\Model\CreateRoleRequest(); // \Omnismith\Model\CreateRoleRequest
+$createRoleRequest = new \Omnismith\Sdk\Model\CreateRoleRequest(); // \Omnismith\Sdk\Model\CreateRoleRequest
 
 try {
-    $result = $apiInstance->createRole($create_role_request);
+    $result = $apiInstance->createRole($createRoleRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->createRole: ', $e->getMessage(), PHP_EOL;
@@ -57,11 +57,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_role_request** | [**\Omnismith\Model\CreateRoleRequest**](../Model/CreateRoleRequest.md)|  | |
+| **createRoleRequest** | [**\Omnismith\Sdk\Model\CreateRoleRequest**](../Model/CreateRoleRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
 
 ### Authorization
 
@@ -92,10 +92,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\RolesApi(
+$apiInstance = new Omnismith\Sdk\Api\RolesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -136,7 +136,7 @@ void (empty response body)
 ## `getRole()`
 
 ```php
-getRole($id): \Omnismith\Model\RoleResponse
+getRole($id): \Omnismith\Sdk\Model\RoleResponse
 ```
 
 Get a role
@@ -149,10 +149,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\RolesApi(
+$apiInstance = new Omnismith\Sdk\Api\RolesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -176,7 +176,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\RoleResponse**](../Model/RoleResponse.md)
+[**\Omnismith\Sdk\Model\RoleResponse**](../Model/RoleResponse.md)
 
 ### Authorization
 
@@ -194,7 +194,7 @@ try {
 ## `getRolePermissions()`
 
 ```php
-getRolePermissions($id): \Omnismith\Model\GetRolePermissions200Response
+getRolePermissions($id): \Omnismith\Sdk\Model\GetRolePermissions200Response
 ```
 
 Get role permissions
@@ -207,10 +207,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\RolesApi(
+$apiInstance = new Omnismith\Sdk\Api\RolesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -234,7 +234,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\GetRolePermissions200Response**](../Model/GetRolePermissions200Response.md)
+[**\Omnismith\Sdk\Model\GetRolePermissions200Response**](../Model/GetRolePermissions200Response.md)
 
 ### Authorization
 
@@ -252,7 +252,7 @@ try {
 ## `getRoleResources()`
 
 ```php
-getRoleResources($id): \Omnismith\Model\GetRoleResources200Response
+getRoleResources($id): \Omnismith\Sdk\Model\GetRoleResources200Response
 ```
 
 Get role resource restrictions
@@ -265,10 +265,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\RolesApi(
+$apiInstance = new Omnismith\Sdk\Api\RolesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -292,7 +292,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\GetRoleResources200Response**](../Model/GetRoleResources200Response.md)
+[**\Omnismith\Sdk\Model\GetRoleResources200Response**](../Model/GetRoleResources200Response.md)
 
 ### Authorization
 
@@ -310,7 +310,7 @@ try {
 ## `listAvailablePermissions()`
 
 ```php
-listAvailablePermissions(): \Omnismith\Model\ListAvailablePermissions200Response
+listAvailablePermissions(): \Omnismith\Sdk\Model\ListAvailablePermissions200Response
 ```
 
 List available permissions for role assignment
@@ -325,10 +325,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\RolesApi(
+$apiInstance = new Omnismith\Sdk\Api\RolesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -349,7 +349,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\ListAvailablePermissions200Response**](../Model/ListAvailablePermissions200Response.md)
+[**\Omnismith\Sdk\Model\ListAvailablePermissions200Response**](../Model/ListAvailablePermissions200Response.md)
 
 ### Authorization
 
@@ -367,7 +367,7 @@ This endpoint does not need any parameter.
 ## `listRoles()`
 
 ```php
-listRoles(): \Omnismith\Model\ListRoles200Response
+listRoles(): \Omnismith\Sdk\Model\ListRoles200Response
 ```
 
 List roles
@@ -380,10 +380,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\RolesApi(
+$apiInstance = new Omnismith\Sdk\Api\RolesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -404,7 +404,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\ListRoles200Response**](../Model/ListRoles200Response.md)
+[**\Omnismith\Sdk\Model\ListRoles200Response**](../Model/ListRoles200Response.md)
 
 ### Authorization
 
@@ -422,7 +422,7 @@ This endpoint does not need any parameter.
 ## `setRolePermissions()`
 
 ```php
-setRolePermissions($id, $set_role_permissions_request)
+setRolePermissions($id, $setRolePermissionsRequest)
 ```
 
 Set role permissions
@@ -435,20 +435,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\RolesApi(
+$apiInstance = new Omnismith\Sdk\Api\RolesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | Role ID
-$set_role_permissions_request = new \Omnismith\Model\SetRolePermissionsRequest(); // \Omnismith\Model\SetRolePermissionsRequest
+$setRolePermissionsRequest = new \Omnismith\Sdk\Model\SetRolePermissionsRequest(); // \Omnismith\Sdk\Model\SetRolePermissionsRequest
 
 try {
-    $apiInstance->setRolePermissions($id, $set_role_permissions_request);
+    $apiInstance->setRolePermissions($id, $setRolePermissionsRequest);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->setRolePermissions: ', $e->getMessage(), PHP_EOL;
 }
@@ -459,7 +459,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Role ID | |
-| **set_role_permissions_request** | [**\Omnismith\Model\SetRolePermissionsRequest**](../Model/SetRolePermissionsRequest.md)|  | |
+| **setRolePermissionsRequest** | [**\Omnismith\Sdk\Model\SetRolePermissionsRequest**](../Model/SetRolePermissionsRequest.md)|  | |
 
 ### Return type
 
@@ -481,7 +481,7 @@ void (empty response body)
 ## `setRoleResources()`
 
 ```php
-setRoleResources($id, $set_role_resources_request)
+setRoleResources($id, $setRoleResourcesRequest)
 ```
 
 Set role resource restrictions
@@ -494,20 +494,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\RolesApi(
+$apiInstance = new Omnismith\Sdk\Api\RolesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | Role ID
-$set_role_resources_request = new \Omnismith\Model\SetRoleResourcesRequest(); // \Omnismith\Model\SetRoleResourcesRequest
+$setRoleResourcesRequest = new \Omnismith\Sdk\Model\SetRoleResourcesRequest(); // \Omnismith\Sdk\Model\SetRoleResourcesRequest
 
 try {
-    $apiInstance->setRoleResources($id, $set_role_resources_request);
+    $apiInstance->setRoleResources($id, $setRoleResourcesRequest);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->setRoleResources: ', $e->getMessage(), PHP_EOL;
 }
@@ -518,7 +518,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Role ID | |
-| **set_role_resources_request** | [**\Omnismith\Model\SetRoleResourcesRequest**](../Model/SetRoleResourcesRequest.md)|  | |
+| **setRoleResourcesRequest** | [**\Omnismith\Sdk\Model\SetRoleResourcesRequest**](../Model/SetRoleResourcesRequest.md)|  | |
 
 ### Return type
 
@@ -540,7 +540,7 @@ void (empty response body)
 ## `updateRole()`
 
 ```php
-updateRole($id, $update_role_request)
+updateRole($id, $updateRoleRequest)
 ```
 
 Update a role
@@ -553,20 +553,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\RolesApi(
+$apiInstance = new Omnismith\Sdk\Api\RolesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | Role ID
-$update_role_request = new \Omnismith\Model\UpdateRoleRequest(); // \Omnismith\Model\UpdateRoleRequest
+$updateRoleRequest = new \Omnismith\Sdk\Model\UpdateRoleRequest(); // \Omnismith\Sdk\Model\UpdateRoleRequest
 
 try {
-    $apiInstance->updateRole($id, $update_role_request);
+    $apiInstance->updateRole($id, $updateRoleRequest);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->updateRole: ', $e->getMessage(), PHP_EOL;
 }
@@ -577,7 +577,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Role ID | |
-| **update_role_request** | [**\Omnismith\Model\UpdateRoleRequest**](../Model/UpdateRoleRequest.md)|  | |
+| **updateRoleRequest** | [**\Omnismith\Sdk\Model\UpdateRoleRequest**](../Model/UpdateRoleRequest.md)|  | |
 
 ### Return type
 

@@ -1,4 +1,4 @@
-# Omnismith\DashboardsApi
+# Omnismith\Sdk\DashboardsApi
 
 Dashboards
 
@@ -16,7 +16,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createDashboard()`
 
 ```php
-createDashboard($create_dashboard_request): \Omnismith\Model\CreateAttributeItem201Response
+createDashboard($createDashboardRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
 ```
 
 Create a new dashboard
@@ -29,19 +29,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\DashboardsApi(
+$apiInstance = new Omnismith\Sdk\Api\DashboardsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_dashboard_request = new \Omnismith\Model\CreateDashboardRequest(); // \Omnismith\Model\CreateDashboardRequest
+$createDashboardRequest = new \Omnismith\Sdk\Model\CreateDashboardRequest(); // \Omnismith\Sdk\Model\CreateDashboardRequest
 
 try {
-    $result = $apiInstance->createDashboard($create_dashboard_request);
+    $result = $apiInstance->createDashboard($createDashboardRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DashboardsApi->createDashboard: ', $e->getMessage(), PHP_EOL;
@@ -52,11 +52,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_dashboard_request** | [**\Omnismith\Model\CreateDashboardRequest**](../Model/CreateDashboardRequest.md)|  | |
+| **createDashboardRequest** | [**\Omnismith\Sdk\Model\CreateDashboardRequest**](../Model/CreateDashboardRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
 
 ### Authorization
 
@@ -87,10 +87,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\DashboardsApi(
+$apiInstance = new Omnismith\Sdk\Api\DashboardsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -131,7 +131,7 @@ void (empty response body)
 ## `getDashboard()`
 
 ```php
-getDashboard($id): \Omnismith\Model\DashboardResponse
+getDashboard($id): \Omnismith\Sdk\Model\DashboardResponse
 ```
 
 Get a dashboard by ID
@@ -144,10 +144,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\DashboardsApi(
+$apiInstance = new Omnismith\Sdk\Api\DashboardsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -171,7 +171,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\DashboardResponse**](../Model/DashboardResponse.md)
+[**\Omnismith\Sdk\Model\DashboardResponse**](../Model/DashboardResponse.md)
 
 ### Authorization
 
@@ -189,7 +189,7 @@ try {
 ## `listDashboards()`
 
 ```php
-listDashboards(): \Omnismith\Model\ListDashboards200Response
+listDashboards(): \Omnismith\Sdk\Model\ListDashboards200Response
 ```
 
 List all dashboards
@@ -202,10 +202,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\DashboardsApi(
+$apiInstance = new Omnismith\Sdk\Api\DashboardsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -226,7 +226,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\ListDashboards200Response**](../Model/ListDashboards200Response.md)
+[**\Omnismith\Sdk\Model\ListDashboards200Response**](../Model/ListDashboards200Response.md)
 
 ### Authorization
 
@@ -244,7 +244,7 @@ This endpoint does not need any parameter.
 ## `updateDashboard()`
 
 ```php
-updateDashboard($id, $update_dashboard_request)
+updateDashboard($id, $updateDashboardRequest)
 ```
 
 Update a dashboard
@@ -257,20 +257,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\DashboardsApi(
+$apiInstance = new Omnismith\Sdk\Api\DashboardsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | Dashboard ID
-$update_dashboard_request = new \Omnismith\Model\UpdateDashboardRequest(); // \Omnismith\Model\UpdateDashboardRequest
+$updateDashboardRequest = new \Omnismith\Sdk\Model\UpdateDashboardRequest(); // \Omnismith\Sdk\Model\UpdateDashboardRequest
 
 try {
-    $apiInstance->updateDashboard($id, $update_dashboard_request);
+    $apiInstance->updateDashboard($id, $updateDashboardRequest);
 } catch (Exception $e) {
     echo 'Exception when calling DashboardsApi->updateDashboard: ', $e->getMessage(), PHP_EOL;
 }
@@ -281,7 +281,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Dashboard ID | |
-| **update_dashboard_request** | [**\Omnismith\Model\UpdateDashboardRequest**](../Model/UpdateDashboardRequest.md)|  | |
+| **updateDashboardRequest** | [**\Omnismith\Sdk\Model\UpdateDashboardRequest**](../Model/UpdateDashboardRequest.md)|  | |
 
 ### Return type
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **config** | **object** |  | [optional]
-**created_at** | **\DateTime** |  | [optional]
-**updated_at** | **\DateTime** |  | [optional]
+**createdAt** | **\DateTime** |  | [optional]
+**updatedAt** | **\DateTime** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

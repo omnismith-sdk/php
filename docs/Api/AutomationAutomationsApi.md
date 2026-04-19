@@ -1,4 +1,4 @@
-# Omnismith\AutomationAutomationsApi
+# Omnismith\Sdk\AutomationAutomationsApi
 
 
 
@@ -18,7 +18,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createAutomation()`
 
 ```php
-createAutomation($create_automation_request): \Omnismith\Model\CreateAttributeItem201Response
+createAutomation($createAutomationRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
 ```
 
 Create a new automation
@@ -31,19 +31,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationAutomationsApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_automation_request = new \Omnismith\Model\CreateAutomationRequest(); // \Omnismith\Model\CreateAutomationRequest
+$createAutomationRequest = new \Omnismith\Sdk\Model\CreateAutomationRequest(); // \Omnismith\Sdk\Model\CreateAutomationRequest
 
 try {
-    $result = $apiInstance->createAutomation($create_automation_request);
+    $result = $apiInstance->createAutomation($createAutomationRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationAutomationsApi->createAutomation: ', $e->getMessage(), PHP_EOL;
@@ -54,11 +54,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_automation_request** | [**\Omnismith\Model\CreateAutomationRequest**](../Model/CreateAutomationRequest.md)|  | |
+| **createAutomationRequest** | [**\Omnismith\Sdk\Model\CreateAutomationRequest**](../Model/CreateAutomationRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
 
 ### Authorization
 
@@ -89,10 +89,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationAutomationsApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -133,7 +133,7 @@ void (empty response body)
 ## `getAutomation()`
 
 ```php
-getAutomation($id): \Omnismith\Model\AutomationResponse
+getAutomation($id): \Omnismith\Sdk\Model\AutomationResponse
 ```
 
 Get an automation by ID
@@ -146,10 +146,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationAutomationsApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -173,7 +173,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\AutomationResponse**](../Model/AutomationResponse.md)
+[**\Omnismith\Sdk\Model\AutomationResponse**](../Model/AutomationResponse.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ try {
 ## `listAutomationExecutions()`
 
 ```php
-listAutomationExecutions($id, $limit, $offset, $status): \Omnismith\Model\ListAutomationExecutions200Response
+listAutomationExecutions($id, $limit, $offset, $status): \Omnismith\Sdk\Model\ListAutomationExecutions200Response
 ```
 
 List automation executions
@@ -204,10 +204,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationAutomationsApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -237,7 +237,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\ListAutomationExecutions200Response**](../Model/ListAutomationExecutions200Response.md)
+[**\Omnismith\Sdk\Model\ListAutomationExecutions200Response**](../Model/ListAutomationExecutions200Response.md)
 
 ### Authorization
 
@@ -255,7 +255,7 @@ try {
 ## `listAutomations()`
 
 ```php
-listAutomations($template_id, $is_enabled): \Omnismith\Model\AutomationResponse[]
+listAutomations($templateId, $isEnabled): \Omnismith\Sdk\Model\AutomationResponse[]
 ```
 
 List automations
@@ -268,20 +268,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationAutomationsApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$template_id = 'template_id_example'; // string | Filter by template ID
-$is_enabled = True; // bool | Filter by enabled status
+$templateId = 'templateId_example'; // string | Filter by template ID
+$isEnabled = True; // bool | Filter by enabled status
 
 try {
-    $result = $apiInstance->listAutomations($template_id, $is_enabled);
+    $result = $apiInstance->listAutomations($templateId, $isEnabled);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationAutomationsApi->listAutomations: ', $e->getMessage(), PHP_EOL;
@@ -292,12 +292,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **template_id** | **string**| Filter by template ID | [optional] |
-| **is_enabled** | **bool**| Filter by enabled status | [optional] |
+| **templateId** | **string**| Filter by template ID | [optional] |
+| **isEnabled** | **bool**| Filter by enabled status | [optional] |
 
 ### Return type
 
-[**\Omnismith\Model\AutomationResponse[]**](../Model/AutomationResponse.md)
+[**\Omnismith\Sdk\Model\AutomationResponse[]**](../Model/AutomationResponse.md)
 
 ### Authorization
 
@@ -315,7 +315,7 @@ try {
 ## `toggleAutomation()`
 
 ```php
-toggleAutomation($id, $toggle_automation_request): \Omnismith\Model\AutomationResponse
+toggleAutomation($id, $toggleAutomationRequest): \Omnismith\Sdk\Model\AutomationResponse
 ```
 
 Toggle automation enabled status
@@ -328,20 +328,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationAutomationsApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string
-$toggle_automation_request = new \Omnismith\Model\ToggleAutomationRequest(); // \Omnismith\Model\ToggleAutomationRequest
+$toggleAutomationRequest = new \Omnismith\Sdk\Model\ToggleAutomationRequest(); // \Omnismith\Sdk\Model\ToggleAutomationRequest
 
 try {
-    $result = $apiInstance->toggleAutomation($id, $toggle_automation_request);
+    $result = $apiInstance->toggleAutomation($id, $toggleAutomationRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationAutomationsApi->toggleAutomation: ', $e->getMessage(), PHP_EOL;
@@ -353,11 +353,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **toggle_automation_request** | [**\Omnismith\Model\ToggleAutomationRequest**](../Model/ToggleAutomationRequest.md)|  | |
+| **toggleAutomationRequest** | [**\Omnismith\Sdk\Model\ToggleAutomationRequest**](../Model/ToggleAutomationRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\AutomationResponse**](../Model/AutomationResponse.md)
+[**\Omnismith\Sdk\Model\AutomationResponse**](../Model/AutomationResponse.md)
 
 ### Authorization
 
@@ -375,7 +375,7 @@ try {
 ## `updateAutomation()`
 
 ```php
-updateAutomation($id, $update_automation_request)
+updateAutomation($id, $updateAutomationRequest)
 ```
 
 Update an automation
@@ -388,20 +388,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AutomationAutomationsApi(
+$apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string
-$update_automation_request = new \Omnismith\Model\UpdateAutomationRequest(); // \Omnismith\Model\UpdateAutomationRequest
+$updateAutomationRequest = new \Omnismith\Sdk\Model\UpdateAutomationRequest(); // \Omnismith\Sdk\Model\UpdateAutomationRequest
 
 try {
-    $apiInstance->updateAutomation($id, $update_automation_request);
+    $apiInstance->updateAutomation($id, $updateAutomationRequest);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationAutomationsApi->updateAutomation: ', $e->getMessage(), PHP_EOL;
 }
@@ -412,7 +412,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **update_automation_request** | [**\Omnismith\Model\UpdateAutomationRequest**](../Model/UpdateAutomationRequest.md)|  | |
+| **updateAutomationRequest** | [**\Omnismith\Sdk\Model\UpdateAutomationRequest**](../Model/UpdateAutomationRequest.md)|  | |
 
 ### Return type
 

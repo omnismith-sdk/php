@@ -1,4 +1,4 @@
-# Omnismith\AttributesApi
+# Omnismith\Sdk\AttributesApi
 
 Attributes
 
@@ -25,7 +25,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createAttribute()`
 
 ```php
-createAttribute($create_attribute_request): \Omnismith\Model\CreateAttributeItem201Response
+createAttribute($createAttributeRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
 ```
 
 Create a new attribute
@@ -38,19 +38,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AttributesApi(
+$apiInstance = new Omnismith\Sdk\Api\AttributesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_attribute_request = new \Omnismith\Model\CreateAttributeRequest(); // \Omnismith\Model\CreateAttributeRequest
+$createAttributeRequest = new \Omnismith\Sdk\Model\CreateAttributeRequest(); // \Omnismith\Sdk\Model\CreateAttributeRequest
 
 try {
-    $result = $apiInstance->createAttribute($create_attribute_request);
+    $result = $apiInstance->createAttribute($createAttributeRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AttributesApi->createAttribute: ', $e->getMessage(), PHP_EOL;
@@ -61,11 +61,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_attribute_request** | [**\Omnismith\Model\CreateAttributeRequest**](../Model/CreateAttributeRequest.md)|  | |
+| **createAttributeRequest** | [**\Omnismith\Sdk\Model\CreateAttributeRequest**](../Model/CreateAttributeRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ try {
 ## `createAttributeItem()`
 
 ```php
-createAttributeItem($id, $add_list_item_request): \Omnismith\Model\CreateAttributeItem201Response
+createAttributeItem($id, $addListItemRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
 ```
 
 Add a list item to an attribute
@@ -96,20 +96,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AttributesApi(
+$apiInstance = new Omnismith\Sdk\Api\AttributesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | Attribute ID
-$add_list_item_request = new \Omnismith\Model\AddListItemRequest(); // \Omnismith\Model\AddListItemRequest
+$addListItemRequest = new \Omnismith\Sdk\Model\AddListItemRequest(); // \Omnismith\Sdk\Model\AddListItemRequest
 
 try {
-    $result = $apiInstance->createAttributeItem($id, $add_list_item_request);
+    $result = $apiInstance->createAttributeItem($id, $addListItemRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AttributesApi->createAttributeItem: ', $e->getMessage(), PHP_EOL;
@@ -121,11 +121,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Attribute ID | |
-| **add_list_item_request** | [**\Omnismith\Model\AddListItemRequest**](../Model/AddListItemRequest.md)|  | |
+| **addListItemRequest** | [**\Omnismith\Sdk\Model\AddListItemRequest**](../Model/AddListItemRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
 
 ### Authorization
 
@@ -156,10 +156,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AttributesApi(
+$apiInstance = new Omnismith\Sdk\Api\AttributesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -200,7 +200,7 @@ void (empty response body)
 ## `deleteAttributeItem()`
 
 ```php
-deleteAttributeItem($id, $item_id)
+deleteAttributeItem($id, $itemId)
 ```
 
 Remove a list item from an attribute
@@ -213,20 +213,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AttributesApi(
+$apiInstance = new Omnismith\Sdk\Api\AttributesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | Attribute ID
-$item_id = 'item_id_example'; // string | List Item ID
+$itemId = 'itemId_example'; // string | List Item ID
 
 try {
-    $apiInstance->deleteAttributeItem($id, $item_id);
+    $apiInstance->deleteAttributeItem($id, $itemId);
 } catch (Exception $e) {
     echo 'Exception when calling AttributesApi->deleteAttributeItem: ', $e->getMessage(), PHP_EOL;
 }
@@ -237,7 +237,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Attribute ID | |
-| **item_id** | **string**| List Item ID | |
+| **itemId** | **string**| List Item ID | |
 
 ### Return type
 
@@ -272,10 +272,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AttributesApi(
+$apiInstance = new Omnismith\Sdk\Api\AttributesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -316,7 +316,7 @@ void (empty response body)
 ## `getAttribute()`
 
 ```php
-getAttribute($id): \Omnismith\Model\AttributeResponse
+getAttribute($id): \Omnismith\Sdk\Model\AttributeResponse
 ```
 
 Get an attribute
@@ -329,10 +329,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AttributesApi(
+$apiInstance = new Omnismith\Sdk\Api\AttributesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -356,7 +356,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\AttributeResponse**](../Model/AttributeResponse.md)
+[**\Omnismith\Sdk\Model\AttributeResponse**](../Model/AttributeResponse.md)
 
 ### Authorization
 
@@ -374,7 +374,7 @@ try {
 ## `getAttributeReferenceConfig()`
 
 ```php
-getAttributeReferenceConfig($id): \Omnismith\Model\ReferenceConfigResponse
+getAttributeReferenceConfig($id): \Omnismith\Sdk\Model\ReferenceConfigResponse
 ```
 
 Get reference configuration for an attribute
@@ -387,10 +387,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AttributesApi(
+$apiInstance = new Omnismith\Sdk\Api\AttributesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -414,7 +414,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\ReferenceConfigResponse**](../Model/ReferenceConfigResponse.md)
+[**\Omnismith\Sdk\Model\ReferenceConfigResponse**](../Model/ReferenceConfigResponse.md)
 
 ### Authorization
 
@@ -432,7 +432,7 @@ try {
 ## `getProjectSchema()`
 
 ```php
-getProjectSchema(): \Omnismith\Model\ProjectSchemaResponse
+getProjectSchema(): \Omnismith\Sdk\Model\ProjectSchemaResponse
 ```
 
 Get complete project schema
@@ -447,10 +447,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AttributesApi(
+$apiInstance = new Omnismith\Sdk\Api\AttributesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -471,7 +471,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\ProjectSchemaResponse**](../Model/ProjectSchemaResponse.md)
+[**\Omnismith\Sdk\Model\ProjectSchemaResponse**](../Model/ProjectSchemaResponse.md)
 
 ### Authorization
 
@@ -489,7 +489,7 @@ This endpoint does not need any parameter.
 ## `listAttributeItems()`
 
 ```php
-listAttributeItems($id): \Omnismith\Model\ListAttributeItems200Response
+listAttributeItems($id): \Omnismith\Sdk\Model\ListAttributeItems200Response
 ```
 
 List items of an attribute
@@ -502,10 +502,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AttributesApi(
+$apiInstance = new Omnismith\Sdk\Api\AttributesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -529,7 +529,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Model\ListAttributeItems200Response**](../Model/ListAttributeItems200Response.md)
+[**\Omnismith\Sdk\Model\ListAttributeItems200Response**](../Model/ListAttributeItems200Response.md)
 
 ### Authorization
 
@@ -547,7 +547,7 @@ try {
 ## `listAttributes()`
 
 ```php
-listAttributes(): \Omnismith\Model\ListAttributes200Response
+listAttributes(): \Omnismith\Sdk\Model\ListAttributes200Response
 ```
 
 List attributes
@@ -560,10 +560,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AttributesApi(
+$apiInstance = new Omnismith\Sdk\Api\AttributesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -584,7 +584,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\ListAttributes200Response**](../Model/ListAttributes200Response.md)
+[**\Omnismith\Sdk\Model\ListAttributes200Response**](../Model/ListAttributes200Response.md)
 
 ### Authorization
 
@@ -602,7 +602,7 @@ This endpoint does not need any parameter.
 ## `setAttributeItems()`
 
 ```php
-setAttributeItems($id, $set_list_items_request)
+setAttributeItems($id, $setListItemsRequest)
 ```
 
 Set list items for an attribute (replaces all existing items)
@@ -615,20 +615,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AttributesApi(
+$apiInstance = new Omnismith\Sdk\Api\AttributesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | Attribute ID
-$set_list_items_request = new \Omnismith\Model\SetListItemsRequest(); // \Omnismith\Model\SetListItemsRequest
+$setListItemsRequest = new \Omnismith\Sdk\Model\SetListItemsRequest(); // \Omnismith\Sdk\Model\SetListItemsRequest
 
 try {
-    $apiInstance->setAttributeItems($id, $set_list_items_request);
+    $apiInstance->setAttributeItems($id, $setListItemsRequest);
 } catch (Exception $e) {
     echo 'Exception when calling AttributesApi->setAttributeItems: ', $e->getMessage(), PHP_EOL;
 }
@@ -639,7 +639,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Attribute ID | |
-| **set_list_items_request** | [**\Omnismith\Model\SetListItemsRequest**](../Model/SetListItemsRequest.md)|  | |
+| **setListItemsRequest** | [**\Omnismith\Sdk\Model\SetListItemsRequest**](../Model/SetListItemsRequest.md)|  | |
 
 ### Return type
 
@@ -661,7 +661,7 @@ void (empty response body)
 ## `setAttributeReferenceConfig()`
 
 ```php
-setAttributeReferenceConfig($id, $set_reference_config_request)
+setAttributeReferenceConfig($id, $setReferenceConfigRequest)
 ```
 
 Set or update reference configuration for an attribute
@@ -674,20 +674,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AttributesApi(
+$apiInstance = new Omnismith\Sdk\Api\AttributesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | Attribute ID
-$set_reference_config_request = new \Omnismith\Model\SetReferenceConfigRequest(); // \Omnismith\Model\SetReferenceConfigRequest
+$setReferenceConfigRequest = new \Omnismith\Sdk\Model\SetReferenceConfigRequest(); // \Omnismith\Sdk\Model\SetReferenceConfigRequest
 
 try {
-    $apiInstance->setAttributeReferenceConfig($id, $set_reference_config_request);
+    $apiInstance->setAttributeReferenceConfig($id, $setReferenceConfigRequest);
 } catch (Exception $e) {
     echo 'Exception when calling AttributesApi->setAttributeReferenceConfig: ', $e->getMessage(), PHP_EOL;
 }
@@ -698,7 +698,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Attribute ID | |
-| **set_reference_config_request** | [**\Omnismith\Model\SetReferenceConfigRequest**](../Model/SetReferenceConfigRequest.md)|  | |
+| **setReferenceConfigRequest** | [**\Omnismith\Sdk\Model\SetReferenceConfigRequest**](../Model/SetReferenceConfigRequest.md)|  | |
 
 ### Return type
 
@@ -720,7 +720,7 @@ void (empty response body)
 ## `updateAttribute()`
 
 ```php
-updateAttribute($id, $update_attribute_request)
+updateAttribute($id, $updateAttributeRequest)
 ```
 
 Update an attribute
@@ -733,20 +733,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AttributesApi(
+$apiInstance = new Omnismith\Sdk\Api\AttributesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string
-$update_attribute_request = new \Omnismith\Model\UpdateAttributeRequest(); // \Omnismith\Model\UpdateAttributeRequest
+$updateAttributeRequest = new \Omnismith\Sdk\Model\UpdateAttributeRequest(); // \Omnismith\Sdk\Model\UpdateAttributeRequest
 
 try {
-    $apiInstance->updateAttribute($id, $update_attribute_request);
+    $apiInstance->updateAttribute($id, $updateAttributeRequest);
 } catch (Exception $e) {
     echo 'Exception when calling AttributesApi->updateAttribute: ', $e->getMessage(), PHP_EOL;
 }
@@ -757,7 +757,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **update_attribute_request** | [**\Omnismith\Model\UpdateAttributeRequest**](../Model/UpdateAttributeRequest.md)|  | |
+| **updateAttributeRequest** | [**\Omnismith\Sdk\Model\UpdateAttributeRequest**](../Model/UpdateAttributeRequest.md)|  | |
 
 ### Return type
 
@@ -779,7 +779,7 @@ void (empty response body)
 ## `updateAttributeItem()`
 
 ```php
-updateAttributeItem($id, $item_id, $update_list_item_request)
+updateAttributeItem($id, $itemId, $updateListItemRequest)
 ```
 
 Update a list item of an attribute
@@ -792,21 +792,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\AttributesApi(
+$apiInstance = new Omnismith\Sdk\Api\AttributesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | Attribute ID
-$item_id = 'item_id_example'; // string | List Item ID
-$update_list_item_request = new \Omnismith\Model\UpdateListItemRequest(); // \Omnismith\Model\UpdateListItemRequest
+$itemId = 'itemId_example'; // string | List Item ID
+$updateListItemRequest = new \Omnismith\Sdk\Model\UpdateListItemRequest(); // \Omnismith\Sdk\Model\UpdateListItemRequest
 
 try {
-    $apiInstance->updateAttributeItem($id, $item_id, $update_list_item_request);
+    $apiInstance->updateAttributeItem($id, $itemId, $updateListItemRequest);
 } catch (Exception $e) {
     echo 'Exception when calling AttributesApi->updateAttributeItem: ', $e->getMessage(), PHP_EOL;
 }
@@ -817,8 +817,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Attribute ID | |
-| **item_id** | **string**| List Item ID | |
-| **update_list_item_request** | [**\Omnismith\Model\UpdateListItemRequest**](../Model/UpdateListItemRequest.md)|  | |
+| **itemId** | **string**| List Item ID | |
+| **updateListItemRequest** | [**\Omnismith\Sdk\Model\UpdateListItemRequest**](../Model/UpdateListItemRequest.md)|  | |
 
 ### Return type
 

@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **dashboards** | **float** |  | [optional]
 **automations** | **float** |  | [optional]
 **channels** | **float** |  | [optional]
-**metric_ingestions** | **float** |  | [optional]
-**dimension_updates** | **float** |  | [optional]
-**ai_credits** | **float** |  | [optional]
-**disk_space_mb** | **float** |  | [optional]
+**metricIngestions** | **float** |  | [optional]
+**dimensionUpdates** | **float** |  | [optional]
+**aiCredits** | **float** |  | [optional]
+**diskSpaceMb** | **float** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**chat_id** | **string** | Telegram chat ID (required for Telegram channels) | [optional]
+**chatId** | **string** | Telegram chat ID (required for Telegram channels) | [optional]
 **message** | **string** |  | [optional]
 **title** | **string** | Notification title (used for push notifications) | [optional]
 

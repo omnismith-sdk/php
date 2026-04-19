@@ -1,4 +1,4 @@
-# Omnismith\BillingApi
+# Omnismith\Sdk\BillingApi
 
 Billing
 
@@ -17,7 +17,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createCheckout()`
 
 ```php
-createCheckout($create_checkout_request): \Omnismith\Model\CheckoutResponse
+createCheckout($createCheckoutRequest): \Omnismith\Sdk\Model\CheckoutResponse
 ```
 
 Create a checkout session for subscription
@@ -32,19 +32,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\BillingApi(
+$apiInstance = new Omnismith\Sdk\Api\BillingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_checkout_request = new \Omnismith\Model\CreateCheckoutRequest(); // \Omnismith\Model\CreateCheckoutRequest
+$createCheckoutRequest = new \Omnismith\Sdk\Model\CreateCheckoutRequest(); // \Omnismith\Sdk\Model\CreateCheckoutRequest
 
 try {
-    $result = $apiInstance->createCheckout($create_checkout_request);
+    $result = $apiInstance->createCheckout($createCheckoutRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillingApi->createCheckout: ', $e->getMessage(), PHP_EOL;
@@ -55,11 +55,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_checkout_request** | [**\Omnismith\Model\CreateCheckoutRequest**](../Model/CreateCheckoutRequest.md)|  | |
+| **createCheckoutRequest** | [**\Omnismith\Sdk\Model\CreateCheckoutRequest**](../Model/CreateCheckoutRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\CheckoutResponse**](../Model/CheckoutResponse.md)
+[**\Omnismith\Sdk\Model\CheckoutResponse**](../Model/CheckoutResponse.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ try {
 ## `getAllTiers()`
 
 ```php
-getAllTiers(): \Omnismith\Model\GetAllTiers200Response
+getAllTiers(): \Omnismith\Sdk\Model\GetAllTiers200Response
 ```
 
 List all available tiers
@@ -90,7 +90,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new Omnismith\Api\BillingApi(
+$apiInstance = new Omnismith\Sdk\Api\BillingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -110,7 +110,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\GetAllTiers200Response**](../Model/GetAllTiers200Response.md)
+[**\Omnismith\Sdk\Model\GetAllTiers200Response**](../Model/GetAllTiers200Response.md)
 
 ### Authorization
 
@@ -128,7 +128,7 @@ No authorization required
 ## `getPortalUrl()`
 
 ```php
-getPortalUrl(): \Omnismith\Model\PortalUrlResponse
+getPortalUrl(): \Omnismith\Sdk\Model\PortalUrlResponse
 ```
 
 Get customer portal URL
@@ -143,10 +143,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\BillingApi(
+$apiInstance = new Omnismith\Sdk\Api\BillingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -167,7 +167,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\PortalUrlResponse**](../Model/PortalUrlResponse.md)
+[**\Omnismith\Sdk\Model\PortalUrlResponse**](../Model/PortalUrlResponse.md)
 
 ### Authorization
 
@@ -185,7 +185,7 @@ This endpoint does not need any parameter.
 ## `getUsageInsights()`
 
 ```php
-getUsageInsights(): \Omnismith\Model\UsageInsightsResponse
+getUsageInsights(): \Omnismith\Sdk\Model\UsageInsightsResponse
 ```
 
 Get current tier usage insights
@@ -198,10 +198,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\BillingApi(
+$apiInstance = new Omnismith\Sdk\Api\BillingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -222,7 +222,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\UsageInsightsResponse**](../Model/UsageInsightsResponse.md)
+[**\Omnismith\Sdk\Model\UsageInsightsResponse**](../Model/UsageInsightsResponse.md)
 
 ### Authorization
 
@@ -240,7 +240,7 @@ This endpoint does not need any parameter.
 ## `getUserTier()`
 
 ```php
-getUserTier(): \Omnismith\Model\TierResponse
+getUserTier(): \Omnismith\Sdk\Model\TierResponse
 ```
 
 Get current user tier
@@ -253,10 +253,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\BillingApi(
+$apiInstance = new Omnismith\Sdk\Api\BillingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -277,7 +277,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Omnismith\Model\TierResponse**](../Model/TierResponse.md)
+[**\Omnismith\Sdk\Model\TierResponse**](../Model/TierResponse.md)
 
 ### Authorization
 
@@ -295,7 +295,7 @@ This endpoint does not need any parameter.
 ## `logAiUsage()`
 
 ```php
-logAiUsage($log_ai_usage_request): \Omnismith\Model\LogAiUsage200Response
+logAiUsage($logAiUsageRequest): \Omnismith\Sdk\Model\LogAiUsage200Response
 ```
 
 Log AI usage credits
@@ -308,19 +308,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Omnismith\Api\BillingApi(
+$apiInstance = new Omnismith\Sdk\Api\BillingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$log_ai_usage_request = new \Omnismith\Model\LogAiUsageRequest(); // \Omnismith\Model\LogAiUsageRequest
+$logAiUsageRequest = new \Omnismith\Sdk\Model\LogAiUsageRequest(); // \Omnismith\Sdk\Model\LogAiUsageRequest
 
 try {
-    $result = $apiInstance->logAiUsage($log_ai_usage_request);
+    $result = $apiInstance->logAiUsage($logAiUsageRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillingApi->logAiUsage: ', $e->getMessage(), PHP_EOL;
@@ -331,11 +331,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **log_ai_usage_request** | [**\Omnismith\Model\LogAiUsageRequest**](../Model/LogAiUsageRequest.md)|  | |
+| **logAiUsageRequest** | [**\Omnismith\Sdk\Model\LogAiUsageRequest**](../Model/LogAiUsageRequest.md)|  | |
 
 ### Return type
 
-[**\Omnismith\Model\LogAiUsage200Response**](../Model/LogAiUsage200Response.md)
+[**\Omnismith\Sdk\Model\LogAiUsage200Response**](../Model/LogAiUsage200Response.md)
 
 ### Authorization
 

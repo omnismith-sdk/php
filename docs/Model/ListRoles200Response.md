@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\Omnismith\Model\RoleResponse[]**](RoleResponse.md) |  | [optional]
+**data** | [**\Omnismith\Sdk\Model\RoleResponse[]**](RoleResponse.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
