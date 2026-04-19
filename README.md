@@ -1,9 +1,9 @@
 # Omnismith PHP SDK
 
-[![npm version](https://img.shields.io/npm/v/@omnismith%2Fsdk-typescript)](https://www.npmjs.com/package/@omnismith/sdk-typescript)
-[![PyPI version](https://img.shields.io/pypi/v/omnismith-sdk-python)](https://pypi.org/project/omnismith-sdk-python/)
-[![Packagist version](https://img.shields.io/packagist/v/omnismith/omnismith-sdk-php)](https://packagist.org/packages/omnismith/omnismith-sdk-php)
-[![Go Report Card](https://goreportcard.com/badge/github.com/omnismith/omnismith-sdk-go)](https://goreportcard.com/report/github.com/omnismith/omnismith-sdk-go)
+[![npm version](https://img.shields.io/npm/v/@omnismith-sdk%2Ftypescript)](https://www.npmjs.com/package/@omnismith-sdk/typescript)
+[![PyPI version](https://img.shields.io/pypi/v/omnismith-sdk)](https://pypi.org/project/omnismith-sdk/)
+[![Packagist version](https://img.shields.io/packagist/v/omnismith-sdk/php)](https://packagist.org/packages/omnismith-sdk/php)
+[![Go Report Card](https://goreportcard.com/badge/github.com/omnismith-sdk/go)](https://goreportcard.com/report/github.com/omnismith-sdk/go)
 
 The Omnismith PHP SDK is generated from the central OpenAPI contract for the [Omnismith platform](https://omnismith.io), a flexible data management system built around templates, entities, and attribute-driven schemas. Use it to automate workflows against the Omnismith API and pair it with the web app at [app.omnismith.io](https://app.omnismith.io).
 
@@ -15,10 +15,10 @@ The Omnismith PHP SDK is generated from the central OpenAPI contract for the [Om
 require_once __DIR__ . '/vendor/autoload.php';
 
 use GuzzleHttp\Client;
-use Omnismith\Api\EntityApi;
-use Omnismith\Api\TemplatesApi;
-use Omnismith\Configuration;
-use Omnismith\Model\CreateEntityRequest;
+use Omnismith\Sdk\Api\EntityApi;
+use Omnismith\Sdk\Api\TemplatesApi;
+use Omnismith\Sdk\Configuration;
+use Omnismith\Sdk\Model\CreateEntityRequest;
 
 $configuration = Configuration::getDefaultConfiguration()
     ->setHost('https://api.omnismith.io/v1')
