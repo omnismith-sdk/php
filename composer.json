@@ -1,5 +1,6 @@
 {
     "name": "omnismith-sdk/php",
+    "version": "1.0.5",
     "description": "API Documentation for Omnismith",
     "keywords": [
         "openapitools",
@@ -31,13 +32,9 @@
         "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
-        "psr-4": {
-            "Omnismith\\Sdk\\": "src/"
-        }
+        "psr-4": { "Omnismith\\Sdk\\" : "src/" }
     },
     "autoload-dev": {
-        "psr-4": {
-            "Omnismith\\Sdk\\Test\\": "test/"
-        }
+        "psr-4": { "Omnismith\\Sdk\\Test\\" : "test/" }
     }
 }
