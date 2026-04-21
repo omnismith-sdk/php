@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **title** | **string** |  |
 **status** | **int** |  |
 **errors** | **array<string,string[]>** | Map of field names to array of error messages |
+**detail** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
