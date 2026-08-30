@@ -18,7 +18,6 @@ docs/Api/DashboardsApi.md
 docs/Api/EntityApi.md
 docs/Api/FeedbackApi.md
 docs/Api/FileAttachmentApi.md
-docs/Api/MCPApi.md
 docs/Api/MarketplaceApi.md
 docs/Api/OAuthApi.md
 docs/Api/ProjectsApi.md
@@ -266,7 +265,6 @@ src/Api/DashboardsApi.php
 src/Api/EntityApi.php
 src/Api/FeedbackApi.php
 src/Api/FileAttachmentApi.php
-src/Api/MCPApi.php
 src/Api/MarketplaceApi.php
 src/Api/OAuthApi.php
 src/Api/ProjectsApi.php
@@ -518,7 +516,6 @@ test/Api/DashboardsApiTest.php
 test/Api/EntityApiTest.php
 test/Api/FeedbackApiTest.php
 test/Api/FileAttachmentApiTest.php
-test/Api/MCPApiTest.php
 test/Api/MarketplaceApiTest.php
 test/Api/OAuthApiTest.php
 test/Api/ProjectsApiTest.php
