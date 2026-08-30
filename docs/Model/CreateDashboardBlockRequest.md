@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** |  |
-**title** | **string** |  |
-**config** | **object** | Block-specific configuration | [optional]
+**type** | **string** | Block visualization type: stat (single KPI counter of matching entities), chart (time-series telemetry multi-line graph aggregating metric values over time), gauge (radial threshold meter displaying metric aggregate within bounds), list (filtered and sorted entity data table). |
+**title** | **string** | Header title displayed on the dashboard widget card (e.g., \&quot;CPU Utilization — Time Series\&quot;, \&quot;Total Servers\&quot;, \&quot;Peak CPU Utilization\&quot;). |
+**config** | [**\Omnismith\Sdk\Model\CreateDashboardBlockRequestConfig**](CreateDashboardBlockRequestConfig.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

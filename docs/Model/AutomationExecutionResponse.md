@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  | [optional]
-**automationId** | **string** |  | [optional]
-**entityId** | **string** |  | [optional]
-**triggeredAt** | **\DateTime** |  | [optional]
-**completedAt** | **\DateTime** |  | [optional]
-**status** | **string** |  | [optional]
-**actionResults** | [**\Omnismith\Sdk\Model\AutomationExecutionResponseActionResultsInner[]**](AutomationExecutionResponseActionResultsInner.md) |  | [optional]
-**errorMessage** | **string** |  | [optional]
+**id** | **string** | Unique execution record UUID | [optional]
+**automationId** | **string** | Associated automation rule UUID | [optional]
+**entityId** | **string** | UUID of the entity that triggered the execution | [optional]
+**triggeredAt** | **\DateTime** | Timestamp when the trigger event was evaluated | [optional]
+**completedAt** | **\DateTime** | Timestamp when all actions completed execution | [optional]
+**status** | **string** | Overall execution outcome status | [optional]
+**actionResults** | [**\Omnismith\Sdk\Model\AutomationExecutionResponseActionResultsInner[]**](AutomationExecutionResponseActionResultsInner.md) | Individual action execution outcomes | [optional]
+**errorMessage** | **string** | Top-level error message if execution failed | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

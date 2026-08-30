@@ -8,5 +8,7 @@ Name | Type | Description | Notes
 **originalFilename** | **string** |  | [optional]
 **mimeType** | **string** |  | [optional]
 **size** | **int** |  | [optional]
+**context** | **string** |  | [optional]
+**expiresAt** | **\DateTime** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

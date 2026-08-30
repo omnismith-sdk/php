@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **mixed** | Full detail response including the blueprint JSONB structure. | [optional]
+**data** | [**\Omnismith\Sdk\Model\MarketplaceBlueprintDetailResponse**](MarketplaceBlueprintDetailResponse.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

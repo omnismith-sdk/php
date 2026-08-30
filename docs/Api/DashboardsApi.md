@@ -16,10 +16,12 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createDashboard()`
 
 ```php
-createDashboard($createDashboardRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
+createDashboard($createDashboardRequest): \Omnismith\Sdk\Model\CreateDashboard201Response
 ```
 
 Create a new dashboard
+
+Creates a new analytics and telemetry dashboard canvas for organizing metric KPIs, charts, gauges, and entity tables within a customizable grid layout.
 
 ### Example
 
@@ -38,7 +40,7 @@ $apiInstance = new Omnismith\Sdk\Api\DashboardsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$createDashboardRequest = new \Omnismith\Sdk\Model\CreateDashboardRequest(); // \Omnismith\Sdk\Model\CreateDashboardRequest
+$createDashboardRequest = new \Omnismith\Sdk\Model\CreateDashboardRequest(); // \Omnismith\Sdk\Model\CreateDashboardRequest | Dashboard creation payload
 
 try {
     $result = $apiInstance->createDashboard($createDashboardRequest);
@@ -52,11 +54,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **createDashboardRequest** | [**\Omnismith\Sdk\Model\CreateDashboardRequest**](../Model/CreateDashboardRequest.md)|  | |
+| **createDashboardRequest** | [**\Omnismith\Sdk\Model\CreateDashboardRequest**](../Model/CreateDashboardRequest.md)| Dashboard creation payload | |
 
 ### Return type
 
-[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateDashboard201Response**](../Model/CreateDashboard201Response.md)
 
 ### Authorization
 
@@ -79,6 +81,8 @@ deleteDashboard($id)
 
 Delete a dashboard
 
+Permanently removes a dashboard and all attached visualization blocks, metric widgets, and configurations.
+
 ### Example
 
 ```php
@@ -96,7 +100,7 @@ $apiInstance = new Omnismith\Sdk\Api\DashboardsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Dashboard ID
+$id = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Dashboard unique identifier (UUID) to delete
 
 try {
     $apiInstance->deleteDashboard($id);
@@ -109,7 +113,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Dashboard ID | |
+| **id** | **string**| Dashboard unique identifier (UUID) to delete | |
 
 ### Return type
 
@@ -122,7 +126,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -136,6 +140,8 @@ getDashboard($id): \Omnismith\Sdk\Model\DashboardResponse
 
 Get a dashboard by ID
 
+Retrieves metadata and top-level configuration for a specific dashboard by its unique identifier.
+
 ### Example
 
 ```php
@@ -153,7 +159,7 @@ $apiInstance = new Omnismith\Sdk\Api\DashboardsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Dashboard ID
+$id = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Dashboard unique identifier (UUID)
 
 try {
     $result = $apiInstance->getDashboard($id);
@@ -167,7 +173,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Dashboard ID | |
+| **id** | **string**| Dashboard unique identifier (UUID) | |
 
 ### Return type
 
@@ -193,6 +199,8 @@ listDashboards(): \Omnismith\Sdk\Model\ListDashboards200Response
 ```
 
 List all dashboards
+
+Retrieves all analytics dashboards configured within the authenticated project context, including dashboard metadata, layout settings, and visualization configurations.
 
 ### Example
 
@@ -249,6 +257,8 @@ updateDashboard($id, $updateDashboardRequest)
 
 Update a dashboard
 
+Updates dashboard metadata including its display name, description, and canvas layout settings.
+
 ### Example
 
 ```php
@@ -266,8 +276,8 @@ $apiInstance = new Omnismith\Sdk\Api\DashboardsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Dashboard ID
-$updateDashboardRequest = new \Omnismith\Sdk\Model\UpdateDashboardRequest(); // \Omnismith\Sdk\Model\UpdateDashboardRequest
+$id = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Dashboard unique identifier (UUID) to update
+$updateDashboardRequest = new \Omnismith\Sdk\Model\UpdateDashboardRequest(); // \Omnismith\Sdk\Model\UpdateDashboardRequest | Dashboard update payload
 
 try {
     $apiInstance->updateDashboard($id, $updateDashboardRequest);
@@ -280,8 +290,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Dashboard ID | |
-| **updateDashboardRequest** | [**\Omnismith\Sdk\Model\UpdateDashboardRequest**](../Model/UpdateDashboardRequest.md)|  | |
+| **id** | **string**| Dashboard unique identifier (UUID) to update | |
+| **updateDashboardRequest** | [**\Omnismith\Sdk\Model\UpdateDashboardRequest**](../Model/UpdateDashboardRequest.md)| Dashboard update payload | |
 
 ### Return type
 

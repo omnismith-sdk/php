@@ -21,6 +21,8 @@ deleteFileAttachment($id)
 
 Delete a file attachment
 
+Permanently deletes a file attachment and its stored content from disk. If the file is referenced by entity attribute values (file or image data type), those references will become stale. Returns 204 on success.
+
 ### Example
 
 ```php
@@ -38,7 +40,7 @@ $apiInstance = new Omnismith\Sdk\Api\FileAttachmentApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | File attachment UUID to delete
 
 try {
     $apiInstance->deleteFileAttachment($id);
@@ -51,7 +53,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
+| **id** | **string**| File attachment UUID to delete | |
 
 ### Return type
 
@@ -78,6 +80,8 @@ downloadFileAttachment($id)
 
 Download a file attachment
 
+Returns the raw binary file content for a given file attachment ID. The response Content-Type header matches the original uploaded file MIME type. The file must belong to the authenticated user's project.
+
 ### Example
 
 ```php
@@ -95,7 +99,7 @@ $apiInstance = new Omnismith\Sdk\Api\FileAttachmentApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | Unique UUID identifier of the file attachment to download
 
 try {
     $apiInstance->downloadFileAttachment($id);
@@ -108,7 +112,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
+| **id** | **string**| Unique UUID identifier of the file attachment to download | |
 
 ### Return type
 
@@ -135,6 +139,8 @@ getFileAttachmentMetadata($id): \Omnismith\Sdk\Model\FileAttachmentResponse
 
 Get file metadata without downloading content
 
+Returns metadata for a file attachment (original filename, MIME type, file size in bytes, upload timestamp, context) without streaming the binary content. Use this to inspect file properties before deciding whether to download.
+
 ### Example
 
 ```php
@@ -152,7 +158,7 @@ $apiInstance = new Omnismith\Sdk\Api\FileAttachmentApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | Unique UUID identifier of the file attachment
 
 try {
     $result = $apiInstance->getFileAttachmentMetadata($id);
@@ -166,7 +172,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
+| **id** | **string**| Unique UUID identifier of the file attachment | |
 
 ### Return type
 
@@ -193,6 +199,8 @@ getFileAttachmentThumbnail($id, $width, $height)
 
 Get image thumbnail
 
+Generates and returns a resized thumbnail for image-type file attachments (JPEG, PNG, WebP, GIF). Optional `width` and `height` query parameters control output dimensions (range 50–1000px, default 200×200). Returns 400 if the file is not an image type. The thumbnail is returned as JPEG binary.
+
 ### Example
 
 ```php
@@ -210,9 +218,9 @@ $apiInstance = new Omnismith\Sdk\Api\FileAttachmentApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
-$width = 200; // int
-$height = 200; // int
+$id = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | Unique UUID identifier of the image file attachment
+$width = 200; // int | Target thumbnail width in pixels (range 50 to 1000, default 200)
+$height = 200; // int | Target thumbnail height in pixels (range 50 to 1000, default 200)
 
 try {
     $apiInstance->getFileAttachmentThumbnail($id, $width, $height);
@@ -225,9 +233,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
-| **width** | **int**|  | [optional] [default to 200] |
-| **height** | **int**|  | [optional] [default to 200] |
+| **id** | **string**| Unique UUID identifier of the image file attachment | |
+| **width** | **int**| Target thumbnail width in pixels (range 50 to 1000, default 200) | [optional] [default to 200] |
+| **height** | **int**| Target thumbnail height in pixels (range 50 to 1000, default 200) | [optional] [default to 200] |
 
 ### Return type
 
@@ -249,10 +257,12 @@ void (empty response body)
 ## `uploadFileAttachment()`
 
 ```php
-uploadFileAttachment($file, $id): \Omnismith\Sdk\Model\FileAttachmentResponse
+uploadFileAttachment($file, $id, $context, $ttlHours): \Omnismith\Sdk\Model\FileAttachmentResponse
 ```
 
 Upload a file attachment
+
+Uploads a file as a multipart/form-data request. Supported MIME types include images (JPEG, PNG, WebP, GIF, SVG), documents (PDF), spreadsheets (CSV, XLSX), and structured data (JSON, YAML). An optional pre-generated UUIDv7 `id` can be supplied; otherwise the server generates one. The `context` field controls storage lifecycle: \"entity\" files are permanent, \"chat\" files are temporary with configurable `ttl_hours` (default 48h). Returns the file metadata including the assigned ID for use in entity attribute values.
 
 ### Example
 
@@ -273,9 +283,11 @@ $apiInstance = new Omnismith\Sdk\Api\FileAttachmentApi(
 );
 $file = '/path/to/file.txt'; // \SplFileObject
 $id = 'id_example'; // string
+$context = 'entity'; // string
+$ttlHours = 56; // int
 
 try {
-    $result = $apiInstance->uploadFileAttachment($file, $id);
+    $result = $apiInstance->uploadFileAttachment($file, $id, $context, $ttlHours);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FileAttachmentApi->uploadFileAttachment: ', $e->getMessage(), PHP_EOL;
@@ -288,6 +300,8 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **file** | **\SplFileObject****\SplFileObject**|  | |
 | **id** | **string**|  | [optional] |
+| **context** | **string**|  | [optional] [default to &#39;entity&#39;] |
+| **ttlHours** | **int**|  | [optional] |
 
 ### Return type
 

@@ -6,7 +6,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getProjectSchema()**](SchemaApi.md#getProjectSchema) | **GET** /discovery/project-schema | Get complete project schema |
+| [**getProjectSchema()**](SchemaApi.md#getProjectSchema) | **GET** /discovery/project-schema | Get complete project schema graph |
 
 
 ## `getProjectSchema()`
@@ -15,9 +15,9 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 getProjectSchema(): \Omnismith\Sdk\Model\ProjectSchemaResponse
 ```
 
-Get complete project schema
+Get complete project schema graph
 
-Returns all attributes, templates, list items, and reference configs in a single response
+Retrieves the complete consolidated schema graph for the active project in a single payload. Includes all active attributes, templates (with attribute bindings and UI layout groups), list choice items, and foreign entity reference configurations. Ideal for AI agents, client initialization, metadata caching, and schema introspection.
 
 ### Example
 

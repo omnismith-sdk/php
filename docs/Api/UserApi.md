@@ -19,6 +19,8 @@ confirmUserEmail($token): \Omnismith\Sdk\Model\ConfirmUserEmail200Response
 
 Confirm a user's email address using a confirmation token
 
+Validates an email confirmation token sent to a newly registered user's email address and activates the account upon success. If the token is valid, returns a success confirmation message.
+
 ### Example
 
 ```php
@@ -32,7 +34,7 @@ $apiInstance = new Omnismith\Sdk\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$token = 'token_example'; // string | The email confirmation token
+$token = cf_token_abc123xyz; // string | The email confirmation token received via email
 
 try {
     $result = $apiInstance->confirmUserEmail($token);
@@ -46,7 +48,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **token** | **string**| The email confirmation token | |
+| **token** | **string**| The email confirmation token received via email | |
 
 ### Return type
 
@@ -68,10 +70,12 @@ No authorization required
 ## `registerUser()`
 
 ```php
-registerUser($registerUserRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
+registerUser($registerUserRequest): \Omnismith\Sdk\Model\CreateProject201Response
 ```
 
 Register a new user
+
+Registers a new user account with email and password. For unauthenticated / public signups, a Cloudflare Turnstile `captchaToken` is required to prevent bot abuse. Sends a confirmation link to the provided email address upon creation.
 
 ### Example
 
@@ -104,7 +108,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateProject201Response**](../Model/CreateProject201Response.md)
 
 ### Authorization
 
@@ -126,6 +130,8 @@ resendConfirmationEmail($resendConfirmationEmailRequest): \Omnismith\Sdk\Model\R
 ```
 
 Resend the email confirmation link
+
+Resends the account verification email with an activation link for unconfirmed accounts. Rate-limited to prevent abuse. Silently succeeds if the email is not registered for security.
 
 ### Example
 

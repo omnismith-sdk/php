@@ -9,7 +9,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 | [**deleteMarketplaceBlueprint()**](MarketplaceApi.md#deleteMarketplaceBlueprint) | **DELETE** /marketplace/blueprints/{id} | Delete a marketplace blueprint |
 | [**getMarketplaceBlueprint()**](MarketplaceApi.md#getMarketplaceBlueprint) | **GET** /marketplace/blueprints/{id} | Get marketplace blueprint details |
 | [**installMarketplaceBlueprint()**](MarketplaceApi.md#installMarketplaceBlueprint) | **POST** /marketplace/blueprints/{id}/install | Install a marketplace blueprint into a project |
-| [**listMarketplaceKeywords()**](MarketplaceApi.md#listMarketplaceKeywords) | **GET** /marketplace/keywords | List all marketplace keywords with blueprint counts |
+| [**listMarketplaceKeywords()**](MarketplaceApi.md#listMarketplaceKeywords) | **GET** /marketplace/keywords | List marketplace keywords |
 | [**publishMarketplaceBlueprint()**](MarketplaceApi.md#publishMarketplaceBlueprint) | **POST** /marketplace/blueprints | Publish or update a marketplace blueprint |
 | [**searchMarketplaceBlueprints()**](MarketplaceApi.md#searchMarketplaceBlueprints) | **GET** /marketplace/blueprints | Search marketplace blueprints |
 
@@ -21,6 +21,8 @@ deleteMarketplaceBlueprint($id)
 ```
 
 Delete a marketplace blueprint
+
+Permanently removes a published blueprint from the marketplace catalog. Only the author who published the blueprint or a system administrator has permission to delete it.
 
 ### Example
 
@@ -39,7 +41,7 @@ $apiInstance = new Omnismith\Sdk\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Blueprint ID
+$id = 01912ecb-4654-7890-a1b2-c3d4e5f60003; // string | Unique blueprint UUID to delete
 
 try {
     $apiInstance->deleteMarketplaceBlueprint($id);
@@ -52,7 +54,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Blueprint ID | |
+| **id** | **string**| Unique blueprint UUID to delete | |
 
 ### Return type
 
@@ -79,6 +81,8 @@ getMarketplaceBlueprint($id): \Omnismith\Sdk\Model\GetMarketplaceBlueprint200Res
 
 Get marketplace blueprint details
 
+Retrieves complete information for a specific marketplace blueprint by its UUID. Returns full blueprint metadata, publisher details, popularity metrics, and packaged blueprint schema definition containing template schemas, attribute configurations, and optional demo entities.
+
 ### Example
 
 ```php
@@ -92,7 +96,7 @@ $apiInstance = new Omnismith\Sdk\Api\MarketplaceApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$id = 'id_example'; // string | Blueprint ID
+$id = 01912ecb-4654-7890-a1b2-c3d4e5f60003; // string | Unique marketplace blueprint UUID
 
 try {
     $result = $apiInstance->getMarketplaceBlueprint($id);
@@ -106,7 +110,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Blueprint ID | |
+| **id** | **string**| Unique marketplace blueprint UUID | |
 
 ### Return type
 
@@ -133,6 +137,8 @@ installMarketplaceBlueprint($id, $installMarketplaceBlueprintRequest)
 
 Install a marketplace blueprint into a project
 
+Installs a marketplace blueprint into the specified project context. Provisions all packaged templates, attributes, and relationships defined in the blueprint schema, and optionally populates sample demo entities. Automatically increments the installation count for the blueprint.
+
 ### Example
 
 ```php
@@ -150,7 +156,7 @@ $apiInstance = new Omnismith\Sdk\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Blueprint ID
+$id = 01912ecb-4654-7890-a1b2-c3d4e5f60003; // string | Unique UUID of the blueprint to install
 $installMarketplaceBlueprintRequest = new \Omnismith\Sdk\Model\InstallMarketplaceBlueprintRequest(); // \Omnismith\Sdk\Model\InstallMarketplaceBlueprintRequest
 
 try {
@@ -164,7 +170,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Blueprint ID | |
+| **id** | **string**| Unique UUID of the blueprint to install | |
 | **installMarketplaceBlueprintRequest** | [**\Omnismith\Sdk\Model\InstallMarketplaceBlueprintRequest**](../Model/InstallMarketplaceBlueprintRequest.md)|  | |
 
 ### Return type
@@ -190,7 +196,9 @@ void (empty response body)
 listMarketplaceKeywords(): \Omnismith\Sdk\Model\ListMarketplaceKeywords200Response
 ```
 
-List all marketplace keywords with blueprint counts
+List marketplace keywords
+
+Retrieves all distinct categorization keywords and tags associated with published blueprints along with their total occurrence count, ordered by popularity descending. Useful for populating discovery tags, filters, and keyword clouds.
 
 ### Example
 
@@ -242,6 +250,8 @@ publishMarketplaceBlueprint($publishMarketplaceBlueprintRequest): \Omnismith\Sdk
 ```
 
 Publish or update a marketplace blueprint
+
+Publishes a new blueprint to the public marketplace or updates an existing blueprint owned by the authenticated user. Snapshots selected templates, attributes, and optional sample entities into an exportable blueprint package with title, description, and searchable keywords.
 
 ### Example
 
@@ -301,6 +311,8 @@ searchMarketplaceBlueprints($search, $keywords, $limit, $offset, $sortBy, $sortD
 
 Search marketplace blueprints
 
+Searches and lists public blueprints available in the marketplace catalog. Blueprints package reusable template schemas, attribute definitions, and sample data that users can install directly into their projects. Supports full-text search across titles and descriptions, keyword tag filtering, filtering by featured status, and sorting by creation date, install counts, or title.
+
 ### Example
 
 ```php
@@ -314,13 +326,13 @@ $apiInstance = new Omnismith\Sdk\Api\MarketplaceApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$search = 'search_example'; // string | Free-text search on title and description
-$keywords = 'keywords_example'; // string | Comma-separated keywords to filter by
-$limit = 20; // int | Number of results per page
-$offset = 0; // int | Pagination offset
-$sortBy = 'created_at'; // string | Sort field
-$sortDirection = 'desc'; // string | Sort direction
-$featured = True; // bool | Filter by featured status
+$search = crm pipeline; // string | Free-text search filter across blueprint title and description
+$keywords = crm,sales,leads; // string | Comma-separated keywords or tags to filter blueprints
+$limit = 20; // int | Number of blueprint records to return per page (max 100)
+$offset = 0; // int | Number of blueprint records to skip for pagination
+$sortBy = installs; // string | Field to sort blueprint results by
+$sortDirection = desc; // string | Sort direction order (ascending or descending)
+$featured = true; // bool | Filter to return only curated and featured marketplace blueprints
 
 try {
     $result = $apiInstance->searchMarketplaceBlueprints($search, $keywords, $limit, $offset, $sortBy, $sortDirection, $featured);
@@ -334,13 +346,13 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **search** | **string**| Free-text search on title and description | [optional] |
-| **keywords** | **string**| Comma-separated keywords to filter by | [optional] |
-| **limit** | **int**| Number of results per page | [optional] [default to 20] |
-| **offset** | **int**| Pagination offset | [optional] [default to 0] |
-| **sortBy** | **string**| Sort field | [optional] [default to &#39;created_at&#39;] |
-| **sortDirection** | **string**| Sort direction | [optional] [default to &#39;desc&#39;] |
-| **featured** | **bool**| Filter by featured status | [optional] |
+| **search** | **string**| Free-text search filter across blueprint title and description | [optional] |
+| **keywords** | **string**| Comma-separated keywords or tags to filter blueprints | [optional] |
+| **limit** | **int**| Number of blueprint records to return per page (max 100) | [optional] [default to 20] |
+| **offset** | **int**| Number of blueprint records to skip for pagination | [optional] [default to 0] |
+| **sortBy** | **string**| Field to sort blueprint results by | [optional] [default to &#39;created_at&#39;] |
+| **sortDirection** | **string**| Sort direction order (ascending or descending) | [optional] [default to &#39;desc&#39;] |
+| **featured** | **bool**| Filter to return only curated and featured marketplace blueprints | [optional] |
 
 ### Return type
 

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\Omnismith\Sdk\Model\NotificationChannelResponse[]**](NotificationChannelResponse.md) |  | [optional]
+**data** | [**\Omnismith\Sdk\Model\NotificationChannelResponse[]**](NotificationChannelResponse.md) | Array of notification channels | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

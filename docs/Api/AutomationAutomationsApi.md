@@ -6,11 +6,11 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createAutomation()**](AutomationAutomationsApi.md#createAutomation) | **POST** /automation/automations | Create a new automation |
+| [**createAutomation()**](AutomationAutomationsApi.md#createAutomation) | **POST** /automation/automations | Create an automation rule |
 | [**deleteAutomation()**](AutomationAutomationsApi.md#deleteAutomation) | **DELETE** /automation/automations/{id} | Delete an automation |
 | [**getAutomation()**](AutomationAutomationsApi.md#getAutomation) | **GET** /automation/automations/{id} | Get an automation by ID |
-| [**listAutomationExecutions()**](AutomationAutomationsApi.md#listAutomationExecutions) | **GET** /automation/automations/{id}/executions | List automation executions |
-| [**listAutomations()**](AutomationAutomationsApi.md#listAutomations) | **GET** /automation/automations | List automations |
+| [**listAutomationExecutions()**](AutomationAutomationsApi.md#listAutomationExecutions) | **GET** /automation/automations/{id}/executions | List automation execution logs |
+| [**listAutomations()**](AutomationAutomationsApi.md#listAutomations) | **GET** /automation/automations | List project automations |
 | [**toggleAutomation()**](AutomationAutomationsApi.md#toggleAutomation) | **PATCH** /automation/automations/{id}/toggle | Toggle automation enabled status |
 | [**updateAutomation()**](AutomationAutomationsApi.md#updateAutomation) | **PUT** /automation/automations/{id} | Update an automation |
 
@@ -18,10 +18,12 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createAutomation()`
 
 ```php
-createAutomation($createAutomationRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
+createAutomation($createAutomationRequest): \Omnismith\Sdk\Model\CreateAutomation201Response
 ```
 
-Create a new automation
+Create an automation rule
+
+Creates a new event-driven automation rule within the current project. Configures event trigger criteria (such as `on_entity_created`, `on_entity_updated`, or `on_attribute_changed`), multi-condition filters evaluating attribute values (using operators `eq`, `neq`, `gt`, `gte`, `lt`, `lte`, `contains`, `not_contains`, `is_empty`, `is_not_empty` across current value or delta modes), automated action targets (`telegram`, `webhook`, `push`), and an optional cooldown window in seconds to throttle repeated firings for the same entity.
 
 ### Example
 
@@ -58,7 +60,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateAutomation201Response**](../Model/CreateAutomation201Response.md)
 
 ### Authorization
 
@@ -81,6 +83,8 @@ deleteAutomation($id)
 
 Delete an automation
 
+Permanently deletes an automation rule by UUID, unbinding event listeners and stopping all future evaluations and action dispatches for that rule.
+
 ### Example
 
 ```php
@@ -98,7 +102,7 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 01912ecb-4654-7890-a1b2-c3d4e5f60001; // string | Unique automation UUID to delete
 
 try {
     $apiInstance->deleteAutomation($id);
@@ -111,7 +115,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
+| **id** | **string**| Unique automation UUID to delete | |
 
 ### Return type
 
@@ -138,6 +142,8 @@ getAutomation($id): \Omnismith\Sdk\Model\AutomationResponse
 
 Get an automation by ID
 
+Retrieves the complete configuration of a specific automation rule by its UUID, including trigger event types, template/attribute references, condition comparison expressions, action payloads, execution cooldown interval, and the timestamp of its last execution.
+
 ### Example
 
 ```php
@@ -155,7 +161,7 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 01912ecb-4654-7890-a1b2-c3d4e5f60001; // string | Unique automation UUID
 
 try {
     $result = $apiInstance->getAutomation($id);
@@ -169,7 +175,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
+| **id** | **string**| Unique automation UUID | |
 
 ### Return type
 
@@ -194,7 +200,9 @@ try {
 listAutomationExecutions($id, $limit, $offset, $status): \Omnismith\Sdk\Model\ListAutomationExecutions200Response
 ```
 
-List automation executions
+List automation execution logs
+
+Retrieves paginated execution logs and audit history for a specific automation rule. Each execution log records the triggering entity ID, trigger timestamp, execution completion time, final status (`pending`, `success`, `partial_failure`, `failed`), detailed action dispatch outcomes with error messages, and top-level execution errors.
 
 ### Example
 
@@ -213,10 +221,10 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Automation ID
-$limit = 20; // int | Number of results
-$offset = 0; // int | Pagination offset
-$status = 'status_example'; // string | Filter by status
+$id = 01912ecb-4654-7890-a1b2-c3d4e5f60001; // string | Automation UUID to fetch execution history for
+$limit = 20; // int | Maximum number of execution log entries to return per page
+$offset = 0; // int | Number of execution log records to skip for pagination
+$status = success; // string | Filter execution logs by execution outcome status
 
 try {
     $result = $apiInstance->listAutomationExecutions($id, $limit, $offset, $status);
@@ -230,10 +238,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Automation ID | |
-| **limit** | **int**| Number of results | [optional] [default to 20] |
-| **offset** | **int**| Pagination offset | [optional] [default to 0] |
-| **status** | **string**| Filter by status | [optional] |
+| **id** | **string**| Automation UUID to fetch execution history for | |
+| **limit** | **int**| Maximum number of execution log entries to return per page | [optional] [default to 20] |
+| **offset** | **int**| Number of execution log records to skip for pagination | [optional] [default to 0] |
+| **status** | **string**| Filter execution logs by execution outcome status | [optional] |
 
 ### Return type
 
@@ -258,7 +266,9 @@ try {
 listAutomations($templateId, $isEnabled): \Omnismith\Sdk\Model\AutomationResponse[]
 ```
 
-List automations
+List project automations
+
+Retrieves all automation rules configured within the current project context. Automations define event-driven workflows triggered by entity lifecycle events (such as entity creation, attribute updates, or metric threshold changes), evaluated against multi-attribute conditions, and dispatched to configured action channels (Telegram, webhooks, mobile push). Results can be filtered by entity template or active status.
 
 ### Example
 
@@ -277,8 +287,8 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$templateId = 'templateId_example'; // string | Filter by template ID
-$isEnabled = True; // bool | Filter by enabled status
+$templateId = 01912ecb-4654-7890-a1b2-c3d4e5f60088; // string | Filter automations scoped to a specific entity template UUID
+$isEnabled = true; // bool | Filter automations by active enabled status (true for active rules, false for paused rules)
 
 try {
     $result = $apiInstance->listAutomations($templateId, $isEnabled);
@@ -292,8 +302,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **templateId** | **string**| Filter by template ID | [optional] |
-| **isEnabled** | **bool**| Filter by enabled status | [optional] |
+| **templateId** | **string**| Filter automations scoped to a specific entity template UUID | [optional] |
+| **isEnabled** | **bool**| Filter automations by active enabled status (true for active rules, false for paused rules) | [optional] |
 
 ### Return type
 
@@ -320,6 +330,8 @@ toggleAutomation($id, $toggleAutomationRequest): \Omnismith\Sdk\Model\Automation
 
 Toggle automation enabled status
 
+Enables or pauses an automation rule without altering its trigger definitions, condition criteria, or action configurations. Paused automations are ignored during event processing.
+
 ### Example
 
 ```php
@@ -337,7 +349,7 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 01912ecb-4654-7890-a1b2-c3d4e5f60001; // string | Unique automation UUID to toggle
 $toggleAutomationRequest = new \Omnismith\Sdk\Model\ToggleAutomationRequest(); // \Omnismith\Sdk\Model\ToggleAutomationRequest
 
 try {
@@ -352,7 +364,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
+| **id** | **string**| Unique automation UUID to toggle | |
 | **toggleAutomationRequest** | [**\Omnismith\Sdk\Model\ToggleAutomationRequest**](../Model/ToggleAutomationRequest.md)|  | |
 
 ### Return type
@@ -380,6 +392,8 @@ updateAutomation($id, $updateAutomationRequest)
 
 Update an automation
 
+Updates an existing automation rule by UUID. Supports modifying rule name, description, trigger event definitions, condition filter criteria, action dispatches, and cooldown throttle settings.
+
 ### Example
 
 ```php
@@ -397,7 +411,7 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 01912ecb-4654-7890-a1b2-c3d4e5f60001; // string | Unique automation UUID to update
 $updateAutomationRequest = new \Omnismith\Sdk\Model\UpdateAutomationRequest(); // \Omnismith\Sdk\Model\UpdateAutomationRequest
 
 try {
@@ -411,7 +425,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
+| **id** | **string**| Unique automation UUID to update | |
 | **updateAutomationRequest** | [**\Omnismith\Sdk\Model\UpdateAutomationRequest**](../Model/UpdateAutomationRequest.md)|  | |
 
 ### Return type

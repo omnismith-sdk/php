@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **mixed[]** |  | [optional]
+**data** | [**\Omnismith\Sdk\Model\MarketplaceBlueprintSummaryResponse[]**](MarketplaceBlueprintSummaryResponse.md) | Array of blueprint summaries | [optional]
 **meta** | [**\Omnismith\Sdk\Model\SearchMarketplaceBlueprints200ResponseMeta**](SearchMarketplaceBlueprints200ResponseMeta.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

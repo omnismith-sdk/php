@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**targetTemplateId** | **string** | Target template UUID |
-**targetAttributeId** | **string** | Target attribute UUID (display attribute) |
+**targetTemplateId** | **string** | UUID of the target template whose entities can be referenced. |
+**targetAttributeId** | **string** | UUID of the attribute on the target template to display as reference label. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

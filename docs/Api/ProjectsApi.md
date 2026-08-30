@@ -26,6 +26,8 @@ assignUserToProject($id, $assignUserToProjectRequest)
 
 Assign user to project
 
+Assigns a user to a project with a specific role ID. Both the project and user must exist. Requires the caller to have project administration permissions.
+
 ### Example
 
 ```php
@@ -43,7 +45,7 @@ $apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | Project ID
 $assignUserToProjectRequest = new \Omnismith\Sdk\Model\AssignUserToProjectRequest(); // \Omnismith\Sdk\Model\AssignUserToProjectRequest
 
 try {
@@ -57,7 +59,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
+| **id** | **string**| Project ID | |
 | **assignUserToProjectRequest** | [**\Omnismith\Sdk\Model\AssignUserToProjectRequest**](../Model/AssignUserToProjectRequest.md)|  | |
 
 ### Return type
@@ -80,10 +82,12 @@ void (empty response body)
 ## `createProject()`
 
 ```php
-createProject($createProjectRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
+createProject($createProjectRequest): \Omnismith\Sdk\Model\CreateProject201Response
 ```
 
 Create a new project
+
+Creates a new workspace project. A project is an isolated multi-tenant boundary grouping templates, attributes, entities, dashboards, and automations. An optional client-generated UUIDv7 `id` can be supplied.
 
 ### Example
 
@@ -120,7 +124,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateProject201Response**](../Model/CreateProject201Response.md)
 
 ### Authorization
 
@@ -143,6 +147,8 @@ deleteProject($id)
 
 Delete a project
 
+Soft-deletes a project and archives all associated entities, templates, attributes, and dashboards. Requires project owner permissions.
+
 ### Example
 
 ```php
@@ -160,7 +166,7 @@ $apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | Project ID to delete
 
 try {
     $apiInstance->deleteProject($id);
@@ -173,7 +179,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
+| **id** | **string**| Project ID to delete | |
 
 ### Return type
 
@@ -219,7 +225,7 @@ $apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | Unique UUID identifier of the project
 
 try {
     $apiInstance->dismissProjectTour($id);
@@ -232,7 +238,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
+| **id** | **string**| Unique UUID identifier of the project | |
 
 ### Return type
 
@@ -259,6 +265,8 @@ getProject($id): \Omnismith\Sdk\Model\ProjectResponse
 
 Get a project by ID
 
+Retrieves details for a specific project by its UUID, including name, description, tour status, owner email, and timestamps.
+
 ### Example
 
 ```php
@@ -276,7 +284,7 @@ $apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | Project ID
 
 try {
     $result = $apiInstance->getProject($id);
@@ -290,7 +298,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
+| **id** | **string**| Project ID | |
 
 ### Return type
 
@@ -378,6 +386,8 @@ listProjectUsers($id): \Omnismith\Sdk\Model\ListProjectUsers200Response
 
 List users in project
 
+Returns all users assigned to the specified project along with their roles (Admin, Editor, Viewer, etc.), email addresses, and join dates.
+
 ### Example
 
 ```php
@@ -395,7 +405,7 @@ $apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | Project ID
 
 try {
     $result = $apiInstance->listProjectUsers($id);
@@ -409,7 +419,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
+| **id** | **string**| Project ID | |
 
 ### Return type
 
@@ -435,6 +445,8 @@ listProjects(): \Omnismith\Sdk\Model\ListProjects200Response
 ```
 
 List all projects
+
+Returns all projects accessible to the authenticated user, including their assigned role and owner information.
 
 ### Example
 
@@ -491,6 +503,8 @@ removeUserFromProject($id, $userId)
 
 Remove user from project
 
+Removes a user membership from the project. The user will immediately lose access to the project's data.
+
 ### Example
 
 ```php
@@ -508,8 +522,8 @@ $apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
-$userId = 'userId_example'; // string
+$id = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | Project ID
+$userId = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | User ID to remove from project
 
 try {
     $apiInstance->removeUserFromProject($id, $userId);
@@ -522,8 +536,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
-| **userId** | **string**|  | |
+| **id** | **string**| Project ID | |
+| **userId** | **string**| User ID to remove from project | |
 
 ### Return type
 
@@ -550,6 +564,8 @@ updateProject($id, $updateProjectRequest)
 
 Update a project
 
+Updates project metadata such as name and description. Requires project administrator permissions.
+
 ### Example
 
 ```php
@@ -567,7 +583,7 @@ $apiInstance = new Omnismith\Sdk\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | Project ID
 $updateProjectRequest = new \Omnismith\Sdk\Model\UpdateProjectRequest(); // \Omnismith\Sdk\Model\UpdateProjectRequest
 
 try {
@@ -581,7 +597,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
+| **id** | **string**| Project ID | |
 | **updateProjectRequest** | [**\Omnismith\Sdk\Model\UpdateProjectRequest**](../Model/UpdateProjectRequest.md)|  | |
 
 ### Return type

@@ -6,7 +6,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createAccessToken()**](AccessTokensApi.md#createAccessToken) | **POST** /access-tokens | Create an API access token |
+| [**createAccessToken()**](AccessTokensApi.md#createAccessToken) | **POST** /access-tokens | Create a programmatic API access token |
 | [**deleteAccessToken()**](AccessTokensApi.md#deleteAccessToken) | **DELETE** /access-tokens/{id} | Delete an API access token |
 | [**listAccessTokens()**](AccessTokensApi.md#listAccessTokens) | **GET** /access-tokens | List API access tokens |
 
@@ -17,9 +17,9 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 createAccessToken($createAccessTokenRequest): \Omnismith\Sdk\Model\CreateAccessToken201Response
 ```
 
-Create an API access token
+Create a programmatic API access token
 
-Creates a new API access token for the current user and project. The raw API key is returned once in the response and cannot be retrieved again.
+Generates a new programmatic API access token prefixed with `omni_` (e.g. `omni_live_secret_key_...`) for the authenticated user within the active project context. The token inherits the user's current role permissions and scopes for authenticating automated API clients and scripts. The raw secret key is returned exactly once in the response and cannot be recovered later.
 
 ### Example
 
@@ -79,6 +79,8 @@ deleteAccessToken($id)
 
 Delete an API access token
 
+Permanently revokes and removes a programmatic API access token by its unique identifier. Any future API request using the revoked secret key will immediately fail authentication with a 401 Unauthorized status.
+
 ### Example
 
 ```php
@@ -96,7 +98,7 @@ $apiInstance = new Omnismith\Sdk\Api\AccessTokensApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 0192a543-7f28-72b1-9b7e-97c997321034; // string | Unique UUIDv7 identifier of the access token to delete
 
 try {
     $apiInstance->deleteAccessToken($id);
@@ -109,7 +111,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
+| **id** | **string**| Unique UUIDv7 identifier of the access token to delete | |
 
 ### Return type
 
@@ -122,7 +124,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -136,7 +138,7 @@ listAccessTokens(): \Omnismith\Sdk\Model\ListAccessTokens200Response
 
 List API access tokens
 
-Returns all access tokens for the current user and project.
+Retrieves all active and expired programmatic API access tokens created by the authenticated user for the active project context. Returns token metadata including unique ID, user-assigned label, creation date, expiration timestamp, and last used timestamp. Note: raw secret API keys are only displayed once upon generation and are never returned in list responses.
 
 ### Example
 

@@ -6,9 +6,9 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**listPushDevices()**](AutomationPushDevicesApi.md#listPushDevices) | **GET** /automation/push-devices | List the current user&#39;s registered push devices |
-| [**registerPushDevice()**](AutomationPushDevicesApi.md#registerPushDevice) | **POST** /automation/push-devices | Register a push notification device token |
-| [**unregisterPushDevice()**](AutomationPushDevicesApi.md#unregisterPushDevice) | **DELETE** /automation/push-devices | Unregister a push notification device token |
+| [**listPushDevices()**](AutomationPushDevicesApi.md#listPushDevices) | **GET** /automation/push-devices | List registered push devices |
+| [**registerPushDevice()**](AutomationPushDevicesApi.md#registerPushDevice) | **POST** /automation/push-devices | Register a mobile push notification device |
+| [**unregisterPushDevice()**](AutomationPushDevicesApi.md#unregisterPushDevice) | **DELETE** /automation/push-devices | Unregister a mobile push notification device |
 
 
 ## `listPushDevices()`
@@ -17,7 +17,9 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 listPushDevices(): \Omnismith\Sdk\Model\ListPushDevices200Response
 ```
 
-List the current user's registered push devices
+List registered push devices
+
+Retrieves all Firebase Cloud Messaging (FCM) mobile push devices registered under the authenticated user account for receiving automated push alerts. Device registration tokens are masked in the output for security.
 
 ### Example
 
@@ -69,10 +71,12 @@ This endpoint does not need any parameter.
 ## `registerPushDevice()`
 
 ```php
-registerPushDevice($registerPushDeviceRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
+registerPushDevice($registerPushDeviceRequest): \Omnismith\Sdk\Model\RegisterPushDevice201Response
 ```
 
-Register a push notification device token
+Register a mobile push notification device
+
+Registers an FCM device token under the authenticated user account to receive real-time push notifications from automation action triggers. If the token is already registered, its device name and activity timestamp are updated.
 
 ### Example
 
@@ -109,7 +113,7 @@ try {
 
 ### Return type
 
-[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\RegisterPushDevice201Response**](../Model/RegisterPushDevice201Response.md)
 
 ### Authorization
 
@@ -130,7 +134,9 @@ try {
 unregisterPushDevice($unregisterPushDeviceRequest)
 ```
 
-Unregister a push notification device token
+Unregister a mobile push notification device
+
+Removes an FCM push notification device token from the authenticated user profile, stopping all future automation push notifications directed to that device.
 
 ### Example
 

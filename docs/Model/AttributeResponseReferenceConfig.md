@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**targetTemplateId** | **string** |  | [optional]
-**targetAttributeId** | **string** |  | [optional]
+**targetTemplateId** | **string** | UUID of target template | [optional]
+**targetAttributeId** | **string** | UUID of target display attribute | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

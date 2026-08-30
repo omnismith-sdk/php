@@ -17,10 +17,12 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createDashboardBlock()`
 
 ```php
-createDashboardBlock($dashboardId, $createDashboardBlockRequest): \Omnismith\Sdk\Model\CreateAttributeItem201Response
+createDashboardBlock($dashboardId, $createDashboardBlockRequest): \Omnismith\Sdk\Model\CreateDashboardBlock201Response
 ```
 
 Create a new block in a dashboard
+
+Creates a new visualization block widget on a dashboard canvas. Supports four block types: stat (single KPI counter of matching entities), chart (time-series telemetry multi-line/bar graph aggregating metric data), gauge (metric threshold gauge with min/max bounds and percentage progress), and list (filtered and sorted entity table). Grid placement is defined via x, y, cols, rows layout parameters.
 
 ### Example
 
@@ -39,8 +41,8 @@ $apiInstance = new Omnismith\Sdk\Api\DashboardBlocksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$dashboardId = 'dashboardId_example'; // string | Dashboard ID
-$createDashboardBlockRequest = new \Omnismith\Sdk\Model\CreateDashboardBlockRequest(); // \Omnismith\Sdk\Model\CreateDashboardBlockRequest
+$dashboardId = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Target dashboard unique identifier (UUID)
+$createDashboardBlockRequest = new \Omnismith\Sdk\Model\CreateDashboardBlockRequest(); // \Omnismith\Sdk\Model\CreateDashboardBlockRequest | Dashboard block creation payload
 
 try {
     $result = $apiInstance->createDashboardBlock($dashboardId, $createDashboardBlockRequest);
@@ -54,12 +56,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dashboardId** | **string**| Dashboard ID | |
-| **createDashboardBlockRequest** | [**\Omnismith\Sdk\Model\CreateDashboardBlockRequest**](../Model/CreateDashboardBlockRequest.md)|  | |
+| **dashboardId** | **string**| Target dashboard unique identifier (UUID) | |
+| **createDashboardBlockRequest** | [**\Omnismith\Sdk\Model\CreateDashboardBlockRequest**](../Model/CreateDashboardBlockRequest.md)| Dashboard block creation payload | |
 
 ### Return type
 
-[**\Omnismith\Sdk\Model\CreateAttributeItem201Response**](../Model/CreateAttributeItem201Response.md)
+[**\Omnismith\Sdk\Model\CreateDashboardBlock201Response**](../Model/CreateDashboardBlock201Response.md)
 
 ### Authorization
 
@@ -82,6 +84,8 @@ deleteDashboardBlock($dashboardId, $blockId)
 
 Delete a dashboard block
 
+Permanently removes a visualization block widget from the specified dashboard canvas.
+
 ### Example
 
 ```php
@@ -99,8 +103,8 @@ $apiInstance = new Omnismith\Sdk\Api\DashboardBlocksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$dashboardId = 'dashboardId_example'; // string | Dashboard ID
-$blockId = 'blockId_example'; // string | Block ID
+$dashboardId = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Parent dashboard unique identifier (UUID)
+$blockId = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6c; // string | Dashboard block unique identifier (UUID) to delete
 
 try {
     $apiInstance->deleteDashboardBlock($dashboardId, $blockId);
@@ -113,8 +117,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dashboardId** | **string**| Dashboard ID | |
-| **blockId** | **string**| Block ID | |
+| **dashboardId** | **string**| Parent dashboard unique identifier (UUID) | |
+| **blockId** | **string**| Dashboard block unique identifier (UUID) to delete | |
 
 ### Return type
 
@@ -127,7 +131,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -141,6 +145,8 @@ getDashboardBlock($dashboardId, $blockId): \Omnismith\Sdk\Model\DashboardBlockRe
 
 Get a dashboard block by ID
 
+Retrieves the configuration details, grid coordinates, and data query definitions for an individual visualization block.
+
 ### Example
 
 ```php
@@ -158,8 +164,8 @@ $apiInstance = new Omnismith\Sdk\Api\DashboardBlocksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$dashboardId = 'dashboardId_example'; // string | Dashboard ID
-$blockId = 'blockId_example'; // string | Block ID
+$dashboardId = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Parent dashboard unique identifier (UUID)
+$blockId = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6c; // string | Dashboard block unique identifier (UUID)
 
 try {
     $result = $apiInstance->getDashboardBlock($dashboardId, $blockId);
@@ -173,8 +179,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dashboardId** | **string**| Dashboard ID | |
-| **blockId** | **string**| Block ID | |
+| **dashboardId** | **string**| Parent dashboard unique identifier (UUID) | |
+| **blockId** | **string**| Dashboard block unique identifier (UUID) | |
 
 ### Return type
 
@@ -201,6 +207,8 @@ listDashboardBlocks($dashboardId): \Omnismith\Sdk\Model\ListDashboardBlocks200Re
 
 List all blocks in a dashboard
 
+Retrieves all visualization blocks mounted on a dashboard canvas, including widget types (stat KPI card, time-series chart, gauge meter, entity list), grid position coordinates (x, y, cols, rows), template filters, and aggregation configs.
+
 ### Example
 
 ```php
@@ -218,7 +226,7 @@ $apiInstance = new Omnismith\Sdk\Api\DashboardBlocksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$dashboardId = 'dashboardId_example'; // string | Dashboard ID
+$dashboardId = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Parent dashboard unique identifier (UUID)
 
 try {
     $result = $apiInstance->listDashboardBlocks($dashboardId);
@@ -232,7 +240,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dashboardId** | **string**| Dashboard ID | |
+| **dashboardId** | **string**| Parent dashboard unique identifier (UUID) | |
 
 ### Return type
 
@@ -259,7 +267,7 @@ resolveDashboardBlock($dashboardId, $blockId): \Omnismith\Sdk\Model\ResolvedBloc
 
 Resolve a dashboard block to its computed data
 
-Executes the block configuration and returns computed values based on block type (stat count, gauge value, chart series, or list items)
+Executes the underlying data query for a dashboard block and returns computed real-time aggregated metrics and time-series telemetry. Returns a typed payload matching the block type: stat (matching entity count), gauge (current metric value, min/max bounds, progress percentage), chart (time-series data point series bucketed by time intervals with aggregation functions), or list (hydrated entity items with dynamic attributes).
 
 ### Example
 
@@ -278,8 +286,8 @@ $apiInstance = new Omnismith\Sdk\Api\DashboardBlocksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$dashboardId = 'dashboardId_example'; // string | Dashboard ID
-$blockId = 'blockId_example'; // string | Block ID
+$dashboardId = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Parent dashboard unique identifier (UUID)
+$blockId = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6c; // string | Dashboard block unique identifier (UUID) to resolve and compute
 
 try {
     $result = $apiInstance->resolveDashboardBlock($dashboardId, $blockId);
@@ -293,8 +301,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dashboardId** | **string**| Dashboard ID | |
-| **blockId** | **string**| Block ID | |
+| **dashboardId** | **string**| Parent dashboard unique identifier (UUID) | |
+| **blockId** | **string**| Dashboard block unique identifier (UUID) to resolve and compute | |
 
 ### Return type
 
@@ -321,6 +329,8 @@ updateDashboardBlock($dashboardId, $blockId, $updateDashboardBlockRequest)
 
 Update a dashboard block
 
+Updates the display title, grid placement (x, y, cols, rows), metric queries, time-series aggregation buckets, gauge bounds, or filtering rules of an existing visualization block.
+
 ### Example
 
 ```php
@@ -338,9 +348,9 @@ $apiInstance = new Omnismith\Sdk\Api\DashboardBlocksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$dashboardId = 'dashboardId_example'; // string | Dashboard ID
-$blockId = 'blockId_example'; // string | Block ID
-$updateDashboardBlockRequest = new \Omnismith\Sdk\Model\UpdateDashboardBlockRequest(); // \Omnismith\Sdk\Model\UpdateDashboardBlockRequest
+$dashboardId = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Parent dashboard unique identifier (UUID)
+$blockId = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6c; // string | Dashboard block unique identifier (UUID) to update
+$updateDashboardBlockRequest = new \Omnismith\Sdk\Model\UpdateDashboardBlockRequest(); // \Omnismith\Sdk\Model\UpdateDashboardBlockRequest | Dashboard block update payload
 
 try {
     $apiInstance->updateDashboardBlock($dashboardId, $blockId, $updateDashboardBlockRequest);
@@ -353,9 +363,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **dashboardId** | **string**| Dashboard ID | |
-| **blockId** | **string**| Block ID | |
-| **updateDashboardBlockRequest** | [**\Omnismith\Sdk\Model\UpdateDashboardBlockRequest**](../Model/UpdateDashboardBlockRequest.md)|  | |
+| **dashboardId** | **string**| Parent dashboard unique identifier (UUID) | |
+| **blockId** | **string**| Dashboard block unique identifier (UUID) to update | |
+| **updateDashboardBlockRequest** | [**\Omnismith\Sdk\Model\UpdateDashboardBlockRequest**](../Model/UpdateDashboardBlockRequest.md)| Dashboard block update payload | |
 
 ### Return type
 
