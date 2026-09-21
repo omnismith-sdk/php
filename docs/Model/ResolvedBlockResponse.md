@@ -16,5 +16,8 @@ Name | Type | Description | Notes
 **series** | [**\Omnismith\Sdk\Model\ResolvedChartBlockResponseSeriesInner[]**](ResolvedChartBlockResponseSeriesInner.md) | Time-series data grouped per entity | [optional]
 **items** | [**\Omnismith\Sdk\Model\ResolvedListBlockResponseItemsInner[]**](ResolvedListBlockResponseItemsInner.md) | List of matching entity records with hydrated attributes | [optional]
 **totalCount** | **int** | Total number of items matching filters | [optional]
+**limit** | **int** | Maximum number of groups returned, as configured on the block | [optional]
+**truncated** | **bool** | Whether more groups exist beyond &#x60;limit&#x60; | [optional]
+**groups** | [**\Omnismith\Sdk\Model\ResolvedAggregateBlockResponseGroupsInner[]**](ResolvedAggregateBlockResponseGroupsInner.md) | One row per group, in the order configured on the block | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -24,12 +24,12 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createWorkspace()`
 
 ```php
-createWorkspace($createWorkspaceRequest): \Omnismith\Sdk\Model\CreateDashboard201Response
+createWorkspace($createWorkspaceRequest, $xOmnismithProjectId): \Omnismith\Sdk\Model\CreateDashboard201Response
 ```
 
 Create a new workspace
 
-Creates a new workspace in the current project context with a specified multi-pane layout (single, split-v, split-h, quad), optional default workspace status, and initial template view bindings to automatically generate panes.
+Creates a top-level operational workspace (workbench) in the current project context grouping related views for a specific workflow (e.g. \"Editorial & Content Calendar\", \"Guidelines & Strategy\", \"Media Studio\"). Workspaces appear in the top-level workspace switcher and support multi-pane layouts (single, split-v, split-h, quad) and default workspace indicators.
 
 ### Example
 
@@ -49,9 +49,10 @@ $apiInstance = new Omnismith\Sdk\Api\WorkspacesApi(
     $config
 );
 $createWorkspaceRequest = new \Omnismith\Sdk\Model\CreateWorkspaceRequest(); // \Omnismith\Sdk\Model\CreateWorkspaceRequest | Workspace creation payload
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->createWorkspace($createWorkspaceRequest);
+    $result = $apiInstance->createWorkspace($createWorkspaceRequest, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->createWorkspace: ', $e->getMessage(), PHP_EOL;
@@ -63,6 +64,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **createWorkspaceRequest** | [**\Omnismith\Sdk\Model\CreateWorkspaceRequest**](../Model/CreateWorkspaceRequest.md)| Workspace creation payload | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -84,12 +86,12 @@ try {
 ## `createWorkspaceView()`
 
 ```php
-createWorkspaceView($id, $createWorkspaceViewRequest): \Omnismith\Sdk\Model\CreateDashboardBlock201Response
+createWorkspaceView($id, $createWorkspaceViewRequest, $xOmnismithProjectId): \Omnismith\Sdk\Model\CreateDashboardBlock201Response
 ```
 
 Add a new view / pane to a workspace
 
-Creates and mounts a new view pane within an existing workspace bound to a specific entity schema template, configuring presentation mode (table, grid), visible columns, filter criteria, search queries (keyword or semantic), sorting preferences, and pane order.
+Creates and mounts a new view pane within an existing workspace bound to a specific entity schema template, configuring presentation mode (table, grid), visible columns, filter criteria, search queries (keyword or semantic), sorting preferences, and pane order. A workspace view represents a specialized filtered lens (e.g. \"Telegram Channel Hub\" filtered for platform=telegram) inside an operational workspace.
 
 ### Example
 
@@ -110,9 +112,10 @@ $apiInstance = new Omnismith\Sdk\Api\WorkspacesApi(
 );
 $id = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Target workspace unique identifier (UUID)
 $createWorkspaceViewRequest = new \Omnismith\Sdk\Model\CreateWorkspaceViewRequest(); // \Omnismith\Sdk\Model\CreateWorkspaceViewRequest | Workspace view creation payload
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->createWorkspaceView($id, $createWorkspaceViewRequest);
+    $result = $apiInstance->createWorkspaceView($id, $createWorkspaceViewRequest, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->createWorkspaceView: ', $e->getMessage(), PHP_EOL;
@@ -125,6 +128,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Target workspace unique identifier (UUID) | |
 | **createWorkspaceViewRequest** | [**\Omnismith\Sdk\Model\CreateWorkspaceViewRequest**](../Model/CreateWorkspaceViewRequest.md)| Workspace view creation payload | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -146,7 +150,7 @@ try {
 ## `deleteWorkspace()`
 
 ```php
-deleteWorkspace($id)
+deleteWorkspace($id, $xOmnismithProjectId)
 ```
 
 Delete a workspace and its views
@@ -171,9 +175,10 @@ $apiInstance = new Omnismith\Sdk\Api\WorkspacesApi(
     $config
 );
 $id = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Workspace unique identifier (UUID) to delete
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->deleteWorkspace($id);
+    $apiInstance->deleteWorkspace($id, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->deleteWorkspace: ', $e->getMessage(), PHP_EOL;
 }
@@ -184,6 +189,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Workspace unique identifier (UUID) to delete | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -205,7 +211,7 @@ void (empty response body)
 ## `deleteWorkspaceView()`
 
 ```php
-deleteWorkspaceView($id, $viewId)
+deleteWorkspaceView($id, $viewId, $xOmnismithProjectId)
 ```
 
 Delete a view / pane from a workspace
@@ -231,9 +237,10 @@ $apiInstance = new Omnismith\Sdk\Api\WorkspacesApi(
 );
 $id = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Workspace unique identifier (UUID)
 $viewId = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6c; // string | Workspace view unique identifier (UUID) to delete
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->deleteWorkspaceView($id, $viewId);
+    $apiInstance->deleteWorkspaceView($id, $viewId, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->deleteWorkspaceView: ', $e->getMessage(), PHP_EOL;
 }
@@ -245,6 +252,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Workspace unique identifier (UUID) | |
 | **viewId** | **string**| Workspace view unique identifier (UUID) to delete | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -266,7 +274,7 @@ void (empty response body)
 ## `duplicateWorkspace()`
 
 ```php
-duplicateWorkspace($id, $duplicateWorkspaceRequest): \Omnismith\Sdk\Model\DuplicateWorkspace201Response
+duplicateWorkspace($id, $xOmnismithProjectId, $duplicateWorkspaceRequest): \Omnismith\Sdk\Model\DuplicateWorkspace201Response
 ```
 
 Duplicate an existing workspace and its views
@@ -291,10 +299,11 @@ $apiInstance = new Omnismith\Sdk\Api\WorkspacesApi(
     $config
 );
 $id = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Source workspace unique identifier (UUID) to clone
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 $duplicateWorkspaceRequest = new \Omnismith\Sdk\Model\DuplicateWorkspaceRequest(); // \Omnismith\Sdk\Model\DuplicateWorkspaceRequest | Optional configuration for the duplicated workspace
 
 try {
-    $result = $apiInstance->duplicateWorkspace($id, $duplicateWorkspaceRequest);
+    $result = $apiInstance->duplicateWorkspace($id, $xOmnismithProjectId, $duplicateWorkspaceRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->duplicateWorkspace: ', $e->getMessage(), PHP_EOL;
@@ -306,6 +315,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Source workspace unique identifier (UUID) to clone | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 | **duplicateWorkspaceRequest** | [**\Omnismith\Sdk\Model\DuplicateWorkspaceRequest**](../Model/DuplicateWorkspaceRequest.md)| Optional configuration for the duplicated workspace | [optional] |
 
 ### Return type
@@ -328,7 +338,7 @@ try {
 ## `getWorkspace()`
 
 ```php
-getWorkspace($id): \Omnismith\Sdk\Model\WorkspaceDetailsResponse
+getWorkspace($id, $xOmnismithProjectId): \Omnismith\Sdk\Model\WorkspaceDetailsResponse
 ```
 
 Get workspace details and its views
@@ -353,9 +363,10 @@ $apiInstance = new Omnismith\Sdk\Api\WorkspacesApi(
     $config
 );
 $id = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Workspace unique identifier (UUID)
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->getWorkspace($id);
+    $result = $apiInstance->getWorkspace($id, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->getWorkspace: ', $e->getMessage(), PHP_EOL;
@@ -367,6 +378,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Workspace unique identifier (UUID) | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -388,7 +400,7 @@ try {
 ## `getWorkspaceView()`
 
 ```php
-getWorkspaceView($id, $viewId): \Omnismith\Sdk\Model\WorkspaceViewResponse
+getWorkspaceView($id, $viewId, $xOmnismithProjectId): \Omnismith\Sdk\Model\WorkspaceViewResponse
 ```
 
 Get details of a workspace view / pane
@@ -414,9 +426,10 @@ $apiInstance = new Omnismith\Sdk\Api\WorkspacesApi(
 );
 $id = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Workspace unique identifier (UUID)
 $viewId = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6c; // string | Workspace view unique identifier (UUID)
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->getWorkspaceView($id, $viewId);
+    $result = $apiInstance->getWorkspaceView($id, $viewId, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->getWorkspaceView: ', $e->getMessage(), PHP_EOL;
@@ -429,6 +442,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Workspace unique identifier (UUID) | |
 | **viewId** | **string**| Workspace view unique identifier (UUID) | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -450,7 +464,7 @@ try {
 ## `listTemplateViews()`
 
 ```php
-listTemplateViews($templateId): \Omnismith\Sdk\Model\ListTemplateViews200Response
+listTemplateViews($templateId, $xOmnismithProjectId): \Omnismith\Sdk\Model\ListTemplateViews200Response
 ```
 
 List saved views for a specific template across workspaces
@@ -475,9 +489,10 @@ $apiInstance = new Omnismith\Sdk\Api\WorkspacesApi(
     $config
 );
 $templateId = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Schema template unique identifier (UUID)
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->listTemplateViews($templateId);
+    $result = $apiInstance->listTemplateViews($templateId, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->listTemplateViews: ', $e->getMessage(), PHP_EOL;
@@ -489,6 +504,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **templateId** | **string**| Schema template unique identifier (UUID) | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -510,12 +526,12 @@ try {
 ## `listWorkspaces()`
 
 ```php
-listWorkspaces(): \Omnismith\Sdk\Model\ListWorkspaces200Response
+listWorkspaces($xOmnismithProjectId): \Omnismith\Sdk\Model\ListWorkspaces200Response
 ```
 
 List all workspaces for current project
 
-Retrieves all workspaces configured within the authenticated project context, including multi-pane layout structures (single, split-v, split-h, quad), view pane counts, sort ordering, and default workspace indicators for workbench navigation.
+Retrieves all top-level operational workspaces configured within the authenticated project context, including multi-pane layout structures (single, split-v, split-h, quad), view pane counts, sort ordering, and default workspace indicators for workbench navigation.
 
 ### Example
 
@@ -534,9 +550,10 @@ $apiInstance = new Omnismith\Sdk\Api\WorkspacesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->listWorkspaces();
+    $result = $apiInstance->listWorkspaces($xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->listWorkspaces: ', $e->getMessage(), PHP_EOL;
@@ -545,7 +562,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -567,7 +586,7 @@ This endpoint does not need any parameter.
 ## `reorderWorkspaceViews()`
 
 ```php
-reorderWorkspaceViews($id, $reorderWorkspaceViewsRequest)
+reorderWorkspaceViews($id, $reorderWorkspaceViewsRequest, $xOmnismithProjectId)
 ```
 
 Reorder views inside a workspace
@@ -593,9 +612,10 @@ $apiInstance = new Omnismith\Sdk\Api\WorkspacesApi(
 );
 $id = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Workspace unique identifier (UUID)
 $reorderWorkspaceViewsRequest = new \Omnismith\Sdk\Model\ReorderWorkspaceViewsRequest(); // \Omnismith\Sdk\Model\ReorderWorkspaceViewsRequest | Payload containing ordered view IDs
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->reorderWorkspaceViews($id, $reorderWorkspaceViewsRequest);
+    $apiInstance->reorderWorkspaceViews($id, $reorderWorkspaceViewsRequest, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->reorderWorkspaceViews: ', $e->getMessage(), PHP_EOL;
 }
@@ -607,6 +627,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Workspace unique identifier (UUID) | |
 | **reorderWorkspaceViewsRequest** | [**\Omnismith\Sdk\Model\ReorderWorkspaceViewsRequest**](../Model/ReorderWorkspaceViewsRequest.md)| Payload containing ordered view IDs | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -628,7 +649,7 @@ void (empty response body)
 ## `setDefaultWorkspace()`
 
 ```php
-setDefaultWorkspace($id)
+setDefaultWorkspace($id, $xOmnismithProjectId)
 ```
 
 Set workspace as the default workspace
@@ -653,9 +674,10 @@ $apiInstance = new Omnismith\Sdk\Api\WorkspacesApi(
     $config
 );
 $id = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Workspace unique identifier (UUID) to designate as default
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->setDefaultWorkspace($id);
+    $apiInstance->setDefaultWorkspace($id, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->setDefaultWorkspace: ', $e->getMessage(), PHP_EOL;
 }
@@ -666,6 +688,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Workspace unique identifier (UUID) to designate as default | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -687,7 +710,7 @@ void (empty response body)
 ## `updateWorkspace()`
 
 ```php
-updateWorkspace($id, $updateWorkspaceRequest)
+updateWorkspace($id, $updateWorkspaceRequest, $xOmnismithProjectId)
 ```
 
 Update workspace metadata and layout
@@ -713,9 +736,10 @@ $apiInstance = new Omnismith\Sdk\Api\WorkspacesApi(
 );
 $id = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Workspace unique identifier (UUID) to update
 $updateWorkspaceRequest = new \Omnismith\Sdk\Model\UpdateWorkspaceRequest(); // \Omnismith\Sdk\Model\UpdateWorkspaceRequest | Workspace update payload
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->updateWorkspace($id, $updateWorkspaceRequest);
+    $apiInstance->updateWorkspace($id, $updateWorkspaceRequest, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->updateWorkspace: ', $e->getMessage(), PHP_EOL;
 }
@@ -727,6 +751,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Workspace unique identifier (UUID) to update | |
 | **updateWorkspaceRequest** | [**\Omnismith\Sdk\Model\UpdateWorkspaceRequest**](../Model/UpdateWorkspaceRequest.md)| Workspace update payload | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -748,12 +773,12 @@ void (empty response body)
 ## `updateWorkspaceView()`
 
 ```php
-updateWorkspaceView($id, $viewId, $updateWorkspaceViewRequest)
+updateWorkspaceView($id, $viewId, $updateWorkspaceViewRequest, $xOmnismithProjectId)
 ```
 
 Update workspace view / pane filters, sort, display mode, or columns
 
-Updates the configuration of a specific workspace view pane, modifying its title, filtering rules, search query and mode, sorting preferences, presentation display mode (table or grid), column visibility lists, or pane display sequence.
+Updates the configuration of a specific workspace view pane, modifying its title, filtering rules, search query and mode, sorting preferences, presentation display mode (table or grid), column visibility lists, or pane display sequence. A workspace view represents a specialized filtered lens (e.g. \"Telegram Channel Hub\") inside an operational workspace.
 
 ### Example
 
@@ -775,9 +800,10 @@ $apiInstance = new Omnismith\Sdk\Api\WorkspacesApi(
 $id = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6b; // string | Workspace unique identifier (UUID)
 $viewId = 0190a1b2-c3d4-7e8f-9a0b-1c2d3e4f5a6c; // string | Workspace view unique identifier (UUID) to update
 $updateWorkspaceViewRequest = new \Omnismith\Sdk\Model\UpdateWorkspaceViewRequest(); // \Omnismith\Sdk\Model\UpdateWorkspaceViewRequest | Workspace view update payload
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->updateWorkspaceView($id, $viewId, $updateWorkspaceViewRequest);
+    $apiInstance->updateWorkspaceView($id, $viewId, $updateWorkspaceViewRequest, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->updateWorkspaceView: ', $e->getMessage(), PHP_EOL;
 }
@@ -790,6 +816,7 @@ try {
 | **id** | **string**| Workspace unique identifier (UUID) | |
 | **viewId** | **string**| Workspace view unique identifier (UUID) to update | |
 | **updateWorkspaceViewRequest** | [**\Omnismith\Sdk\Model\UpdateWorkspaceViewRequest**](../Model/UpdateWorkspaceViewRequest.md)| Workspace view update payload | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 

@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **templateId** | **string** | Optional template UUID or template slug to scope the search to | [optional]
 **limit** | **int** | Maximum number of semantic results to return (1-50, default: 10) | [optional] [default to 10]
 **threshold** | **float** | Minimum cosine similarity threshold (0.0 to 1.0, default: 0.5) | [optional] [default to 0.5]
-**attributeKey** | **string** | Format for attribute_values dictionary keys: \&quot;id\&quot; for attribute UUIDs or \&quot;slug\&quot; for human-readable attribute slugs | [optional] [default to 'id']
+**verbose** | **bool** | When true, each nested entity&#39;s attribute_values is an array of EntityAttributeValue items (attribute id, slug, raw value, resolved custom_value, reference_entity_id). When false (default), attribute_values is a compact object mapping attribute slug to display value, with the ids behind list, reference and file labels in list_item_ids, reference_entity_ids and file_ids. | [optional] [default to false]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

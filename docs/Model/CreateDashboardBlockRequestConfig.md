@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **limit** | **int** | Maximum number of rows to return for list table blocks (default: 10). | [optional] [default to 10]
 **sort** | **object** | Sort configuration object for list table blocks (e.g. {\&quot;created_at\&quot;: \&quot;desc\&quot;}). | [optional]
 **visibleAttributes** | **string[]** | Ordered list of attribute UUIDs (or \&quot;created_at\&quot;, \&quot;updated_at\&quot;) to display as columns in list table blocks. | [optional]
+**groupBy** | **string[]** | Attribute slugs or UUIDs to group by, at most 3 (required for aggregate blocks). Lists, references, strings, numbers, booleans and dates can be keys; metrics, markdown, files and images cannot. Empty groups the whole filtered set into one row. | [optional]
+**aggregations** | [**\Omnismith\Sdk\Model\CreateDashboardBlockRequestConfigAggregationsInner[]**](CreateDashboardBlockRequestConfigAggregationsInner.md) | Reduces computed per group for aggregate blocks, reported back in this order (1-10 entries; defaults to a single &#x60;count&#x60; when omitted). &#x60;count&#x60; takes no field; &#x60;sum&#x60; and &#x60;avg&#x60; need a number attribute; &#x60;min&#x60; and &#x60;max&#x60; accept number, date and datetime attributes. | [optional]
 **filters** | [**\Omnismith\Sdk\Model\CreateDashboardBlockRequestConfigFiltersInner[]**](CreateDashboardBlockRequestConfigFiltersInner.md) | Optional entity filtering conditions applied to block data. | [optional]
 **x** | **int** | Horizontal grid column position (0 to 11 on the 12-column grid canvas). | [optional] [default to 0]
 **y** | **int** | Vertical grid row position (0 to N, 0-indexed). | [optional] [default to 0]

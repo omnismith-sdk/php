@@ -18,7 +18,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createTemplate()`
 
 ```php
-createTemplate($createTemplateRequest): \Omnismith\Sdk\Model\CreateTemplate201Response
+createTemplate($createTemplateRequest, $xOmnismithProjectId): \Omnismith\Sdk\Model\CreateTemplate201Response
 ```
 
 Create a new template
@@ -43,9 +43,10 @@ $apiInstance = new Omnismith\Sdk\Api\TemplatesApi(
     $config
 );
 $createTemplateRequest = new \Omnismith\Sdk\Model\CreateTemplateRequest(); // \Omnismith\Sdk\Model\CreateTemplateRequest
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->createTemplate($createTemplateRequest);
+    $result = $apiInstance->createTemplate($createTemplateRequest, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->createTemplate: ', $e->getMessage(), PHP_EOL;
@@ -57,6 +58,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **createTemplateRequest** | [**\Omnismith\Sdk\Model\CreateTemplateRequest**](../Model/CreateTemplateRequest.md)|  | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -78,7 +80,7 @@ try {
 ## `deleteTemplate()`
 
 ```php
-deleteTemplate($id)
+deleteTemplate($id, $xOmnismithProjectId)
 ```
 
 Delete a template
@@ -103,9 +105,10 @@ $apiInstance = new Omnismith\Sdk\Api\TemplatesApi(
     $config
 );
 $id = 018b2f1b-8c1a-75b3-8000-7f0000010010; // string | UUID or unique slug of the template to delete
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->deleteTemplate($id);
+    $apiInstance->deleteTemplate($id, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->deleteTemplate: ', $e->getMessage(), PHP_EOL;
 }
@@ -116,6 +119,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| UUID or unique slug of the template to delete | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -137,7 +141,7 @@ void (empty response body)
 ## `getTemplate()`
 
 ```php
-getTemplate($id): \Omnismith\Sdk\Model\TemplateResponse
+getTemplate($id, $xOmnismithProjectId): \Omnismith\Sdk\Model\TemplateResponse
 ```
 
 Get a template by ID or slug
@@ -162,9 +166,10 @@ $apiInstance = new Omnismith\Sdk\Api\TemplatesApi(
     $config
 );
 $id = 018b2f1b-8c1a-75b3-8000-7f0000010010; // string | UUID or unique slug of the template to retrieve
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->getTemplate($id);
+    $result = $apiInstance->getTemplate($id, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->getTemplate: ', $e->getMessage(), PHP_EOL;
@@ -176,6 +181,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| UUID or unique slug of the template to retrieve | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -197,7 +203,7 @@ try {
 ## `listTemplateEntityCounts()`
 
 ```php
-listTemplateEntityCounts(): \Omnismith\Sdk\Model\ListTemplateEntityCounts200Response
+listTemplateEntityCounts($xOmnismithProjectId): \Omnismith\Sdk\Model\ListTemplateEntityCounts200Response
 ```
 
 List entity counts per template
@@ -221,9 +227,10 @@ $apiInstance = new Omnismith\Sdk\Api\TemplatesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->listTemplateEntityCounts();
+    $result = $apiInstance->listTemplateEntityCounts($xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->listTemplateEntityCounts: ', $e->getMessage(), PHP_EOL;
@@ -232,7 +239,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -254,7 +263,7 @@ This endpoint does not need any parameter.
 ## `listTemplates()`
 
 ```php
-listTemplates(): \Omnismith\Sdk\Model\ListTemplates200Response
+listTemplates($xOmnismithProjectId): \Omnismith\Sdk\Model\ListTemplates200Response
 ```
 
 List all templates
@@ -278,9 +287,10 @@ $apiInstance = new Omnismith\Sdk\Api\TemplatesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->listTemplates();
+    $result = $apiInstance->listTemplates($xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->listTemplates: ', $e->getMessage(), PHP_EOL;
@@ -289,7 +299,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -311,7 +323,7 @@ This endpoint does not need any parameter.
 ## `patchTemplate()`
 
 ```php
-patchTemplate($id, $patchTemplateRequest)
+patchTemplate($id, $patchTemplateRequest, $xOmnismithProjectId)
 ```
 
 Patch a template (granular partial update)
@@ -337,9 +349,10 @@ $apiInstance = new Omnismith\Sdk\Api\TemplatesApi(
 );
 $id = 018b2f1b-8c1a-75b3-8000-7f0000010010; // string | UUID or unique slug of the template to patch
 $patchTemplateRequest = new \Omnismith\Sdk\Model\PatchTemplateRequest(); // \Omnismith\Sdk\Model\PatchTemplateRequest
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->patchTemplate($id, $patchTemplateRequest);
+    $apiInstance->patchTemplate($id, $patchTemplateRequest, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->patchTemplate: ', $e->getMessage(), PHP_EOL;
 }
@@ -351,6 +364,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| UUID or unique slug of the template to patch | |
 | **patchTemplateRequest** | [**\Omnismith\Sdk\Model\PatchTemplateRequest**](../Model/PatchTemplateRequest.md)|  | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -372,7 +386,7 @@ void (empty response body)
 ## `updateTemplate()`
 
 ```php
-updateTemplate($id, $updateTemplateRequest)
+updateTemplate($id, $updateTemplateRequest, $xOmnismithProjectId)
 ```
 
 Update a template (full replacement)
@@ -398,9 +412,10 @@ $apiInstance = new Omnismith\Sdk\Api\TemplatesApi(
 );
 $id = 018b2f1b-8c1a-75b3-8000-7f0000010010; // string | UUID or unique slug of the template to update
 $updateTemplateRequest = new \Omnismith\Sdk\Model\UpdateTemplateRequest(); // \Omnismith\Sdk\Model\UpdateTemplateRequest
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->updateTemplate($id, $updateTemplateRequest);
+    $apiInstance->updateTemplate($id, $updateTemplateRequest, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->updateTemplate: ', $e->getMessage(), PHP_EOL;
 }
@@ -412,6 +427,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| UUID or unique slug of the template to update | |
 | **updateTemplateRequest** | [**\Omnismith\Sdk\Model\UpdateTemplateRequest**](../Model/UpdateTemplateRequest.md)|  | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 

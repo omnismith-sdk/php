@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **limit** | **int** | Entity limit for list blocks | [optional]
 **sort** | **object** | Sort config object for list blocks | [optional]
 **visibleAttributes** | **string[]** | List block visible attribute IDs | [optional]
+**groupBy** | **string[]** | Aggregate block group-by fields, at most 3 | [optional]
+**aggregations** | [**\Omnismith\Sdk\Model\UpdateDashboardBlockRequestConfigAggregationsInner[]**](UpdateDashboardBlockRequestConfigAggregationsInner.md) | Aggregate block reduces (1-10 entries) | [optional]
 **filters** | **object[]** | Entity filter rules | [optional]
 **x** | **int** | Horizontal grid column (0..11 on 12-column grid) | [optional]
 **y** | **int** | Vertical grid row (0..N) | [optional]

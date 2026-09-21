@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**\Omnismith\Sdk\Model\AttributeResponse[]**](AttributeResponse.md) | All active attributes in the project schema | [optional]
-**templates** | [**\Omnismith\Sdk\Model\TemplateResponse[]**](TemplateResponse.md) | All active templates and their attribute layout configurations | [optional]
-**listItems** | [**\Omnismith\Sdk\Model\ListItemResponse[]**](ListItemResponse.md) | All selectable choice items for List-type attributes | [optional]
-**referenceConfigs** | [**\Omnismith\Sdk\Model\ReferenceConfigResponse[]**](ReferenceConfigResponse.md) | All entity relationship configurations for Reference-type attributes | [optional]
+**projectId** | **string** | Unique identifier of the active project | [optional]
+**projectName** | **string** | Human-readable name of the active project | [optional]
+**templates** | [**\Omnismith\Sdk\Model\TemplateOverviewResponse[]**](TemplateOverviewResponse.md) | All active templates with bound attributes, business rules, and executable actions |
+**attributes** | [**\Omnismith\Sdk\Model\AttributeOverviewResponse[]**](AttributeOverviewResponse.md) | All active attributes with semantic types, list options, and foreign entity references |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

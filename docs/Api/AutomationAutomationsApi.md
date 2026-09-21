@@ -18,7 +18,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createAutomation()`
 
 ```php
-createAutomation($createAutomationRequest): \Omnismith\Sdk\Model\CreateAutomation201Response
+createAutomation($createAutomationRequest, $xOmnismithProjectId): \Omnismith\Sdk\Model\CreateAutomation201Response
 ```
 
 Create an automation rule
@@ -43,9 +43,10 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     $config
 );
 $createAutomationRequest = new \Omnismith\Sdk\Model\CreateAutomationRequest(); // \Omnismith\Sdk\Model\CreateAutomationRequest
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->createAutomation($createAutomationRequest);
+    $result = $apiInstance->createAutomation($createAutomationRequest, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationAutomationsApi->createAutomation: ', $e->getMessage(), PHP_EOL;
@@ -57,6 +58,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **createAutomationRequest** | [**\Omnismith\Sdk\Model\CreateAutomationRequest**](../Model/CreateAutomationRequest.md)|  | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -78,7 +80,7 @@ try {
 ## `deleteAutomation()`
 
 ```php
-deleteAutomation($id)
+deleteAutomation($id, $xOmnismithProjectId)
 ```
 
 Delete an automation
@@ -103,9 +105,10 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     $config
 );
 $id = 01912ecb-4654-7890-a1b2-c3d4e5f60001; // string | Unique automation UUID to delete
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->deleteAutomation($id);
+    $apiInstance->deleteAutomation($id, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationAutomationsApi->deleteAutomation: ', $e->getMessage(), PHP_EOL;
 }
@@ -116,6 +119,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique automation UUID to delete | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -128,7 +132,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -137,7 +141,7 @@ void (empty response body)
 ## `getAutomation()`
 
 ```php
-getAutomation($id): \Omnismith\Sdk\Model\AutomationResponse
+getAutomation($id, $xOmnismithProjectId): \Omnismith\Sdk\Model\AutomationResponse
 ```
 
 Get an automation by ID
@@ -162,9 +166,10 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     $config
 );
 $id = 01912ecb-4654-7890-a1b2-c3d4e5f60001; // string | Unique automation UUID
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->getAutomation($id);
+    $result = $apiInstance->getAutomation($id, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationAutomationsApi->getAutomation: ', $e->getMessage(), PHP_EOL;
@@ -176,6 +181,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique automation UUID | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -197,7 +203,7 @@ try {
 ## `listAutomationExecutions()`
 
 ```php
-listAutomationExecutions($id, $limit, $offset, $status): \Omnismith\Sdk\Model\ListAutomationExecutions200Response
+listAutomationExecutions($id, $xOmnismithProjectId, $limit, $offset, $status): \Omnismith\Sdk\Model\ListAutomationExecutions200Response
 ```
 
 List automation execution logs
@@ -222,12 +228,13 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     $config
 );
 $id = 01912ecb-4654-7890-a1b2-c3d4e5f60001; // string | Automation UUID to fetch execution history for
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 $limit = 20; // int | Maximum number of execution log entries to return per page
 $offset = 0; // int | Number of execution log records to skip for pagination
 $status = success; // string | Filter execution logs by execution outcome status
 
 try {
-    $result = $apiInstance->listAutomationExecutions($id, $limit, $offset, $status);
+    $result = $apiInstance->listAutomationExecutions($id, $xOmnismithProjectId, $limit, $offset, $status);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationAutomationsApi->listAutomationExecutions: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +246,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Automation UUID to fetch execution history for | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 | **limit** | **int**| Maximum number of execution log entries to return per page | [optional] [default to 20] |
 | **offset** | **int**| Number of execution log records to skip for pagination | [optional] [default to 0] |
 | **status** | **string**| Filter execution logs by execution outcome status | [optional] |
@@ -263,7 +271,7 @@ try {
 ## `listAutomations()`
 
 ```php
-listAutomations($templateId, $isEnabled): \Omnismith\Sdk\Model\AutomationResponse[]
+listAutomations($xOmnismithProjectId, $templateId, $isEnabled): \Omnismith\Sdk\Model\AutomationResponse[]
 ```
 
 List project automations
@@ -287,11 +295,12 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
     new GuzzleHttp\Client(),
     $config
 );
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 $templateId = 01912ecb-4654-7890-a1b2-c3d4e5f60088; // string | Filter automations scoped to a specific entity template UUID
 $isEnabled = true; // bool | Filter automations by active enabled status (true for active rules, false for paused rules)
 
 try {
-    $result = $apiInstance->listAutomations($templateId, $isEnabled);
+    $result = $apiInstance->listAutomations($xOmnismithProjectId, $templateId, $isEnabled);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationAutomationsApi->listAutomations: ', $e->getMessage(), PHP_EOL;
@@ -302,6 +311,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 | **templateId** | **string**| Filter automations scoped to a specific entity template UUID | [optional] |
 | **isEnabled** | **bool**| Filter automations by active enabled status (true for active rules, false for paused rules) | [optional] |
 
@@ -325,7 +335,7 @@ try {
 ## `toggleAutomation()`
 
 ```php
-toggleAutomation($id, $toggleAutomationRequest): \Omnismith\Sdk\Model\AutomationResponse
+toggleAutomation($id, $toggleAutomationRequest, $xOmnismithProjectId): \Omnismith\Sdk\Model\AutomationResponse
 ```
 
 Toggle automation enabled status
@@ -351,9 +361,10 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
 );
 $id = 01912ecb-4654-7890-a1b2-c3d4e5f60001; // string | Unique automation UUID to toggle
 $toggleAutomationRequest = new \Omnismith\Sdk\Model\ToggleAutomationRequest(); // \Omnismith\Sdk\Model\ToggleAutomationRequest
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->toggleAutomation($id, $toggleAutomationRequest);
+    $result = $apiInstance->toggleAutomation($id, $toggleAutomationRequest, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationAutomationsApi->toggleAutomation: ', $e->getMessage(), PHP_EOL;
@@ -366,6 +377,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique automation UUID to toggle | |
 | **toggleAutomationRequest** | [**\Omnismith\Sdk\Model\ToggleAutomationRequest**](../Model/ToggleAutomationRequest.md)|  | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -387,7 +399,7 @@ try {
 ## `updateAutomation()`
 
 ```php
-updateAutomation($id, $updateAutomationRequest)
+updateAutomation($id, $updateAutomationRequest, $xOmnismithProjectId)
 ```
 
 Update an automation
@@ -413,9 +425,10 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
 );
 $id = 01912ecb-4654-7890-a1b2-c3d4e5f60001; // string | Unique automation UUID to update
 $updateAutomationRequest = new \Omnismith\Sdk\Model\UpdateAutomationRequest(); // \Omnismith\Sdk\Model\UpdateAutomationRequest
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->updateAutomation($id, $updateAutomationRequest);
+    $apiInstance->updateAutomation($id, $updateAutomationRequest, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationAutomationsApi->updateAutomation: ', $e->getMessage(), PHP_EOL;
 }
@@ -427,6 +440,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique automation UUID to update | |
 | **updateAutomationRequest** | [**\Omnismith\Sdk\Model\UpdateAutomationRequest**](../Model/UpdateAutomationRequest.md)|  | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 

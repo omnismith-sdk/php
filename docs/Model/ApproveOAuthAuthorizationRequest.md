@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **clientId** | **string** | Client identifier |
 **redirectUri** | **string** | Redirection URI to return the authorization code |
-**projectId** | **string** | Selected Project UUID that client will be authorized to access |
+**projectIds** | **string[]** | Every project UUID the client is granted. The first is the project the credential acts on until it selects another, and the set bounds what it can ever reach. There is no wildcard: a grant names its projects explicitly, so it cannot silently widen as the user creates more. |
 **codeChallenge** | **string** | PKCE code challenge string (RFC 7636) |
 **codeChallengeMethod** | **string** | PKCE challenge transformation method | [optional]
 **scopes** | **string[]** | Authorized scope strings | [optional]

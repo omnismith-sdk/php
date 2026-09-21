@@ -6,25 +6,24 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getMyPermissions()**](AuthApi.md#getMyPermissions) | **GET** /auth/me/permissions | Get current user role permissions |
+| [**getMyPermissions()**](AuthApi.md#getMyPermissions) | **GET** /auth/me/permissions | Discover authenticated caller permissions and capabilities |
 | [**googleLogin()**](AuthApi.md#googleLogin) | **POST** /auth/google-login | Authenticate or register with Google Sign-In |
 | [**googleLoginRedirect()**](AuthApi.md#googleLoginRedirect) | **POST** /auth/google-login-redirect | Google OAuth callback redirect handler |
 | [**listSessions()**](AuthApi.md#listSessions) | **GET** /auth/sessions | List active and historical user sessions |
 | [**login()**](AuthApi.md#login) | **POST** /auth/login | Authenticate user with email and password |
 | [**refreshToken()**](AuthApi.md#refreshToken) | **POST** /auth/refresh | Rotate refresh token and issue new access token |
 | [**revokeSession()**](AuthApi.md#revokeSession) | **DELETE** /auth/sessions/{id} | Revoke an active login session |
-| [**switchProject()**](AuthApi.md#switchProject) | **POST** /auth/switch-project | Switch active project context |
 
 
 ## `getMyPermissions()`
 
 ```php
-getMyPermissions(): \Omnismith\Sdk\Model\GetMyPermissions200Response
+getMyPermissions($xOmnismithProjectId): \Omnismith\Sdk\Model\GetMyPermissions200Response
 ```
 
-Get current user role permissions
+Discover authenticated caller permissions and capabilities
 
-Returns the complete list of permission strings granted to the authenticated user under their active project role. Returns `[\"*\"]` for project owners who possess full root administrative privileges, or an array of granular permission keys (e.g. `entity.view`, `template.create`, `billing.view_usage`) for custom assigned roles. Returns an empty array if no role is currently assigned.
+Returns the complete list of permission keys granted to the authenticated user or agent under their active project role. Call this endpoint before planning or executing multi-step schema modifications, role administration, or entity mutations to verify current operational capabilities. Returns `[\"*\"]` for project owners who possess root administrative privileges, or an array of granular permission keys (e.g. `entity.view`, `entity.create`, `template.create`, `billing.view_usage`) for assigned roles. Returns an empty array if no role is currently assigned.
 
 ### Example
 
@@ -43,9 +42,10 @@ $apiInstance = new Omnismith\Sdk\Api\AuthApi(
     new GuzzleHttp\Client(),
     $config
 );
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->getMyPermissions();
+    $result = $apiInstance->getMyPermissions($xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthApi->getMyPermissions: ', $e->getMessage(), PHP_EOL;
@@ -54,7 +54,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -307,7 +309,7 @@ refreshToken($refreshTokenRequest): \Omnismith\Sdk\Model\RefreshToken200Response
 
 Rotate refresh token and issue new access token
 
-Exchanges a valid refresh token for a newly issued JWT access token and a rotated refresh token. Implements strict single-use refresh token rotation: the supplied refresh token is permanently invalidated upon successful exchange. If an expired, already-rotated, or revoked token is presented, the request is rejected.
+Exchanges a valid refresh token for a newly issued JWT access token and a rotated refresh token. Implements strict single-use refresh token rotation: the supplied refresh token is permanently invalidated upon successful exchange. If an expired, already-rotated, or revoked token is presented, the request is rejected. The refresh token alone authenticates the call; no `Authorization` header is required, and one sent alongside is ignored.
 
 ### Example
 
@@ -408,66 +410,6 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `switchProject()`
-
-```php
-switchProject($switchProjectRequest): \Omnismith\Sdk\Model\SwitchProject200Response
-```
-
-Switch active project context
-
-Switches the active multi-tenancy project context for the authenticated user session. Verifies that the user is an active member or owner of the target project, then issues a new JWT access token and refresh token containing updated claims for the selected project_id and the user's assigned role.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer (JWT) authorization: bearerAuth
-$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Omnismith\Sdk\Api\AuthApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$switchProjectRequest = new \Omnismith\Sdk\Model\SwitchProjectRequest(); // \Omnismith\Sdk\Model\SwitchProjectRequest
-
-try {
-    $result = $apiInstance->switchProject($switchProjectRequest);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AuthApi->switchProject: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **switchProjectRequest** | [**\Omnismith\Sdk\Model\SwitchProjectRequest**](../Model/SwitchProjectRequest.md)|  | |
-
-### Return type
-
-[**\Omnismith\Sdk\Model\SwitchProject200Response**](../Model/SwitchProject200Response.md)
-
-### Authorization
-
-[bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

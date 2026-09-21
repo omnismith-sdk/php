@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **id** | **string** | Unique UUID identifier of the session | [optional]
 **userId** | **string** | UUID of the authenticated user | [optional]
 **email** | **string** | Email address of the session owner | [optional]
-**roleId** | **string** | Active role UUID under this session | [optional]
 **ipAddress** | **string** | Client IP address from which the session was established | [optional]
 **userAgent** | **string** | User-Agent header string of the client browser/application | [optional]
 **createdAt** | **\DateTime** | Timestamp when the session was created | [optional]

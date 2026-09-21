@@ -17,7 +17,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createNotificationChannel()`
 
 ```php
-createNotificationChannel($createNotificationChannelRequest): \Omnismith\Sdk\Model\CreateNotificationChannel201Response
+createNotificationChannel($createNotificationChannelRequest, $xOmnismithProjectId): \Omnismith\Sdk\Model\CreateNotificationChannel201Response
 ```
 
 Create a notification channel
@@ -42,9 +42,10 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationNotificationChannelsApi(
     $config
 );
 $createNotificationChannelRequest = new \Omnismith\Sdk\Model\CreateNotificationChannelRequest(); // \Omnismith\Sdk\Model\CreateNotificationChannelRequest
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->createNotificationChannel($createNotificationChannelRequest);
+    $result = $apiInstance->createNotificationChannel($createNotificationChannelRequest, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationNotificationChannelsApi->createNotificationChannel: ', $e->getMessage(), PHP_EOL;
@@ -56,6 +57,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **createNotificationChannelRequest** | [**\Omnismith\Sdk\Model\CreateNotificationChannelRequest**](../Model/CreateNotificationChannelRequest.md)|  | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -77,7 +79,7 @@ try {
 ## `deleteNotificationChannel()`
 
 ```php
-deleteNotificationChannel($id)
+deleteNotificationChannel($id, $xOmnismithProjectId)
 ```
 
 Delete a notification channel
@@ -102,9 +104,10 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationNotificationChannelsApi(
     $config
 );
 $id = 01912ecb-4654-7890-a1b2-c3d4e5f60002; // string | Unique notification channel UUID to delete
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->deleteNotificationChannel($id);
+    $apiInstance->deleteNotificationChannel($id, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationNotificationChannelsApi->deleteNotificationChannel: ', $e->getMessage(), PHP_EOL;
 }
@@ -115,6 +118,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique notification channel UUID to delete | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -127,7 +131,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -136,7 +140,7 @@ void (empty response body)
 ## `getNotificationChannel()`
 
 ```php
-getNotificationChannel($id): \Omnismith\Sdk\Model\NotificationChannelResponse
+getNotificationChannel($id, $xOmnismithProjectId): \Omnismith\Sdk\Model\NotificationChannelResponse
 ```
 
 Get a notification channel by ID
@@ -161,9 +165,10 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationNotificationChannelsApi(
     $config
 );
 $id = 01912ecb-4654-7890-a1b2-c3d4e5f60002; // string | Unique notification channel UUID
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->getNotificationChannel($id);
+    $result = $apiInstance->getNotificationChannel($id, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationNotificationChannelsApi->getNotificationChannel: ', $e->getMessage(), PHP_EOL;
@@ -175,6 +180,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique notification channel UUID | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -196,7 +202,7 @@ try {
 ## `listNotificationChannels()`
 
 ```php
-listNotificationChannels(): \Omnismith\Sdk\Model\ListNotificationChannels200Response
+listNotificationChannels($xOmnismithProjectId): \Omnismith\Sdk\Model\ListNotificationChannels200Response
 ```
 
 List notification channels
@@ -220,9 +226,10 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationNotificationChannelsApi(
     new GuzzleHttp\Client(),
     $config
 );
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->listNotificationChannels();
+    $result = $apiInstance->listNotificationChannels($xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationNotificationChannelsApi->listNotificationChannels: ', $e->getMessage(), PHP_EOL;
@@ -231,7 +238,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -253,7 +262,7 @@ This endpoint does not need any parameter.
 ## `testNotificationChannel()`
 
 ```php
-testNotificationChannel($id, $testNotificationChannelRequest): \Omnismith\Sdk\Model\TestNotificationChannel200Response
+testNotificationChannel($id, $testNotificationChannelRequest, $xOmnismithProjectId): \Omnismith\Sdk\Model\TestNotificationChannel200Response
 ```
 
 Send a test notification message
@@ -279,9 +288,10 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationNotificationChannelsApi(
 );
 $id = 01912ecb-4654-7890-a1b2-c3d4e5f60002; // string | Unique notification channel UUID to test
 $testNotificationChannelRequest = new \Omnismith\Sdk\Model\TestNotificationChannelRequest(); // \Omnismith\Sdk\Model\TestNotificationChannelRequest
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->testNotificationChannel($id, $testNotificationChannelRequest);
+    $result = $apiInstance->testNotificationChannel($id, $testNotificationChannelRequest, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationNotificationChannelsApi->testNotificationChannel: ', $e->getMessage(), PHP_EOL;
@@ -294,6 +304,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique notification channel UUID to test | |
 | **testNotificationChannelRequest** | [**\Omnismith\Sdk\Model\TestNotificationChannelRequest**](../Model/TestNotificationChannelRequest.md)|  | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -315,7 +326,7 @@ try {
 ## `updateNotificationChannel()`
 
 ```php
-updateNotificationChannel($id, $updateNotificationChannelRequest)
+updateNotificationChannel($id, $updateNotificationChannelRequest, $xOmnismithProjectId)
 ```
 
 Update a notification channel
@@ -341,9 +352,10 @@ $apiInstance = new Omnismith\Sdk\Api\AutomationNotificationChannelsApi(
 );
 $id = 01912ecb-4654-7890-a1b2-c3d4e5f60002; // string | Unique notification channel UUID to update
 $updateNotificationChannelRequest = new \Omnismith\Sdk\Model\UpdateNotificationChannelRequest(); // \Omnismith\Sdk\Model\UpdateNotificationChannelRequest
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->updateNotificationChannel($id, $updateNotificationChannelRequest);
+    $apiInstance->updateNotificationChannel($id, $updateNotificationChannelRequest, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling AutomationNotificationChannelsApi->updateNotificationChannel: ', $e->getMessage(), PHP_EOL;
 }
@@ -355,6 +367,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique notification channel UUID to update | |
 | **updateNotificationChannelRequest** | [**\Omnismith\Sdk\Model\UpdateNotificationChannelRequest**](../Model/UpdateNotificationChannelRequest.md)|  | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 

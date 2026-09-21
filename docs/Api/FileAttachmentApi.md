@@ -16,7 +16,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `deleteFileAttachment()`
 
 ```php
-deleteFileAttachment($id)
+deleteFileAttachment($id, $xOmnismithProjectId)
 ```
 
 Delete a file attachment
@@ -41,9 +41,10 @@ $apiInstance = new Omnismith\Sdk\Api\FileAttachmentApi(
     $config
 );
 $id = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | File attachment UUID to delete
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->deleteFileAttachment($id);
+    $apiInstance->deleteFileAttachment($id, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling FileAttachmentApi->deleteFileAttachment: ', $e->getMessage(), PHP_EOL;
 }
@@ -54,6 +55,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| File attachment UUID to delete | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -66,7 +68,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -75,7 +77,7 @@ void (empty response body)
 ## `downloadFileAttachment()`
 
 ```php
-downloadFileAttachment($id)
+downloadFileAttachment($id, $xOmnismithProjectId)
 ```
 
 Download a file attachment
@@ -100,9 +102,10 @@ $apiInstance = new Omnismith\Sdk\Api\FileAttachmentApi(
     $config
 );
 $id = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | Unique UUID identifier of the file attachment to download
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->downloadFileAttachment($id);
+    $apiInstance->downloadFileAttachment($id, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling FileAttachmentApi->downloadFileAttachment: ', $e->getMessage(), PHP_EOL;
 }
@@ -113,6 +116,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique UUID identifier of the file attachment to download | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -125,7 +129,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/octet-stream`
+- **Accept**: `application/octet-stream`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -134,7 +138,7 @@ void (empty response body)
 ## `getFileAttachmentMetadata()`
 
 ```php
-getFileAttachmentMetadata($id): \Omnismith\Sdk\Model\FileAttachmentResponse
+getFileAttachmentMetadata($id, $xOmnismithProjectId): \Omnismith\Sdk\Model\FileAttachmentResponse
 ```
 
 Get file metadata without downloading content
@@ -159,9 +163,10 @@ $apiInstance = new Omnismith\Sdk\Api\FileAttachmentApi(
     $config
 );
 $id = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | Unique UUID identifier of the file attachment
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->getFileAttachmentMetadata($id);
+    $result = $apiInstance->getFileAttachmentMetadata($id, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FileAttachmentApi->getFileAttachmentMetadata: ', $e->getMessage(), PHP_EOL;
@@ -173,6 +178,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique UUID identifier of the file attachment | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -194,7 +200,7 @@ try {
 ## `getFileAttachmentThumbnail()`
 
 ```php
-getFileAttachmentThumbnail($id, $width, $height)
+getFileAttachmentThumbnail($id, $xOmnismithProjectId, $width, $height)
 ```
 
 Get image thumbnail
@@ -219,11 +225,12 @@ $apiInstance = new Omnismith\Sdk\Api\FileAttachmentApi(
     $config
 );
 $id = 018b2f1b-8c1a-75b3-8000-7f0000010000; // string | Unique UUID identifier of the image file attachment
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 $width = 200; // int | Target thumbnail width in pixels (range 50 to 1000, default 200)
 $height = 200; // int | Target thumbnail height in pixels (range 50 to 1000, default 200)
 
 try {
-    $apiInstance->getFileAttachmentThumbnail($id, $width, $height);
+    $apiInstance->getFileAttachmentThumbnail($id, $xOmnismithProjectId, $width, $height);
 } catch (Exception $e) {
     echo 'Exception when calling FileAttachmentApi->getFileAttachmentThumbnail: ', $e->getMessage(), PHP_EOL;
 }
@@ -234,6 +241,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique UUID identifier of the image file attachment | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 | **width** | **int**| Target thumbnail width in pixels (range 50 to 1000, default 200) | [optional] [default to 200] |
 | **height** | **int**| Target thumbnail height in pixels (range 50 to 1000, default 200) | [optional] [default to 200] |
 
@@ -248,7 +256,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `image/jpeg`
+- **Accept**: `image/jpeg`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -257,7 +265,7 @@ void (empty response body)
 ## `uploadFileAttachment()`
 
 ```php
-uploadFileAttachment($file, $id, $context, $ttlHours): \Omnismith\Sdk\Model\FileAttachmentResponse
+uploadFileAttachment($file, $xOmnismithProjectId, $id, $context, $ttlHours): \Omnismith\Sdk\Model\FileAttachmentResponse
 ```
 
 Upload a file attachment
@@ -282,12 +290,13 @@ $apiInstance = new Omnismith\Sdk\Api\FileAttachmentApi(
     $config
 );
 $file = '/path/to/file.txt'; // \SplFileObject
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 $id = 'id_example'; // string
 $context = 'entity'; // string
 $ttlHours = 56; // int
 
 try {
-    $result = $apiInstance->uploadFileAttachment($file, $id, $context, $ttlHours);
+    $result = $apiInstance->uploadFileAttachment($file, $xOmnismithProjectId, $id, $context, $ttlHours);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FileAttachmentApi->uploadFileAttachment: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +308,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **file** | **\SplFileObject****\SplFileObject**|  | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 | **id** | **string**|  | [optional] |
 | **context** | **string**|  | [optional] [default to &#39;entity&#39;] |
 | **ttlHours** | **int**|  | [optional] |

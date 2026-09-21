@@ -23,7 +23,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 ## `createRole()`
 
 ```php
-createRole($createRoleRequest): \Omnismith\Sdk\Model\CreateProject201Response
+createRole($createRoleRequest, $xOmnismithProjectId): \Omnismith\Sdk\Model\CreateProject201Response
 ```
 
 Create a new role
@@ -48,9 +48,10 @@ $apiInstance = new Omnismith\Sdk\Api\RolesApi(
     $config
 );
 $createRoleRequest = new \Omnismith\Sdk\Model\CreateRoleRequest(); // \Omnismith\Sdk\Model\CreateRoleRequest
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->createRole($createRoleRequest);
+    $result = $apiInstance->createRole($createRoleRequest, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->createRole: ', $e->getMessage(), PHP_EOL;
@@ -62,6 +63,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **createRoleRequest** | [**\Omnismith\Sdk\Model\CreateRoleRequest**](../Model/CreateRoleRequest.md)|  | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -83,7 +85,7 @@ try {
 ## `deleteRole()`
 
 ```php
-deleteRole($id)
+deleteRole($id, $xOmnismithProjectId)
 ```
 
 Delete a role
@@ -108,9 +110,10 @@ $apiInstance = new Omnismith\Sdk\Api\RolesApi(
     $config
 );
 $id = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7a; // string | Unique UUID of the role to delete
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->deleteRole($id);
+    $apiInstance->deleteRole($id, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->deleteRole: ', $e->getMessage(), PHP_EOL;
 }
@@ -121,6 +124,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique UUID of the role to delete | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -133,7 +137,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -142,7 +146,7 @@ void (empty response body)
 ## `getRole()`
 
 ```php
-getRole($id): \Omnismith\Sdk\Model\RoleResponse
+getRole($id, $xOmnismithProjectId): \Omnismith\Sdk\Model\RoleResponse
 ```
 
 Get a role
@@ -167,9 +171,10 @@ $apiInstance = new Omnismith\Sdk\Api\RolesApi(
     $config
 );
 $id = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7a; // string | Unique UUID of the role
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->getRole($id);
+    $result = $apiInstance->getRole($id, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->getRole: ', $e->getMessage(), PHP_EOL;
@@ -181,6 +186,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique UUID of the role | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -202,7 +208,7 @@ try {
 ## `getRolePermissions()`
 
 ```php
-getRolePermissions($id): \Omnismith\Sdk\Model\GetRolePermissions200Response
+getRolePermissions($id, $xOmnismithProjectId): \Omnismith\Sdk\Model\GetRolePermissions200Response
 ```
 
 Get role permissions
@@ -227,9 +233,10 @@ $apiInstance = new Omnismith\Sdk\Api\RolesApi(
     $config
 );
 $id = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7a; // string | Unique UUID of the role
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->getRolePermissions($id);
+    $result = $apiInstance->getRolePermissions($id, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->getRolePermissions: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +248,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique UUID of the role | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -262,7 +270,7 @@ try {
 ## `getRoleResources()`
 
 ```php
-getRoleResources($id): \Omnismith\Sdk\Model\GetRoleResources200Response
+getRoleResources($id, $xOmnismithProjectId): \Omnismith\Sdk\Model\GetRoleResources200Response
 ```
 
 Get role resource restrictions
@@ -287,9 +295,10 @@ $apiInstance = new Omnismith\Sdk\Api\RolesApi(
     $config
 );
 $id = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7a; // string | Unique UUID of the role
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->getRoleResources($id);
+    $result = $apiInstance->getRoleResources($id, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->getRoleResources: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +310,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique UUID of the role | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -322,7 +332,7 @@ try {
 ## `getRoleScopes()`
 
 ```php
-getRoleScopes($id): \Omnismith\Sdk\Model\GetRoleScopes200Response
+getRoleScopes($id, $xOmnismithProjectId): \Omnismith\Sdk\Model\GetRoleScopes200Response
 ```
 
 Get role entity-access scopes
@@ -347,9 +357,10 @@ $apiInstance = new Omnismith\Sdk\Api\RolesApi(
     $config
 );
 $id = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7a; // string | Unique UUID of the role
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->getRoleScopes($id);
+    $result = $apiInstance->getRoleScopes($id, $xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->getRoleScopes: ', $e->getMessage(), PHP_EOL;
@@ -361,6 +372,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique UUID of the role | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -382,7 +394,7 @@ try {
 ## `listAvailablePermissions()`
 
 ```php
-listAvailablePermissions(): \Omnismith\Sdk\Model\ListAvailablePermissions200Response
+listAvailablePermissions($xOmnismithProjectId): \Omnismith\Sdk\Model\ListAvailablePermissions200Response
 ```
 
 List available permissions for role assignment
@@ -406,9 +418,10 @@ $apiInstance = new Omnismith\Sdk\Api\RolesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->listAvailablePermissions();
+    $result = $apiInstance->listAvailablePermissions($xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->listAvailablePermissions: ', $e->getMessage(), PHP_EOL;
@@ -417,7 +430,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -439,7 +454,7 @@ This endpoint does not need any parameter.
 ## `listRoles()`
 
 ```php
-listRoles(): \Omnismith\Sdk\Model\ListRoles200Response
+listRoles($xOmnismithProjectId): \Omnismith\Sdk\Model\ListRoles200Response
 ```
 
 List roles
@@ -463,9 +478,10 @@ $apiInstance = new Omnismith\Sdk\Api\RolesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $result = $apiInstance->listRoles();
+    $result = $apiInstance->listRoles($xOmnismithProjectId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->listRoles: ', $e->getMessage(), PHP_EOL;
@@ -474,7 +490,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -496,7 +514,7 @@ This endpoint does not need any parameter.
 ## `setRolePermissions()`
 
 ```php
-setRolePermissions($id, $setRolePermissionsRequest)
+setRolePermissions($id, $setRolePermissionsRequest, $xOmnismithProjectId)
 ```
 
 Set role permissions
@@ -522,9 +540,10 @@ $apiInstance = new Omnismith\Sdk\Api\RolesApi(
 );
 $id = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7a; // string | Unique UUID of the role
 $setRolePermissionsRequest = new \Omnismith\Sdk\Model\SetRolePermissionsRequest(); // \Omnismith\Sdk\Model\SetRolePermissionsRequest
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->setRolePermissions($id, $setRolePermissionsRequest);
+    $apiInstance->setRolePermissions($id, $setRolePermissionsRequest, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->setRolePermissions: ', $e->getMessage(), PHP_EOL;
 }
@@ -536,6 +555,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique UUID of the role | |
 | **setRolePermissionsRequest** | [**\Omnismith\Sdk\Model\SetRolePermissionsRequest**](../Model/SetRolePermissionsRequest.md)|  | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -557,7 +577,7 @@ void (empty response body)
 ## `setRoleResources()`
 
 ```php
-setRoleResources($id, $setRoleResourcesRequest)
+setRoleResources($id, $setRoleResourcesRequest, $xOmnismithProjectId)
 ```
 
 Set role resource restrictions
@@ -583,9 +603,10 @@ $apiInstance = new Omnismith\Sdk\Api\RolesApi(
 );
 $id = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7a; // string | Unique UUID of the role
 $setRoleResourcesRequest = new \Omnismith\Sdk\Model\SetRoleResourcesRequest(); // \Omnismith\Sdk\Model\SetRoleResourcesRequest
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->setRoleResources($id, $setRoleResourcesRequest);
+    $apiInstance->setRoleResources($id, $setRoleResourcesRequest, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->setRoleResources: ', $e->getMessage(), PHP_EOL;
 }
@@ -597,6 +618,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique UUID of the role | |
 | **setRoleResourcesRequest** | [**\Omnismith\Sdk\Model\SetRoleResourcesRequest**](../Model/SetRoleResourcesRequest.md)|  | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -618,7 +640,7 @@ void (empty response body)
 ## `setRoleScopes()`
 
 ```php
-setRoleScopes($id, $setRoleScopesRequest)
+setRoleScopes($id, $setRoleScopesRequest, $xOmnismithProjectId)
 ```
 
 Set role entity-access scopes
@@ -644,9 +666,10 @@ $apiInstance = new Omnismith\Sdk\Api\RolesApi(
 );
 $id = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7a; // string | Unique UUID of the role
 $setRoleScopesRequest = new \Omnismith\Sdk\Model\SetRoleScopesRequest(); // \Omnismith\Sdk\Model\SetRoleScopesRequest
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->setRoleScopes($id, $setRoleScopesRequest);
+    $apiInstance->setRoleScopes($id, $setRoleScopesRequest, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->setRoleScopes: ', $e->getMessage(), PHP_EOL;
 }
@@ -658,6 +681,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique UUID of the role | |
 | **setRoleScopesRequest** | [**\Omnismith\Sdk\Model\SetRoleScopesRequest**](../Model/SetRoleScopesRequest.md)|  | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
@@ -679,7 +703,7 @@ void (empty response body)
 ## `updateRole()`
 
 ```php
-updateRole($id, $updateRoleRequest)
+updateRole($id, $updateRoleRequest, $xOmnismithProjectId)
 ```
 
 Update a role
@@ -705,9 +729,10 @@ $apiInstance = new Omnismith\Sdk\Api\RolesApi(
 );
 $id = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7a; // string | Unique UUID of the role
 $updateRoleRequest = new \Omnismith\Sdk\Model\UpdateRoleRequest(); // \Omnismith\Sdk\Model\UpdateRoleRequest
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
 
 try {
-    $apiInstance->updateRole($id, $updateRoleRequest);
+    $apiInstance->updateRole($id, $updateRoleRequest, $xOmnismithProjectId);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->updateRole: ', $e->getMessage(), PHP_EOL;
 }
@@ -719,6 +744,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Unique UUID of the role | |
 | **updateRoleRequest** | [**\Omnismith\Sdk\Model\UpdateRoleRequest**](../Model/UpdateRoleRequest.md)|  | |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
 
 ### Return type
 
