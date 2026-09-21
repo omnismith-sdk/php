@@ -23,7 +23,7 @@ createAutomation($createAutomationRequest, $xOmnismithProjectId): \Omnismith\Sdk
 
 Create an automation rule
 
-Creates a new event-driven automation rule within the current project. Configures event trigger criteria (such as `on_entity_created`, `on_entity_updated`, or `on_attribute_changed`), multi-condition filters evaluating attribute values (using operators `eq`, `neq`, `gt`, `gte`, `lt`, `lte`, `contains`, `not_contains`, `is_empty`, `is_not_empty` across current value or delta modes), automated action targets (`telegram`, `webhook`, `push`), and an optional cooldown window in seconds to throttle repeated firings for the same entity.
+Creates a new event-driven automation rule in the current project. See `trigger`, `conditions`, and `actions` for the available trigger types, condition operators, and action channels.
 
 ### Example
 

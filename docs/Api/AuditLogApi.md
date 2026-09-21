@@ -17,7 +17,7 @@ listAuditLogs($xOmnismithProjectId, $page, $limit, $sortBy, $sortDirection, $sea
 
 List project audit logs
 
-Returns an immutable, time-ordered audit trail of user and system events for the current project context.  ### Security & Authorization Restricted to authenticated users holding the Project Owner role.  ### Comprehensive Filtering & Search - `event_type`: Filter by single or comma-separated event types (e.g. `entity.created`, `entity.updated`, `entity.deleted`, `template.created`). - `resource_type`: Filter by domain target (e.g. `entity`, `template`, `attribute`, `project`). - `resource_id`: Filter by exact resource UUID. - `author_email`: Filter by the actor email address. - `start` and `end`: Date-time window bounding event occurrence (ISO 8601 or `YYYY-MM-DD HH:MM:SS`). - `search`: Text search across event types, resource types, resource IDs, author emails, and value summaries.  ### Pagination & Sorting Supports 1-indexed pagination (`page`, `limit` up to 100) and sorting by `occurred_at`, `event_type`, `resource_type`, `resource_id`, or `author_email` (`asc`/`desc`).
+Returns an immutable, time-ordered audit trail of user and system events for the current project context. Restricted to authenticated users holding the Project Owner role. Returns paginated `items`, each an event (`event_type`, `resource_type`/`resource_id`, `author_email`, a `value` summary, `occurred_at`) plus `total` matching records.
 
 ### Example
 

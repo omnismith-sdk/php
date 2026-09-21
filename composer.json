@@ -1,6 +1,6 @@
 {
     "name": "omnismith-sdk/php",
-    "version": "1.0.13",
+    "version": "1.0.14",
     "description": "API Documentation for Omnismith",
     "keywords": [
         "openapitools",
