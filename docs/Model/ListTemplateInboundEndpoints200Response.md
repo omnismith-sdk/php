@@ -1,10 +1,9 @@
-# UpdateAutomationRequestActionsInner
+# ListTemplateInboundEndpoints200Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | Action delivery channel type | [optional]
-**config** | **object** | Action payload and channel routing configuration | [optional]
+**data** | [**\Omnismith\Sdk\Model\InboundEndpointResponse[]**](InboundEndpointResponse.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

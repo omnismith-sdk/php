@@ -10,6 +10,7 @@ All URIs are relative to https://api.omnismith.io/v1, except if the operation de
 | [**deleteAutomation()**](AutomationAutomationsApi.md#deleteAutomation) | **DELETE** /automation/automations/{id} | Delete an automation |
 | [**getAutomation()**](AutomationAutomationsApi.md#getAutomation) | **GET** /automation/automations/{id} | Get an automation by ID |
 | [**listAutomationExecutions()**](AutomationAutomationsApi.md#listAutomationExecutions) | **GET** /automation/automations/{id}/executions | List automation execution logs |
+| [**listAutomationTimers()**](AutomationAutomationsApi.md#listAutomationTimers) | **GET** /automation/timers | List pending automation timers |
 | [**listAutomations()**](AutomationAutomationsApi.md#listAutomations) | **GET** /automation/automations | List project automations |
 | [**toggleAutomation()**](AutomationAutomationsApi.md#toggleAutomation) | **PATCH** /automation/automations/{id}/toggle | Toggle automation enabled status |
 | [**updateAutomation()**](AutomationAutomationsApi.md#updateAutomation) | **PUT** /automation/automations/{id} | Update an automation |
@@ -254,6 +255,72 @@ try {
 ### Return type
 
 [**\Omnismith\Sdk\Model\ListAutomationExecutions200Response**](../Model/ListAutomationExecutions200Response.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listAutomationTimers()`
+
+```php
+listAutomationTimers($xOmnismithProjectId, $automationId, $entityId, $limit): \Omnismith\Sdk\Model\ListAutomationTimers200Response
+```
+
+List pending automation timers
+
+Lists the pending timers of time-based automations, soonest first: the next slot of a `schedule` trigger, the moment a `date_reached` trigger fires for a record, the deadline of a `no_change_within` trigger. Use it to confirm that saving an automation or writing a record armed what you expected, and when it will fire. Pass `automation_id`, `entity_id` or both; at least one is required. A timer that has fired, been cancelled (record deleted, automation disabled or deleted) or been re-armed no longer appears under its old due time.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: bearerAuth
+$config = Omnismith\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Omnismith\Sdk\Api\AutomationAutomationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xOmnismithProjectId = 018b2f1b-7c3a-7d2e-8f1a-2b3c4d5e6f7d; // string | The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential's `projects` claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code `stale_project_grant`; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 `no_project_selected`. Two clients holding the same credential may send different values at the same time.
+$automationId = 01912ecb-4654-7890-a1b2-c3d4e5f60001; // string | Only timers of this automation
+$entityId = 01912ecb-4654-7890-a1b2-c3d4e5f60099; // string | Only timers about this record
+$limit = 100; // int | Maximum number of timers to return
+
+try {
+    $result = $apiInstance->listAutomationTimers($xOmnismithProjectId, $automationId, $entityId, $limit);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AutomationAutomationsApi->listAutomationTimers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **xOmnismithProjectId** | **string**| The project this call acts on. A credential proves identity and grants a set of projects; it never selects one, so every tenant-scoped call names its target here. The value must be one of the projects in the credential&#39;s &#x60;projects&#x60; claim and must still be reachable — a project the caller is not a member of, or one that has been deleted, is rejected with 403 rather than silently ignored. A project the caller *is* a member of but which the credential predates is also rejected with 403, carrying the code &#x60;stale_project_grant&#x60;; that one is answered by refreshing the credential once and retrying, and is the only 403 here worth retrying. Omitting the header is not an error: the caller is simply acting with no project selected, and a tenant-scoped operation then answers 409 &#x60;no_project_selected&#x60;. Two clients holding the same credential may send different values at the same time. | [optional] |
+| **automationId** | **string**| Only timers of this automation | [optional] |
+| **entityId** | **string**| Only timers about this record | [optional] |
+| **limit** | **int**| Maximum number of timers to return | [optional] [default to 100] |
+
+### Return type
+
+[**\Omnismith\Sdk\Model\ListAutomationTimers200Response**](../Model/ListAutomationTimers200Response.md)
 
 ### Authorization
 

@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **description** | **string** | Optional descriptive summary of the attribute and its business purpose. | [optional]
 **referenceConfig** | [**\Omnismith\Sdk\Model\CreateAttributeRequestReferenceConfig**](CreateAttributeRequestReferenceConfig.md) |  | [optional]
 **id** | **string** | Optional explicit client-generated UUIDv7. If omitted, a UUIDv7 is automatically generated. | [optional]
-**slug** | **string** | Unique slug identifier within the project (letters, numbers, underscores). If omitted, generated automatically from name. | [optional]
+**slug** | **string** | Unique slug identifier within the project (letters, numbers, underscores). If omitted, generated automatically from name. Standard record field names (id, template_id, template_slug, created_at, updated_at, deleted_at, external_key) are reserved and rejected with 422. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

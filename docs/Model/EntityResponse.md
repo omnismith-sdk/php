@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **templateSlug** | **string** | Human-readable slug of the template schema | [optional]
 **createdAt** | **\DateTime** | Record creation timestamp in ISO 8601 format | [optional]
 **updatedAt** | **\DateTime** | Last modification timestamp in ISO 8601 format | [optional]
+**externalKey** | **string** | The identifier another system uses for this record, unique among the live records of the template. Null when none is set. | [optional]
 **attributeValues** | [**\Omnismith\Sdk\Model\EntityResponseAttributeValues**](EntityResponseAttributeValues.md) |  | [optional]
 **listItemIds** | **array<string,string>** | Compact mode only: list option ids behind the labels shown in &#x60;attribute_values&#x60;, keyed like &#x60;attribute_values&#x60;. Use these ids when writing the attribute or filtering by it — writes and filters take ids, not labels. Absent when &#x60;verbose&#x3D;true&#x60; (the items carry &#x60;value&#x60;). | [optional]
 **referenceEntityIds** | **array<string,string>** | Compact mode only: referenced entity ids behind the labels shown in &#x60;attribute_values&#x60;, keyed like &#x60;attribute_values&#x60;. Pass one to &#x60;GET /entities/{id}&#x60; to load the referenced record, or use it when writing or filtering the attribute. Absent when &#x60;verbose&#x3D;true&#x60;. | [optional]

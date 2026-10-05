@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **description** | **string** | New descriptive text for the attribute. Pass null to clear. | [optional]
 **referenceConfig** | [**\Omnismith\Sdk\Model\PatchAttributeRequestReferenceConfig**](PatchAttributeRequestReferenceConfig.md) |  | [optional]
 **dataType** | **int** | Target data type for lossless transition on Dimension (0) attributes: Number(1)-&gt;String(0), Boolean(2)-&gt;String(0), Date(4)&lt;-&gt;Datetime(3), Date/Datetime-&gt;String(0), String(0)&lt;-&gt;Markdown(7). | [optional]
-**slug** | **string** | New unique slug identifier within the project. | [optional]
+**slug** | **string** | New unique slug identifier within the project. Standard record field names (id, template_id, template_slug, created_at, updated_at, deleted_at, external_key) are reserved and rejected with 422. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

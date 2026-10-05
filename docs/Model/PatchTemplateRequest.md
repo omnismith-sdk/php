@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**\Omnismith\Sdk\Model\TemplateAttributeInput[]**](TemplateAttributeInput.md) | Structured template attributes with optional per-template default values. If provided, replaces attribute associations. | [optional]
 **groups** | [**\Omnismith\Sdk\Model\TemplateGroupInput[]**](TemplateGroupInput.md) | Ordered attribute groups for organizing template fields into visual UI sections. | [optional]
+**pinnedMetricIds** | **string[]** | Ordered list of metric attributes (UUIDs or slugs) summarised on the record details view, at most 8. Each must be a metric attribute of this template. Omit to keep the current pins; send an empty array to clear them. | [optional]
 **name** | **string** | New human-readable name of the template. | [optional]
 **description** | **string** | New description for the template. | [optional]
 **category** | **string** | New category tag for navigation grouping. | [optional]

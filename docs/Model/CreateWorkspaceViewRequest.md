@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **displayMode** | **string** | Presentation layout type for entity records (table or card grid) | [optional] [default to 'table']
 **displayedColumns** | **string[]** | List of attribute UUIDs or slugs to display as columns in table mode (e.g. [\&quot;title\&quot;, \&quot;platform\&quot;, \&quot;status\&quot;, \&quot;scheduled_date\&quot;]) | [optional]
 **paneOrder** | **int** | Display sequence index of this pane within the workspace layout | [optional]
+**groupBy** | **string** | Attribute slug or UUID to split the records into collapsible sections by, one per value, each with its own count and pages (e.g. \&quot;platform\&quot;). Must be a list, reference, string, number, boolean, date or datetime attribute of the bound template. Cannot be combined with search_mode \&quot;semantic\&quot;. Null or omitted renders a flat list. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

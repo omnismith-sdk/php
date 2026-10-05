@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **atomic** | **bool** | Whether the batch ran as a single transaction. | [optional]
 **total** | **int** | Number of operations submitted. | [optional]
-**created** | **int** | Number of entities created. | [optional]
-**updated** | **int** | Number of entities updated. | [optional]
+**created** | **int** | Number of entities created, including upserts that created one. | [optional]
+**updated** | **int** | Number of entities updated, including upserts that updated one. | [optional]
 **replaced** | **int** | Number of entities replaced. | [optional]
 **deleted** | **int** | Number of entities soft-deleted. | [optional]
 **failed** | **int** | Number of operations that failed. Non-zero means the batch partially applied. | [optional]

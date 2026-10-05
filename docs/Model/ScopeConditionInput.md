@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**field** | **string** | Attribute id or a standard entity field (id, created_at, updated_at) |
+**field** | **string** | Attribute id or a standard entity field (id, created_at, updated_at, external_key) |
 **operator** | **string** |  |
 **value** | **string** |  | [optional]
 

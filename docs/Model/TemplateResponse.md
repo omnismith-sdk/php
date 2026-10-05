@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **attributeIds** | **string[]** | Flat list of associated attribute UUIDs | [optional]
 **attributes** | [**\Omnismith\Sdk\Model\TemplateResponseAttributesInner[]**](TemplateResponseAttributesInner.md) | Template attributes with their per-template default values. | [optional]
 **groups** | [**\Omnismith\Sdk\Model\TemplateGroupResponse[]**](TemplateGroupResponse.md) | Ordered attribute groups for organizing template fields into visual UI sections. | [optional]
+**pinnedMetricIds** | **string[]** | Ordered metric attribute UUIDs summarised on the record details view. Empty means the first metrics of the template are shown. | [optional]
 **createdAt** | **\DateTime** | Creation timestamp | [optional]
 **updatedAt** | **\DateTime** | Last update timestamp | [optional]
 **deletedAt** | **\DateTime** | Deletion timestamp if soft-deleted | [optional]
